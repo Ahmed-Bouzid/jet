@@ -5,5 +5,6 @@ Rails.application.routes.draw do
 	devise_for :users, path: 'utilisateur'
 
 	get 'home/profil', 'home#profil'
+	get 'home/confirm', 'home#confirm'
  
 end
