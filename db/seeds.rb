@@ -1,6 +1,6 @@
 require 'nexmo'
 
-#client = Nexmo::Client.new(api_key: '3442d6bd', api_secret: 'aTY7YWJjGGnOgcQo')
+# client = Nexmo::Client.new(api_key: '3442d6bd', api_secret: 'aTY7YWJjGGnOgcQo')
 
 # p " Etape 1 Création des utilisateurs =========="
 
