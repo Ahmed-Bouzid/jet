@@ -6,4 +6,6 @@ Rails.application.routes.draw do
 	get 'home/profil', 'home#profil'
 	devise_for :users
 
+
+
 end
