@@ -1,0 +1,47 @@
+<div class="center jumbotron">
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for :not_ready do |f| %>
+
+      <div class="form-group">
+        <%= f.label :departure %>
+        <%= f.text_field :departure, placeholder: 'Nice', class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :arrival %>
+        <%= f.text_field :arrival, placeholder: 'Paris', class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :departure_date %>
+        <%= f.text_field :departure_date, placeholder: "Choose a date of departure", class: 'form-control form-control-lg datepicker'%> 
+      </div>
+
+      <div class="form-group">
+        <%= f.label :return_date %>
+        <%= f.text_field :return_date, placeholder: "Choose a date of departure", class: 'form-control form-control-lg datepicker'%> 
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :people %>
+        <%= f.email_field :people, placeholder: '1, 2, 3...', class: 'form-control' %>
+      </div>
+
+      <br/>
+
+      <%= f.submit "Rechercher", class: "btn btn-primary" %>
+
+
+
+      <% end %>      
+
+      <br>
+      <br>
+      
+    
+
+    </div>
+  </div>
+</div>
