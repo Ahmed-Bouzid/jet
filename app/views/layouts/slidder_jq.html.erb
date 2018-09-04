@@ -1,0 +1,24 @@
+<script>
+		jQuery(document).ready(function () {
+			jQuery("#slider1").revolution({
+				sliderType: "standard",
+				jsFileLocation: "../revolution/js/",
+				sliderLayout: "fullscreen",
+				dottedOverlay: "none",
+				delay: 9000,
+				navigation: {
+					arrows: {enable: true}
+				},
+				parallax: {
+					type: "on",
+					levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85],
+					origo: "enterpoint",
+					speed: 400,
+					bgparallax: "on",
+					disable_onmobile: "off"
+				},
+				gridwidth: 1140,
+				gridheight: 600
+			});
+		});
+	</script>
