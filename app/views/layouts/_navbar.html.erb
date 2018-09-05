@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-=======
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-
-	<%= link_to "Home", root_path, class: "navbar-brand" %>
-
-	<% if user_signed_in? %>
-
-
-	<%= link_to "Profil", user_path(current_user.id), class: "navbar-brand" %>
-
-	<%= link_to "Log out", destroy_user_session_path, class: "navbar-brand", method: :delete  %>
-
-	<%else%>
-
-	<%= link_to "Log In", new_user_session_path, class: "navbar-brand" %>
-
-	<%= link_to "Sign Up", new_user_registration_path, class: "navbar-brand" %>
-
-	<%end%>
-
-</nav>
-
-
->>>>>>> 2ff84f725262c1935ff1e83e68c93a5e0f9bf9e3
 <nav class="navbar navbar-expand-lg navbar-light bg-faded">
 			<div class="container">
 				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarRestaurant" aria-controls="navbarRestaurant" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,8 +19,4 @@
 					</ul>
 				</div>
 			</div>
-<<<<<<< HEAD
 		</nav>
-=======
-		</nav>
->>>>>>> 2ff84f725262c1935ff1e83e68c93a5e0f9bf9e3
