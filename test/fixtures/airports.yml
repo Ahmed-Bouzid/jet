@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  airportCode: MyString
+  airportName: MyString
+  airportCity: 
+  airportCountry: 
+
+two:
+  airportCode: MyString
+  airportName: MyString
+  airportCity: 
+  airportCountry: 
