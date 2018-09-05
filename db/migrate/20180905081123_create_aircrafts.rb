@@ -5,7 +5,8 @@ class CreateAircrafts < ActiveRecord::Migration[5.2]
       t.string :Category
       t.string :Type
       t.integer :Maxpax
-      t.string :Homebase
+      t.string :Actual_position
+
 
       t.timestamps
     end
