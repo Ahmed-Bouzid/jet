@@ -1,99 +1,99 @@
 require 'nexmo'
 
-Aircraft.create(aircraftTail: 'OE-FCB'
-                      aircraftCategory: 'Very Light Jet'
-                      aircraftType: 'Cessna Citation Mustang'
-                      aircraftMaxpax: '4'
-                      aircraftHomebase:'LFPB')
+Aircraft.create(Tail: 'OE-FCB'
+                      Category: 'Very Light Jet'
+                      Type: 'Cessna Citation Mustang'
+                      Maxpax: '4'
+                      Homebase:'LFPB')
 
-Aircraft.create(aircraftTail: 'F-HBOD'
-                      aircraftCategory: 'Very Light Jet'
-                      aircraftType: 'Embraer Phenom 100E'
-                      aircraftMaxpax: '5'
-                      aircraftHomebase:'LFBD')
+Aircraft.create(Tail: 'F-HBOD'
+                      Category: 'Very Light Jet'
+                      Type: 'Embraer Phenom 100E'
+                      Maxpax: '5'
+                      Homebase:'LFBD')
 
 
-Aircraft.create(aircraftTail: 'D-CJET'
-                      aircraftCategory: 'Light Jet'
-                      aircraftType: 'Cessna Citation CJ3'
-                      aircraftMaxpax: '7'
-                      aircraftHomebase:'LIML')
+Aircraft.create(Tail: 'D-CJET'
+                      Category: 'Light Jet'
+                      Type: 'Cessna Citation CJ3'
+                      Maxpax: '7'
+                      Homebase:'LIML')
 
-Aircraft.create(aircraftTail: 'F-HAJV'
-                      aircraftCategory: 'Light Jet'
-                      aircraftType: 'Cessna Citation II'
-                      aircraftMaxpax: '8'
-                      aircraftHomebase:'LFPB')
+Aircraft.create(Tail: 'F-HAJV'
+                      Category: 'Light Jet'
+                      Type: 'Cessna Citation II'
+                      Maxpax: '8'
+                      Homebase:'LFPB')
 
-Aircraft.create(aircraftTail: 'SP-KCS'
-                      aircraftCategory: 'Super Light Jet'
-                      aircraftType: 'Cessna Citation XLS'
-                      aircraftMaxpax: '8'
-                      aircraftHomebase:'EPWA')
+Aircraft.create(Tail: 'SP-KCS'
+                      Category: 'Super Light Jet'
+                      Type: 'Cessna Citation XLS'
+                      Maxpax: '8'
+                      Homebase:'EPWA')
 
-Aircraft.create(aircraftTail: '9H-BCP'
-                      aircraftCategory: 'Super Light Jet'
-                      aircraftType: 'Bombardier Learjet 45'
-                      aircraftMaxpax: '8'
-                      aircraftHomebase:'LFPB')
+Aircraft.create(Tail: '9H-BCP'
+                      Category: 'Super Light Jet'
+                      Type: 'Bombardier Learjet 45'
+                      Maxpax: '8'
+                      Homebase:'LFPB')
 
-Aircraft.create(aircraftTail: 'OE-GLF'
-                      aircraftCategory: 'Midsize Jet'
-                      aircraftType: 'Gulfstream G150'
-                      aircraftMaxpax: '7'
-                      aircraftHomebase:'UKKK')
+Aircraft.create(Tail: 'OE-GLF'
+                      Category: 'Midsize Jet'
+                      Type: 'Gulfstream G150'
+                      Maxpax: '7'
+                      Homebase:'UKKK')
 
-Aircraft.create(aircraftTail: 'CS-DGR'
-                      aircraftCategory: 'Midsize Jet'
-                      aircraftType: 'Cessna Citation VII'
-                      aircraftMaxpax: '9'
-                      aircraftHomebase:'LPCS')
+Aircraft.create(Tail: 'CS-DGR'
+                      Category: 'Midsize Jet'
+                      Type: 'Cessna Citation VII'
+                      Maxpax: '9'
+                      Homebase:'LPCS')
 
-Aircraft.create(aircraftTail: 'F-HADH'
-                      aircraftCategory: 'Super Midsize Jet'
-                      aircraftType: 'Dassault Falcon 50'
-                      aircraftMaxpax: '10'
-                      aircraftHomebase:'LFPB')
+Aircraft.create(Tail: 'F-HADH'
+                      Category: 'Super Midsize Jet'
+                      Type: 'Dassault Falcon 50'
+                      Maxpax: '10'
+                      Homebase:'LFPB')
 
-Aircraft.create(aircraftTail: 'G-KLAS'
-                      aircraftCategory: 'Super Midsize Jet'
-                      aircraftType: 'BOMBARDIER Challenger 300'
-                      aircraftMaxpax: '9'
-                      aircraftHomebase:'EGGW')
+Aircraft.create(Tail: 'G-KLAS'
+                      Category: 'Super Midsize Jet'
+                      Type: 'BOMBARDIER Challenger 300'
+                      Maxpax: '9'
+                      Homebase:'EGGW')
 
-Aircraft.create(aircraftTail: '9H-BOO'
-                      aircraftCategory: 'Heavy Jet'
-                      aircraftType: 'Bombardier Challenger 850'
-                      aircraftMaxpax: '15'
-                      aircraftHomebase:'LFMN')
+Aircraft.create(Tail: '9H-BOO'
+                      Category: 'Heavy Jet'
+                      Type: 'Bombardier Challenger 850'
+                      Maxpax: '15'
+                      Homebase:'LFMN')
 
-Aircraft.create(aircraftTail: 'OE-IMZ'
-                      aircraftCategory: 'Heavy Jet'
-                      aircraftType: 'Gulsfstream G450'
-                      aircraftMaxpax: '16'
-                      aircraftHomebase:'LOWW')
+Aircraft.create(Tail: 'OE-IMZ'
+                      Category: 'Heavy Jet'
+                      Type: 'Gulsfstream G450'
+                      Maxpax: '16'
+                      Homebase:'LOWW')
 
-Aircraft.create(aircraftTail: 'OY-CLS'
-                      aircraftCategory: 'Ultra Long Range Jet'
-                      aircraftType: 'Dassault Falcon 7x'
-                      aircraftMaxpax: '14'
-                      aircraftHomebase:'EKSB')
+Aircraft.create(Tail: 'OY-CLS'
+                      Category: 'Ultra Long Range Jet'
+                      Type: 'Dassault Falcon 7x'
+                      Maxpax: '14'
+                      Homebase:'EKSB')
 
-Aircraft.create(aircraftTail: '9H-VJC'
-                      aircraftCategory: 'Ultra Long Range Jet'
-                      aircraftType: 'Bombardier Global 6000'
-                      aircraftMaxpax: '16'
-                      aircraftHomebase:'EDDM')
+Aircraft.create(Tail: '9H-VJC'
+                      Category: 'Ultra Long Range Jet'
+                      Type: 'Bombardier Global 6000'
+                      Maxpax: '16'
+                      Homebase:'EDDM')
 
-Airport.create(airportCode: 'LFPB'
-                      airportName: 'Paris Le Bourget'
-                      aircraftCity: 'Le Bourget'
-                      aircraftCountry: 'FRANCE')
+Airport.create(Code: 'LFPB'
+                      Name: 'Paris Le Bourget'
+                      City: 'Le Bourget'
+                      Country: 'FRANCE')
 
-Airport.create(airportCode: 'LFMN'
-                      airportName: 'Aéroport de Nice-Côte d Azur'
-                      aircraftCity: 'Nice'
-                      aircraftCountry: 'FRANCE')
+Airport.create(Code: 'LFMN'
+                      Name: 'Aéroport de Nice-Côte d Azur'
+                      City: 'Nice'
+                      Country: 'FRANCE')
 
 
 
