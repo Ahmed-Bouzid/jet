@@ -1,47 +1,57 @@
-<div class="center jumbotron">
+<div class="center jumbotron" style= "padding: 1%; text-decoration-color: white">
 
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+  <div class="row" >
+    <div class="col-md-6 col-md-offset-3" style="margin-left: 25%; margin-right: 25%;">
       <%= form_for :not_ready do |f| %>
 
-      <div class="form-group">
-        <%= f.label :departure %>
-        <%= f.text_field :departure, placeholder: 'Nice', class: 'form-control' %>
+      <div class="position_un" style= "float: left">
+        <div class="form-group">
+          <%= f.label :De %>
+          <%= f.text_field :departure, placeholder: 'ex : Nice', class: 'form-control', style:"width:180px" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :À %>
+          <%= f.text_field :arrival, placeholder: 'ex : Paris', class: 'form-control', style:"width:180px" %>
+        </div>
       </div>
 
-      <div class="form-group">
-        <%= f.label :arrival %>
-        <%= f.text_field :arrival, placeholder: 'Paris', class: 'form-control' %>
+      <div class="search", style= "float: right; margin-left: 10%">
+        <%= f.submit "Rechercher", class: "btn btn-primary", style:"margin-top: 82px;" %>
       </div>
 
-      <div class="form-group">
-        <%= f.label :departure_date %>
-        <%= f.text_field :departure_date, placeholder: "Choose a date of departure", class: 'form-control form-control-lg datepicker'%> 
+      <div class="position_deux" style= "float: right">
+        <div class="form-group">
+          <%= f.label :departure %>
+          <%= f.text_field :departure_date, placeholder: "Date of departure", class: 'form-control form-control-lg datepicker', style:"width:180px"%> 
+        </div>
+        <div class="form-group">
+          <%= f.label :people %>
+          <%= f.email_field :people, placeholder: 'number of passenger', class: 'form-control', style:"width:180px" %>
+          <br>
+        </div>
       </div>
 
-      <div class="form-group">
-        <%= f.label :return_date %>
-        <%= f.text_field :return_date, placeholder: "Choose a date of departure", class: 'form-control form-control-lg datepicker'%> 
-      </div>
-      
-      <div class="form-group">
-        <%= f.label :people %>
-        <%= f.email_field :people, placeholder: '1, 2, 3...', class: 'form-control' %>
+      <div class="people", style= "float: left">
       </div>
 
-      <br/>
-
-      <%= f.submit "Rechercher", class: "btn btn-primary" %>
-
-
-
-      <% end %>      
-
-      <br>
-      <br>
-      
-    
+      <% end %>  
 
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

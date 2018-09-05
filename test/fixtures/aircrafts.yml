@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  aircraftTail: MyString
+  aircraftCategory: MyString
+  aircraftType: MyString
+  aircraftMaxpax: 1
+  aircraftHomebase: MyString
+
+two:
+  aircraftTail: MyString
+  aircraftCategory: MyString
+  aircraftType: MyString
+  aircraftMaxpax: 1
+  aircraftHomebase: MyString
