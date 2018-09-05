@@ -1,8 +1,8 @@
 require 'nexmo'
 
 Aircraft.create(Tail: 'OE-FCB'
-                      Category: 'Very Light Jet'
-                      Type: 'Cessna Citation Mustang'
+                      Category: 'Very Light Jet',
+                      Type: 'Cessna Citation Mustang',
                       Maxpax: '4'
                       Homebase:'LFPB')
 
