@@ -4,13 +4,24 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :Nom %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "nom" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Prénom %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "prenom" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :Password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
@@ -23,11 +34,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :phone %><br />
+    <%= f.label :Téléphone %><br />
     <%= f.text_field :phone, autocomplete: "07..." %>
   </div>
 
   <div class="actions">
+    
     <%= f.submit "Sign up" %>
 
     
