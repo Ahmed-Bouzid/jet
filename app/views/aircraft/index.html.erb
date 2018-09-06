@@ -1,7 +1,34 @@
+<div style= "text-align: center; margin-top: 5%; list-style: none">
+
 <h1>RESULTATS RECHERCHE JET</h1>
+_______________________________________
 
-@departure
-@arrival 
-@departure_date
-@people
+<h3>
+	<% a = [] %>
 
+	Les avions disponibles pour votre vol à destination de <%= @arrival %> sont :
+	<h4>
+
+	<%@aircrafts.each do |plane|%>
+		
+		<% if plane.Actual_position == @departure.split.join && plane.Maxpax >= @people.to_i %>
+			<li>Le <%= plane.Type %> avec une capacité de <%= plane.Maxpax %> passagers maximum</li> 
+		<%else %>
+		
+		<% a << 0 %>
+
+		<%end %>
+	
+	<%end %>
+	</h4>
+</h3>
+	_______________________________________
+
+	<h3><li>Résumé du voyage: </li></h3>
+	<h4>
+	<li>Vous partirez au départ de <%= @departure %> le <%= @departure_date %></li>
+	<li>Vous arriverez à <%= @arrival %></li>
+	<li><%= @people %> passagers seront enregistrés pour ce vol.</li>
+</h4>
+
+</div>

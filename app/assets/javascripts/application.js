@@ -31,5 +31,13 @@
 //= require restaurant.custom
 //= require plugins
 //= require jquery.validate.min
+//= require js/plugins 
+//= require js/restaurant.custom
+//= require smart-form/booking/js/jquery-ui-custom.min
+//= require smart-form/booking/js/jquery.maskedinput
+//= require smart-form/booking/js/jquery.form.min
+//= require smart-form/booking/js/jquery.validate.min
+//= require smart-form/booking/js/additional-methods.min
+//= require smart-form/booking/js/smart-form
 //= require smart-form
 //= require_tree .

@@ -4,30 +4,33 @@ class AircraftController < ApplicationController
 	end
 
 	def index
+
+		
 		@aircrafts = Aircraft.all
 
+		@departure = params[:a][0]  
+		@arrival = params[:a][1]  
+		@departure_date = params[:a][2]  
+		@people = params[:a][3] 
+
 		puts "-----oo------"
-		puts params
-		puts "-----oo------"
+		puts @departure
+		puts @arrival
+		puts @departure_date
+		puts @people
+		puts "-----------"
+		
+		
 
 	end
 
 	def create
 
-	
-		puts "-----------"
 		@departure = params[:departure] 
-		puts @departure 
 		@arrival = params[:arrival]
-		puts @arrival
 		@departure_date= params[:departure_date]
-		puts @departure_date
 		@people = params[:people]
-		puts @people
-		puts "-----------"
-
-		redirect_to aircrafts_path(@departure, @departure_date, @arrival, @people )
-
+		redirect_to aircrafts_path(a: [@departure, @arrival, @departure_date, @people])
 
 	end
 

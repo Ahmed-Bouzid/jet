@@ -17,6 +17,11 @@
 *= require plugins
 *= require settings
 *= require style-restaurant
+*= require css/plugins/plugins
+*= require smart-form/booking/css/smart-forms
+*= require css/style-restaurant
+
+
 *= require_tree .
 *= require_self
 */
