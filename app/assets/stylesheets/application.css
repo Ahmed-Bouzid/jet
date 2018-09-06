@@ -20,8 +20,7 @@
 *= require css/plugins/plugins
 *= require smart-form/booking/css/smart-forms
 *= require css/style-restaurant
-
-
+*= require style
 *= require_tree .
 *= require_self
 */

@@ -1,5 +1,9 @@
-<div class="center jumbotron">
-  <h2>Sign up</h2>
+<div class="bg-parallax parallax-overlay accounts-page"  data-jarallax='{"speed": 0.2}' style='background-image: url("images/bg6.jpg")'>
+            <div class="container">
+                <div class="row pb30 align-items-end">
+                    <div class="col-lg-4 ml-md-auto col-md-6 col-sm-6 mb20">
+                        <h3 class="text-white text-left mb30">Join the world of Assan.</h3>
+                        <form>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -51,3 +55,25 @@
 
   <%= render "devise/shared/links" %>
 </div>
+</form>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6 mb20">
+                        <h3 class="text-white text-left mb30">Sign Up with social</h3>
+                        <div class="clearfix">
+                            <a href="#" class="social-icon-lg si-dark si-colored-facebook">
+                                <i class="fa fa-facebook"></i>
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-icon-lg  si-dark si-colored-twitter">
+                                <i class="fa fa-twitter"></i>
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon-lg si-dark si-colored-google-plus">
+                                <i class="fa fa-google-plus"></i>
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
