@@ -17,6 +17,7 @@
 *= require plugins
 *= require settings
 *= require style-restaurant
+*= require style
 *= require_tree .
 *= require_self
 */

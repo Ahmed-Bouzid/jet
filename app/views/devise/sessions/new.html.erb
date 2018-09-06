@@ -1,5 +1,9 @@
-<div class="center jumbotron">
-<h2>Log in</h2>
+<div class="bg-parallax parallax-overlay accounts-page"  data-jarallax='{"speed": 0.2}' style='background-image: url("images/bg6.jpg")'>
+            <div class="container">
+                <div class="row pb30">
+                    <div class="col-lg-4 col-md-6 mr-auto ml-auto col-sm-8">
+                        <h3 class="text-white text-center mb30">Login to continue</h3>
+                        <form>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -26,3 +30,8 @@
 
 <%= render "devise/shared/links" %>
 </div>
+            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
