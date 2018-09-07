@@ -5,5 +5,5 @@ Rails.application.routes.draw do
 	devise_for :users, path: 'utilisateur'
 
 	resources :users
-	 
+
 end
