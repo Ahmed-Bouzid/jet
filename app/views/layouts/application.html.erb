@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Stratton Private Jets</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+	<title>Stratton Private Jets</title>
+	<%= csrf_meta_tags %>
+	<%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
 <body data-spy="scroll" data-offset="71" data-target="#navbarRestaurant">
 
-  <%= yield %>
 
-  <footer>
-  	<%= render 'layouts/footer' %>
-  </footer>
+	<header class="header-main header-transparent">
 
-  <%= yield :end_scripts %>
-  
+		<%= render "layouts/navbar" %>
+		
+	</header>
+
+	<%= yield %>
+
+	<footer>
+		<%= render 'layouts/footer' %>
+	</footer>
+
+	<%= yield :end_scripts %>
+
 </body>
+
 </html>

@@ -11,12 +11,21 @@
  * It is generally better to create a new file per style scope.
  *
 *= require bootstrap.min
-*= require boomerang.min
 *= require layers
 *= require navigation
-*= require plugins
 *= require settings
-*= require style-restaurant
+*= require css/style-restaurant
+*= require smart-forms
+*= require plugins
+*= require style
 *= require_tree .
 *= require_self
 */
+
+
+
+
+
+
+
+

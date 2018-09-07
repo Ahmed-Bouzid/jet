@@ -1,6 +1,11 @@
-
 	jQuery(document).ready(function($){
-									
+			   
+				function reloadCaptcha(){ $("#captchax").attr("src","./smart-form/booking/php/captcha/captcha.php?r=" + Math.random()); }
+				$('.captcode').click(function(e){
+					e.preventDefault();
+					reloadCaptcha();
+				});
+				
 				function swapButton(){
 					var txtswap = $(".form-footer button[type='submit']");
 					if (txtswap.text() == txtswap.data("btntext-sending")) {
@@ -9,21 +14,47 @@
 						txtswap.data("btntext-original", txtswap.text());
 						txtswap.text(txtswap.data("btntext-sending"));
 					}
-				}
-				
-
-				function recaptchaResetCallback () {
-					if($('#g-recaptcha').length) { 
-						grecaptcha.reset(); 
-					}
-				}
+				}				
 			   
+				/* @telephone number masking 
+				---------------------------------- */
+		  		$("#guestelephone").mask('(999) 999-999999', {placeholder:'X'});			   
+		
+				/* @ date range datepicker 
+				---------------------------------- */
+				$( "#checkin" ).datepicker({
+					defaultDate: "+1w",
+					changeMonth: false,
+					numberOfMonths: 1,
+					prevText: '<i class="fa fa-chevron-left"></i>',
+					nextText: '<i class="fa fa-chevron-right"></i>',
+					onClose: function( selectedDate ) {
+						$( "#checkout" ).datepicker( "option", "minDate", selectedDate );
+					}
+				});
+				
+				$( "#checkout" ).datepicker({
+					defaultDate: "+1w",
+					changeMonth: false,
+					numberOfMonths: 1,
+					prevText: '<i class="fa fa-chevron-left"></i>',
+					nextText: '<i class="fa fa-chevron-right"></i>',			
+					onClose: function( selectedDate ) {
+						$( "#checkin" ).datepicker( "option", "maxDate", selectedDate );
+					}
+				});
+				
+				/* @ validation and submition
+				---------------------------------- */				
 				$( "#smart-form" ).validate({
+											
 						errorClass: "state-error",
 						validClass: "state-success",
 						errorElement: "em",
+						onkeyup: false,
+						onclick: false,						
 						rules: {
-								sendername: {
+								guestname: {
 										required: true,
 										minlength: 2
 								},		
@@ -31,21 +62,31 @@
 										required: true,
 										email: true
 								},
-								sendersubject: {
+								adults: {
 										required: true,
-										minlength: 4
+										number: true
 								},								
-								sendermessage: {
+								children: {
 										required: true,
+										number: true
+								},
+								checkin:{
+										required:true	
+								},
+								checkout:{
+										required:true	
+								},
+								comment:{
+										required:true,
 										minlength: 10
 								},
-								"g-recaptcha-response":{
+								captcha:{
 									required:true,
-									remote:'./smart-form/contact-recaptcha/php/process_reCaptcha.php'
-								}
+									remote:'./smart-form/booking/php/captcha/process.php'
+								}								
 						},
 						messages:{
-								sendername: {
+								guestname: {
 										required: 'Enter your name',
 										minlength: 'Name must be at least 2 characters'
 								},				
@@ -53,18 +94,28 @@
 										required: 'Enter your email address',
 										email: 'Enter a VALID email address'
 								},
-								sendersubject: {
-										required: 'Subject is important',
-										minlength: 'Subject must be at least 4 characters'
+								adults: {
+										required: 'Enter the number of adult guests',
+										number: 'Please enter a VALID number'
 								},														
-								sendermessage: {
-										required: 'Oops you forgot your message',
-										minlength: 'Message must be at least 10 characters'
+								children: {
+										required: 'Confirm the number of child guests',
+										number: 'Please enter a VALID number'
 								},															
-								"g-recaptcha-response":{
-										required: 'Check reCaptcha for verification',
-										remote:'Invalid reCaptcha verification'
-								}
+								checkin:{
+										required: 'Please select checkin date'
+								},
+								checkout:{
+										required:'Please select checkout date'
+								},
+								comment:{
+										required:'Please enter your comments',
+										minlength: 'Comment must be at least 10 characters'
+								},
+								captcha:{
+										required: 'You must enter the captcha code',
+										remote:'Captcha code is incorrect'
+								}								
 						},
 						highlight: function(element, errorClass, validClass) {
 								$(element).closest('.field').addClass(errorClass).removeClass(validClass);
@@ -81,8 +132,8 @@
 						},				
 						submitHandler:function(form) {
 							$(form).ajaxSubmit({
-								    target:'.result',	
-									beforeSubmit:function(){ 
+									target:'.result',			   
+									beforeSubmit:function(){
 											swapButton();
 											$('.form-footer').addClass('progress');
 									},
@@ -97,13 +148,13 @@
 											$('.field').removeClass("state-error, state-success");
 											if( $('.alert-error').length == 0){
 												$('#smart-form').resetForm();
-												recaptchaResetCallback();
+												reloadCaptcha();
 											}
 									 }
 							  });
 						}
-				});	
-		 
+						
+				});		
 		
 	});				
     
