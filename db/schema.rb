@@ -20,12 +20,7 @@ ActiveRecord::Schema.define(version: 2018_09_05_113411) do
     t.string "Category"
     t.string "Type"
     t.integer "Maxpax"
-<<<<<<< HEAD
     t.string "Actual_position"
-    t.string "price"
-=======
-    t.string "Homebase"
->>>>>>> 1a3e502af26c2919bf9b3ac647200f1569c05f8e
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,14 +35,11 @@ ActiveRecord::Schema.define(version: 2018_09_05_113411) do
   end
 
   create_table "flights", force: :cascade do |t|
-<<<<<<< HEAD
     t.string "departure"
     t.string "arrival"
     t.date "departure_date"
     t.date "return_date"
     t.integer "people"
-=======
->>>>>>> 1a3e502af26c2919bf9b3ac647200f1569c05f8e
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
