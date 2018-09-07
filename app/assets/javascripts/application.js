@@ -14,20 +14,21 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery.min
+//= require plugins
+//= require restaurant.custom
 //= require bootstrap.min
 //= require adaptive-backgrounds
-//= require flatpickr.min
-//= require boomerang.min
 //= require additional-methods.min
-//= require flatpickr.min
 //= require jquery.form.min
 //= require jquery.themepunch.tools.min
 //= require jquery.themepunch.revolution.min
+//= require jquery.validate.min
 //= require revolution.extension.video.min
 //= require revolution.extension.slideanims.min
 //= require revolution.extension.layeranimation.min
 //= require revolution.extension.navigation.min
 //= require revolution.extension.parallax.min
+<<<<<<< HEAD
 //= require restaurant.custom
 //= require plugins
 //= require jquery.validate.min
@@ -39,5 +40,7 @@
 //= require smart-form/booking/js/jquery.validate.min
 //= require smart-form/booking/js/additional-methods.min
 //= require smart-form/booking/js/smart-form
+=======
+>>>>>>> 1545fa6121038e8a7bd043929cec6bb5ae2ef76e
 //= require smart-form
 //= require_tree .
