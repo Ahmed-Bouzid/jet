@@ -1,44 +1,42 @@
-<div class="center jumbotron" style= "padding: 1%; text-decoration-color: white">
+<div class="row" style="background-color: black" >
+  <div class="col-md-6 col-md-offset-3" style="margin: 10%;">
+    <%= form_tag ('/trip') do%>
 
-  <div class="row" >
-    <div class="col-md-6 col-md-offset-3" style="margin-left: 25%; margin-right: 25%;">
-      <%= form_tag ('/trip') do%>
-
-      <div class="position_un" style= "float: left">
-        <div class="form-group">
-          <%= label_tag :De %>
-          <%= text_field_tag :departure, nil, placeholder: 'ex : Nice', class: 'form-control', style:"width:180px" %>
-        </div>
-        <div class="form-group">
-          <%= label_tag :À %>
-          <%= text_field_tag :arrival, nil, placeholder: 'ex : Paris', class: 'form-control', style:"width:180px" %>
-        </div>
+    <div class="position_un" style= "float: left">
+      <div class="form-group">
+        <%= label_tag :De %>
+        <%= text_field_tag :departure, nil, placeholder: 'ex : Nice', class: 'form-control', style:"width:300px" %>
       </div>
-
-      <div class="search", style= "float: right; margin-left: 10%">
-        <%= submit_tag "Rechercher", class: "btn btn-primary", style:"margin-top: 82px;" %>
+      <div class="form-group">
+        <%= label_tag :À %>
+        <%= text_field_tag :arrival, nil, placeholder: 'ex : Paris', class: 'form-control', style:"width:300px" %>
       </div>
-
-      <div class="position_deux" style= "float: right">
-
-        <div class="form-group">
-          <%= label_tag :departure %>
-          <%= text_field_tag :departure_date, nil, placeholder: "mm/dd/yyyy", id: "checkin", class: 'form-control form-control-lg datepicker', style:"width:180px"%> 
-        </div>
-        <div class="form-group">
-          <%= label_tag :people %>
-          <%= text_field_tag :people, nil, placeholder: 'Beetween 1-16 persons', class: 'form-control', style:"width:180px" %>
-          <br>
-        </div>
-        
-      </div>
-
-      <div class="people", style= "float: left">
-      </div>
-
-      <% end %>  
-
     </div>
+
+    <div class="search", style= "float: right; margin-left: 10%">
+      <%= submit_tag "Rechercher", class: "btn btn-primary", style:"margin-top: 82px;" %>
+    </div>
+
+    <div class="position_deux" style= "float: right">
+
+      <div class="form-group">
+        <%= label_tag :departure %>
+        <%= text_field_tag :departure_date, nil, placeholder: "mm/dd/yyyy", id: "checkin", class: 'form-control form-control-lg datepicker', style:"width:300px"%> 
+      </div>
+      <div class="form-group">
+        <%= label_tag :people %>
+        <%= text_field_tag :people, nil, placeholder: 'Beetween 1-16 persons', class: 'form-control', style:"width:300px" %>
+        <br>
+      </div>
+      
+    </div>
+
+    <div class="people", style= "float: left">
+    </div>
+
+    <% end %>  
+
+
   </div>
 </div>
 

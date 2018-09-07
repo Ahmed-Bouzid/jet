@@ -10,32 +10,22 @@
 </head>
 
 <body data-spy="scroll" data-offset="71" data-target="#navbarRestaurant">
-<<<<<<< HEAD
+
+
 	<header class="header-main header-transparent">
 
 		<%= render "layouts/navbar" %>
 		
 	</header>
 
-
 	<%= yield %>
-	
+
+	<footer>
+		<%= render 'layouts/footer' %>
+	</footer>
+
+	<%= yield :end_scripts %>
+
 </body>
 
-<footer>
-	<%= render 'layouts/footer' %>
-</footer>
-
-=======
-
-  <%= yield %>
-
-  <footer>
-  	<%= render 'layouts/footer' %>
-  </footer>
-
-  <%= yield :end_scripts %>
-  
-</body>
->>>>>>> 1545fa6121038e8a7bd043929cec6bb5ae2ef76e
 </html>
