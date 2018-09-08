@@ -113,13 +113,13 @@ Aircraft.create(Tail: '9H-VJC',
 
 Airport.create(Code: 'LFPB',
                       Name: 'Paris Le Bourget',
-                                            City: 'Le Bourget',
-                                            Country: 'FRANCE')
+                      City: 'Le Bourget',
+                      Country: 'FRANCE')
 
-                      Airport.create(Code: 'LFMN',
-                                            Name: 'Aéroport de Nice-Côte d Azur',
-                                            City: 'Nice',
-                                            Country: 'FRANCE')
+Airport.create(Code: 'LFMN',
+                      Name: 'Aéroport de Nice-Côte d Azur',
+                      City: 'Nice',
+                      Country: 'FRANCE')
 
 
 
