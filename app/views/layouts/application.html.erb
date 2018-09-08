@@ -9,14 +9,15 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body>
- 
-
-
-
-
-
+<body data-spy="scroll" data-offset="71" data-target="#navbarRestaurant">
 
   <%= yield %>
+
+  <footer>
+  	<%= render 'layouts/footer' %>
+  </footer>
+
+  <%= yield :end_scripts %>
+  
 </body>
 </html>
