@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  
+
 	root 'home#index'
 
 	devise_for :users, path: 'utilisateur'
@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
 	post '/trip', to: 'aircraft#create'
 	get "/aircrafts", to: 'aircraft#index'
+	get "/planes", to: 'planes#index'
+
 	
 
 end
