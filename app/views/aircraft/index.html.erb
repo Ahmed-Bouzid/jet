@@ -29,9 +29,7 @@
 				<td><%= plane.Actual_position %></td>
 				<td>Globe-Air</td>
 				<td><%= plane.price %> €</td>
-				<td><a href="javascript:void(0)" class="btn btn-shadow btn-gradient btn-gradient-success mb-3 mr-3">
-					Selectionner ce vol
-				</a></td>
+				<td><a href="aircraft/<%= plane.id %>" class="btn btn-shadow btn-gradient btn-gradient-success mb-3 mr-3">Selectionner ce vol</a></td>
 			</h5>
 		</tr>
 	</tbody>
@@ -42,3 +40,4 @@
 </table>
 </div>
 </div>
+
