@@ -1,19 +1,213 @@
-
-	
 <header class="header-main header-transparent">
+	<%= render 'layouts/navbar' %>
+</header>
 
-    <%= render 'layouts/navbar' %>
-		
-	</header>
-	
-	<%= render 'layouts/slider_revolution' %>
-	<%= render 'layouts/intro' %>
-	<%= render 'layouts/text_window' %>
-	<%= render 'layouts/nos_services' %>
-	<%= render 'layouts/caroussel' %>
-	<%= render 'layouts/booking' %>
-	<%= render 'layouts/instagram_galery' %>
 
-	<footer>
-		<%= render 'layouts/footer' %>
-	</footer>
+<div class="rev_slider_wrapper oHidden" id="home">
+	<div id="slider1" class="rev_slider fullwidthabanner"  data-version="5.0">
+		<ul> 
+			<li data-transition="random"> 
+				<!-- MAIN IMAGE -->
+
+				<%= image_tag "newyork.jpg", alt: "", size: "1920x1000", class: "rev-slidebg", :data => { bgposition: 'center center', bgfit: 'cover', bgrepeat: 'no-repeat', bgparallax: '10' } %>
+				<!-- LAYER NR. 1 -->
+				<div class="tp-caption tp-resizeme slider-title" 
+				data-x="['left','left','left','left']" data-hoffset="['50','50','50','15']" 
+				data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
+				data-fontsize="['80','80','80','45']"
+				data-lineheight="['80','80','80','50']"
+				data-width="none"
+				data-height="none"
+
+				data-transform_idle="o:1;" 
+				data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
+				data-transform_out="auto:auto;s:300;" 
+				data-start="500">Stratton Jets</div>
+				<div class="tp-caption tp-resizeme slider-caption" 
+				data-x="['left','left','left','left']" data-hoffset="['50','50','50','15']" 
+				data-y="['middle','middle','middle','middle']" data-voffset="['90','90','90','70']" 
+				data-fontsize="['20','20','20','15']"
+				data-lineheight="['25','25','25','20']"
+				data-width="none"
+				data-height="none" 
+				data-whitespace="nowrap"
+				data-transform_idle="o:1;" 
+				data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
+				data-transform_out="auto:auto;s:300;" 
+				data-start="1000">Réservez votre jet privé en toute transparence. <br> Commission fixe de 5%. </div>
+				<div class="tp-caption tp-resizeme slider-button" 
+				data-x="['left','left','left','left']" data-hoffset="['50','50','50','15']" 
+				data-y="['middle','middle','middle','middle']" data-voffset="['160','160','140','140']" 
+				data-whitespace="nowrap"
+				data-transform_idle="o:1;" 
+				data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
+				data-transform_out="auto:auto;s:300;" 
+				data-start="1500"><a href="#example" class="btn btn-xl btn-dark btn-primary">Le choix Stratton</a></div>
+			</li>
+			<li data-transition="random"> 
+				<!-- MAIN IMAGE -->
+
+				<%= image_tag "travel.jpg", alt: "", size: "1920x1000", class: "rev-slidebg", :data => { bgposition: 'center center', bgfit: 'cover', bgrepeat: 'no-repeat', bgparallax: '10' } %>
+
+				<div style="color: black;" class="tp-caption tp-resizeme slider-title" 
+				data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
+				data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
+				data-fontsize="['80','80','80','45']"
+				data-lineheight="['80','80','80','50']"
+				data-width="none"
+				data-height="none"
+
+				data-transform_idle="o:1;" 
+				data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
+				data-transform_out="auto:auto;s:300;" 
+				data-start="500">Commission fixe de 5%</div>
+				<div style="color: black;" class="tp-caption tp-resizeme slider-caption" 
+				data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
+				data-y="['middle','middle','middle','middle']" data-voffset="['90','90','90','70']" 
+				data-fontsize="['20','20','20','15']"
+				data-lineheight="['25','25','25','20']"
+				data-width="none"
+				data-height="none" 
+				data-whitespace="nowrap"
+				data-transform_idle="o:1;" 
+				data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
+				data-transform_out="auto:auto;s:300;" 
+				data-start="1000">Découvrez le modèle Stratton</div>
+				<div style="color: black;" class="tp-caption tp-resizeme slider-button" 
+				data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" 
+				data-y="['middle','middle','middle','middle']" data-voffset="['160','160','160','120']" 
+				data-whitespace="nowrap"
+				data-transform_idle="o:1;" 
+				data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
+				data-transform_out="auto:auto;s:300;" 
+				data-start="1500"><a href="#" class="btn btn-xl btn-primary">Réservez votre vol</a></div>
+			</li>
+			<li data-transition="random"> 
+				<!-- MAIN IMAGE -->
+
+				<%= image_tag "woman-portrait.png", alt: "", size: "1920x1000", class: "rev-slidebg", :data => { bgposition: 'center center', bgfit: 'cover', bgrepeat: 'no-repeat', bgparallax: '10' } %>
+				<!-- LAYER NR. 1 -->
+				<div style="color: black;" class="tp-caption tp-resizeme slider-title" 
+				data-x="['left','left','left','left']" data-hoffset="['50','50','50','15']" 
+				data-y="['middle','middle','middle','middle']" data-voffset="['0','0','0','0']" 
+				data-fontsize="['80','80','80','45']"
+				data-lineheight="['80','80','80','50']"
+				data-width="none"
+				data-height="none"
+
+				data-transform_idle="o:1;" 
+				data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
+				data-transform_out="auto:auto;s:300;" 
+				data-start="500">#Expertise</div>
+				<div style="color: black;" class="tp-caption tp-resizeme slider-caption" 
+				data-x="['left','left','left','left']" data-hoffset="['50','50','50','15']" 
+				data-y="['middle','middle','middle','middle']" data-voffset="['90','90','90','70']" 
+				data-fontsize="['20','20','20','15']"
+				data-lineheight="['25','25','25','20']"
+				data-width="none"
+				data-height="none" 
+				data-whitespace="nowrap"
+				data-transform_idle="o:1;" 
+				data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
+				data-transform_out="auto:auto;s:300;" 
+				data-start="1000">Un expert Stratton pour vous conseiller</div>
+				<div style="color: black;" class="tp-caption tp-resizeme slider-button" 
+				data-x="['left','left','left','left']" data-hoffset="['50','50','50','15']" 
+				data-y="['middle','middle','middle','middle']" data-voffset="['160','160','140','140']" 
+				data-whitespace="nowrap"
+				data-transform_idle="o:1;" 
+				data-transform_in="opacity:0;s:1500;e:Power3.easeInOut;" 
+				data-transform_out="auto:auto;s:300;" 
+				data-start="1500"><a href="#" class="btn btn-xl btn-primary">Réservez votre vol</a></div>
+			</li>
+		</ul> 
+	</div>
+</div>
+
+
+
+<%= content_for :end_scripts do %>
+<script>
+	jQuery(document).ready(function () {
+		jQuery("#slider1").revolution({
+			sliderType: "standard",
+			jsFileLocation: "../revolution/js/",
+			sliderLayout: "fullscreen",
+			dottedOverlay: "none",
+			delay: 9000,
+			navigation: {
+				arrows: {enable: true}
+			},
+			parallax: {
+				type: "on",
+				levels: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85],
+				origo: "enterpoint",
+				speed: 400,
+				bgparallax: "on",
+				disable_onmobile: "off"
+			},
+			gridwidth: 1140,
+			gridheight: 600
+		});
+	});
+</script>
+<% end %>
+
+<!--end slider revolution-->
+<!--Begining Booking -->
+
+<div id='contact'>
+	<div id="markermap" ></div>
+</div>
+
+<div class="row" style="background-color: black" >
+  <div class="col-md-6 col-md-offset-3" style="margin-left: 25%; margin-right: 25%; margin-top: 5%;">
+    <%= form_tag ('/trip') do%>
+
+    <div class="position_un" style= "float: left">
+      <div class="form-group">
+        <%= label_tag :De %>
+        <%= text_field_tag :departure, nil, placeholder: 'ex : Nice', class: 'form-control', style:"width:180px" %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :À %>
+        <%= text_field_tag :arrival, nil, placeholder: 'ex : Paris', class: 'form-control', style:"width:180px" %>
+      </div>
+    </div>
+
+    <div class="search", style= "float: right; margin-left: 10%">
+      <%= submit_tag "Rechercher", class: "btn btn-primary", style:"margin-top: 82px;" %>
+    </div>
+
+    <div class="position_deux" style= "float: right">
+
+      <div class="form-group">
+        <%= label_tag :departure %>
+        <%= text_field_tag :departure_date, nil, placeholder: "mm/dd/yyyy", id: "checkin", class: 'form-control form-control-lg datepicker', style:"width:180px"%> 
+      </div>
+      <div class="form-group">
+        <%= label_tag :people %>
+        <%= text_field_tag :people, nil, placeholder: 'Beetween 1-16 persons', class: 'form-control', style:"width:180px" %>
+        <br>
+      </div>
+      
+    </div>
+
+    <div class="people", style= "float: left">
+    </div>
+
+    <% end %>  
+
+
+  </div>
+</div>
+
+<!--End Booking -->
+
+<%= render 'layouts/text_window' %>
+<%= render 'layouts/nos_services' %>
+<%= render 'layouts/caroussel' %>
+<%= render 'layouts/instagram_galery' %>
+<footer>
+	<%= render 'layouts/footer' %>
+</footer>
