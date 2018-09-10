@@ -3,22 +3,29 @@ class AircraftController < ApplicationController
 	def new
 	end
 
+	def show
+
+		@aircraft_id = params[:id]
+		@aircraft_Type = Aircraft.find(@aircraft_id).Type
+		@aircraft_Category = Aircraft.find(@aircraft_id).Category
+		@aircraft_price = Aircraft.find(@aircraft_id).price
+		@image_url = Aircraft.find(@aircraft_id).Tail
+		@aircraft = Aircraft.find(@aircraft_id) 
+		@price = @aircraft_price.to_i
+		@commission = (@price * 5)/ 100
+		@total = @price + @commission
+	end
+
 	def index
 
 		
 		@aircrafts = Aircraft.all
-
 		@departure = params[:a][0]  
 		@arrival = params[:a][1]  
 		@departure_date = params[:a][2]  
-		@people = params[:a][3] 
+		@people = params[:a][3]
 
-		puts "-----oo------"
-		puts @departure
-		puts @arrival
-		puts @departure_date
-		puts @people
-		puts "-----------"
+		puts params
 		
 		
 
