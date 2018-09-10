@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 	get "/aircrafts", to: 'aircraft#index'
 	get "/planes", to: 'planes#index'
 
-	
+	resources :charges, only: [:new, :create]
+
+
+
 
 end

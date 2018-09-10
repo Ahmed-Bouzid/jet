@@ -21,7 +21,7 @@
 		<% if plane.Actual_position == @departure.split.join && plane.Maxpax >= @people.to_i %>
 		<tbody>
 			<tr><h5>
-				<td> <%= image_tag("#{plane.Tail}.jpg", width: 80, height: 60)%></td>
+				<td><%= image_tag("#{plane.Tail}.jpg", width: 80, height: 60)%></td>
 				<td><%= plane.Type %></td>
 				<td><%= plane.Maxpax %></td>
 				<td>1999</td>

@@ -7,6 +7,7 @@
 
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 	<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 </head>
 
 <body data-spy="scroll" data-offset="71" data-target="#navbarRestaurant">
@@ -15,19 +16,18 @@
 	<header class="header-main header-transparent">
 
 		<%= render "layouts/navbar" %>
-		
+
 	</header>
 
 	<%= yield %>
 
-	
+
 
 	<%= yield :end_scripts %>
 
-	
+
 	<a href="" class="back-to-top" id="back-to-top"><i class="ti-angle-up"></i></a>
 
 </body>
 
 </html>
-
