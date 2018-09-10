@@ -1,6 +1,5 @@
 <div style="margin-left: 5%;margin-right: 5%;" >
 	<div style="margin-top: 10%; float: left">
-
 		<h3>
 			Type d'avion : <%= @aircraft_Type %> <br>
 			Dans la categorie : <%= @aircraft_Category %> <br>
@@ -12,8 +11,6 @@
 		<%= image_tag("aircrafts/#{@image_url}/#{@image_url}_floor.jpg",  width: 430, height: 226)%>
 		<br>
 		<br>
-
-
 	</div>
 	<div style="margin-top: 15%; float: right">
 		<h5>
@@ -24,12 +21,8 @@
 			L'avion : <%= @aircraft_Type %> <br>
 			Commission : <%= @commission %> Euro (5%) <br>
 			Total : <%= @total %> Euro
-
-
 			<br>
-
 			<button type="button" class="btn btn-warning mb-2 mr-1" data-toggle="modal" data-target=".bd-example-modal-lg">Conditions de vente</button>
-
 			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
@@ -70,25 +63,45 @@
 							</div>
 						</div>
 					</div>
-
-
 				</h6>
-				<a href="#" class="btn btn-subtitle btn-shadow  btn-primary mb-3 mr-2">
+				<!-- BON BOUTON -->
+				<button type="button" class="btn btn-subtitle btn-shadow  btn-primary mb-3 mr-2" data-toggle="modal" data-target="#exampleModalCenter">
 					<h5>
 						Valider le paiement
 					</h5>
-					<span class="text-block">En cliquant vous acceptez les conditions de vente</span>
-				</a>
+					<span class="text-block">En  vous acceptez les conditions de vente</span>
+				</button>
+				<!-- MODAL DU BON BOUTON -->
+				<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLongTitle">STRIPE</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<%= form_tag charges_path(amount: @total) do %>
+								<article>
+									<% if flash[:error].present? %>
+									<div id="error_explanation">
+										<p><%= flash[:error] %></p>
+									</div>
+									<% end %>
+									<label class="amount">
+										<span>Amount: $ <%= @total %></span>
+									</label>
+								</article>
 
-
-
+								<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+								data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+								data-description="Flight"
+								data-amount="<%= @total.to_i.round(2) * 100 %> "
+								data-locale="auto"></script>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-
-
-
-
-
-
-
-

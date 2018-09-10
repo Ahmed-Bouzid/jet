@@ -17,7 +17,6 @@ class AircraftController < ApplicationController
 	end
 
 	def index
-
 		
 		@aircrafts = Aircraft.all
 		@departure = params[:a][0]  
@@ -27,8 +26,6 @@ class AircraftController < ApplicationController
 
 		puts params
 		
-		
-
 	end
 
 	def create
