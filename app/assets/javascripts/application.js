@@ -12,14 +12,18 @@
 //
 //= require rails-ujs
 //= require activestorage
+
 //= require turbolinks
 //= require jquery.min
-//= require plugins
-//= require restaurant.custom
+//= require js/plugins/plugins 
+//= require js/restaurant.custom
 //= require bootstrap.min
-//= require adaptive-backgrounds
 //= require additional-methods.min
+//= require adaptive-backgrounds
 //= require jquery.form.min
+//= require js/assan.custom
+//= require jquery-ui-custom.min
+//= require jquery.maskedinput
 //= require jquery.themepunch.tools.min
 //= require jquery.themepunch.revolution.min
 //= require jquery.validate.min
@@ -29,4 +33,20 @@
 //= require revolution.extension.navigation.min
 //= require revolution.extension.parallax.min
 //= require smart-form
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //= require_tree .

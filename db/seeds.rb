@@ -1,110 +1,118 @@
-require 'nexmo'
+Aircraft.create(Tail: 'OEFCB',
+  Category: 'Very Light Jet',
+  Type: 'Cessna Citation Mustang',
+  Maxpax: '4',
+  Actual_position:'Nice',
+  price: '3700')
 
-Aircraft.create(Tail: 'OE-FCB'
-                      Category: 'Very Light Jet',
-                      Type: 'Cessna Citation Mustang',
-                      Maxpax: '4'
-                      Homebase:'LFPB')
-
-Aircraft.create(Tail: 'F-HBOD'
-                      Category: 'Very Light Jet'
-                      Type: 'Embraer Phenom 100E'
-                      Maxpax: '5'
-                      Homebase:'LFBD')
+Aircraft.create(Tail: 'FHBOD', Category: 'Very Light Jet', Type: 'Embraer Phenom 100E', Maxpax: '5', Actual_position:'Paris', price:'3850')
 
 
-Aircraft.create(Tail: 'D-CJET'
-                      Category: 'Light Jet'
-                      Type: 'Cessna Citation CJ3'
-                      Maxpax: '7'
-                      Homebase:'LIML')
+Aircraft.create(Tail: 'DCJET',
+  Category: 'Light Jet',
+  Type: 'Cessna Citation CJ3',
+  Maxpax: '7',
+  Actual_position:'Nice',
+  price:'6230')
 
-Aircraft.create(Tail: 'F-HAJV'
-                      Category: 'Light Jet'
-                      Type: 'Cessna Citation II'
-                      Maxpax: '8'
-                      Homebase:'LFPB')
+Aircraft.create(Tail: 'FHAJV',
+  Category: 'Light Jet',
+  Type: 'Cessna Citation II',
+  Maxpax: '8',
+  Actual_position:'Paris',
+  price:'6345')
 
-Aircraft.create(Tail: 'SP-KCS'
-                      Category: 'Super Light Jet'
-                      Type: 'Cessna Citation XLS'
-                      Maxpax: '8'
-                      Homebase:'EPWA')
+Aircraft.create(Tail: 'SPKCS',
+  Category: 'Super Light Jet',
+  Type: 'Cessna Citation XLS',
+  Maxpax: '8',
+  Actual_position:'Nice',
+  price:'8970')
 
-Aircraft.create(Tail: '9H-BCP'
-                      Category: 'Super Light Jet'
-                      Type: 'Bombardier Learjet 45'
-                      Maxpax: '8'
-                      Homebase:'LFPB')
+Aircraft.create(Tail: '9HBCP',
+  Category: 'Super Light Jet',
+  Type: 'Bombardier Learjet 45',
+  Maxpax: '8',
+  Actual_position:'Paris',
+  price:'9340')
 
-Aircraft.create(Tail: 'OE-GLF'
-                      Category: 'Midsize Jet'
-                      Type: 'Gulfstream G150'
-                      Maxpax: '7'
-                      Homebase:'UKKK')
+Aircraft.create(Tail: 'OEGLF',
+  Category: 'Midsize Jet',
+  Type: 'Gulfstream G150',
+  Maxpax: '7',
+  Actual_position:'Nice',
+  price:'11300')
 
-Aircraft.create(Tail: 'CS-DGR'
-                      Category: 'Midsize Jet'
-                      Type: 'Cessna Citation VII'
-                      Maxpax: '9'
-                      Homebase:'LPCS')
+Aircraft.create(Tail: 'CSDGR',
+  Category: 'Midsize Jet',
+  Type: 'Cessna Citation VII',
+  Maxpax: '9',
+  Actual_position:'Paris',
+  price:'12600')
 
-Aircraft.create(Tail: 'F-HADH'
-                      Category: 'Super Midsize Jet'
-                      Type: 'Dassault Falcon 50'
-                      Maxpax: '10'
-                      Homebase:'LFPB')
+Aircraft.create(Tail: 'FHADH',
+  Category: 'Super Midsize Jet',
+  Type: 'Dassault Falcon 50',
+  Maxpax: '10',
+  Actual_position:'Nice',
+  price:'18300')
 
-Aircraft.create(Tail: 'G-KLAS'
-                      Category: 'Super Midsize Jet'
-                      Type: 'BOMBARDIER Challenger 300'
-                      Maxpax: '9'
-                      Homebase:'EGGW')
+Aircraft.create(Tail: 'GKLAS',
+  Category: 'Super Midsize Jet',
+  Type: 'BOMBARDIER Challenger 300',
+  Maxpax: '9',
+  Actual_position:'Paris', 
+  price:'19100')
 
-Aircraft.create(Tail: '9H-BOO'
-                      Category: 'Heavy Jet'
-                      Type: 'Bombardier Challenger 850'
-                      Maxpax: '15'
-                      Homebase:'LFMN')
+Aircraft.create(Tail: '9HBOO',
+  Category: 'Heavy Jet',
+  Type: 'Bombardier Challenger 850',
+  Maxpax: '15',
+  Actual_position:'Nice',
+  price:'20900')
 
-Aircraft.create(Tail: 'OE-IMZ'
-                      Category: 'Heavy Jet'
-                      Type: 'Gulsfstream G450'
-                      Maxpax: '16'
-                      Homebase:'LOWW')
+Aircraft.create(Tail: 'OEIMZ',
+  Category: 'Heavy Jet',
+  Type: 'Gulsfstream G450',
+  Maxpax: '16',
+  Actual_position:'Paris',
+  price:'22300')
 
-Aircraft.create(Tail: 'OY-CLS'
-                      Category: 'Ultra Long Range Jet'
-                      Type: 'Dassault Falcon 7x'
-                      Maxpax: '14'
-                      Homebase:'EKSB')
+Aircraft.create(Tail: 'OYCLS',
+  Category: 'Ultra Long Range Jet',
+  Type: 'Dassault Falcon 7x',
+  Maxpax: '14',
+  Actual_position:'Nice',
+  price:'23600')
 
-Aircraft.create(Tail: '9H-VJC'
-                      Category: 'Ultra Long Range Jet'
-                      Type: 'Bombardier Global 6000'
-                      Maxpax: '16'
-                      Homebase:'EDDM')
+Aircraft.create(Tail: '9HVJC',
+  Category: 'Ultra Long Range Jet',
+  Type: 'Bombardier Global 6000',
+  Maxpax: '16',
+  Actual_position:'Paris',
+  price:'25780')
 
-Airport.create(Code: 'LFPB'
-                      Name: 'Paris Le Bourget'
-                      City: 'Le Bourget'
-                      Country: 'FRANCE')
+Airport.create(Code: 'LFPB',
+  Name: 'Paris Le Bourget',
+  City: 'Le Bourget',
+  Country: 'FRANCE')
 
-Airport.create(Code: 'LFMN'
-                      Name: 'Aéroport de Nice-Côte d Azur'
-                      City: 'Nice'
-                      Country: 'FRANCE')
-
-
-
-
-
-
-
-
+Airport.create(Code: 'LFMN',
+  Name: "Aéroport de Nice-Côte d'Azur",
+  City: 'Nice',
+  Country: 'FRANCE')
 
 
-# client = Nexmo::Client.new(api_key: '3442d6bd', api_secret: 'aTY7YWJjGGnOgcQo')
+
+
+
+
+
+
+
+
+
+ #client = Nexmo::Client.new(api_key: '3442d6bd', api_secret: 'aTY7YWJjGGnOgcQo')
 
 # p " Etape 1 Création des utilisateurs =========="
 
