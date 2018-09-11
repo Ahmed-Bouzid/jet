@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_09_05_113411) do
     t.integer "Maxpax"
     t.string "Actual_position"
     t.string "price"
+    t.string "company"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

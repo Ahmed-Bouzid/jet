@@ -1,5 +1,5 @@
 <div style= "text-align: center; margin-top: 5%;">
-	<div class="bg-white table-responsive rounded shadow-sm pt-3 pb-3 mb-30">
+	<div class="bg-white table-responsive rounded shadow-sm mb-30">
 		<table id="data-table" class="table mb-0 table-striped" cellspacing="0" width="100%">
 			<h1>VOS RESULTATS</h1>
 			<tr>
@@ -27,7 +27,7 @@
 				<td>1999</td>
 				<td>1 heure</td>
 				<td><%= plane.Actual_position %></td>
-				<td>Globe-Air</td>
+				<td><%= plane.company %></td>
 				<td><%= plane.price %> €</td>
 				<td><a href="aircraft/<%= plane.id %>" class="btn btn-shadow btn-gradient btn-gradient-success mb-3 mr-3">Selectionner ce vol</a></td>
 			</h5>

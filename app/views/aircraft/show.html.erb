@@ -3,6 +3,8 @@
 		<h3>
 			Type d'avion : <%= @aircraft_Type %> <br>
 			Dans la categorie : <%= @aircraft_Category %> <br>
+			Avec la compagnie : <%= @company %> <br>
+			<br>
 			Au prix de : <%= @aircraft_price %>Euro
 		</h3>
 		<br>
@@ -12,15 +14,19 @@
 		<br>
 		<br>
 	</div>
-	<div style="margin-top: 15%; float: right">
+	<div style="margin-top: 15%; float: right; border-style: solid; padding: 10px">
 		<h5>
 			Recapitulatif de la commande : <br>
 		</h5>
 		<h6>
 			Vol : detail du vol <br>
 			L'avion : <%= @aircraft_Type %> <br>
-			Commission : <%= @commission %> Euro (5%) <br>
+			Prix compagnie : <%= @aircraft_price %>Euro <br>
+			Commission Stratton : <%= @commission %> Euro (5%) <br>
+			<br>
+
 			Total : <%= @total %> Euro
+			<br>
 			<br>
 			<button type="button" class="btn btn-warning mb-2 mr-1" data-toggle="modal" data-target=".bd-example-modal-lg">Conditions de vente</button>
 			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

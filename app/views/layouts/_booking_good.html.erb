@@ -1,0 +1,46 @@
+<div class="pt100 pb70 parallax-overlay bg-parallax" data-jarallax="{&quot;speed&quot;: 0.4}" 
+style="background-image: none; z-index: 0; background-attachment: scroll; background-size: auto;"
+id= "booking" >
+<div class="container">
+	<div class="row newsletter-row">
+		<div class="col-lg-10 mr-auto m-auto mb30 text-center">
+			<div class="center-title mb60 text-center">
+				<h2 class="text-white">Choose your flight</h2>
+				<p class="text-white-gray"></p>
+			</div>
+			<%= form_tag ('/trip') do%>
+			<div class="row">
+				<div class="form-group" style="margin-left: 3.5%">
+					<%= label_tag :De %>
+					<%= text_field_tag :departure, nil, placeholder: 'ex : Nice', class: 'form-control' %>
+				</div>
+				<div class="form-group" style="margin-left: 3.5%">
+					<%= label_tag :À %>
+					<%= text_field_tag :arrival, nil, placeholder: 'ex : Paris', class: 'form-control' %>
+				</div>
+				<div class="form-group" style="margin-left: 3.5%">
+					<%= label_tag :departure %>
+					<%= text_field_tag :departure_date, nil, placeholder: "mm/dd/yyyy", id: "checkin", class: 'form-control form-control-lg datepicker' %> 
+				</div>
+				<div class="form-group" style="margin-left: 3.5%">
+					<%= label_tag :people %>
+					<%= text_field_tag :people, nil, placeholder: 'Beetween 1-16 persons', class: 'form-control' %>
+					<br>
+				</div>
+				<div class="search" style="margin-left: 42%">
+					<%= submit_tag "Rechercher", class: "btn btn-primary" %>
+				</div>
+			</div>
+			<% end %>  
+		</div><!--/.col-->
+	</div><!--/.row-->
+</div>
+</div>
+<div id="jarallax-container-3" style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1000;">
+	<div style="background-size: 100%; background-image: url('<%= asset_path 'travel.jpg' %>'); position: fixed; top: 0px; left: 0px; width: 1425px; height: 790px; pointer-events: none; margin-left: 0px; margin-top: 50px; visibility: visible; z-index: -10; transform: translate3d(0px, 0px, 0px); background-position: 20% 20%; background-repeat: no-repeat no-repeat;">
+	</div>
+</div>
+
+
+
+<!--End Booking -->

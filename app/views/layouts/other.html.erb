@@ -1,5 +1,9 @@
-others 
-
-<div class="half-image-content bg-faded">
-		<div class="content-img bg-parallax pos-left" data-jarallax='{"speed": 0.2}' style="background: url('<%= asset_path 'travel.jpg' %>') no-repeat;">
-		</div>
+<div class="form-group" style="margin-left: 3.5%,">
+	<%= label_tag :De %>
+	<%= select_tag(:departure, raw('<option value="1">Nice</option><option value="2">Paris</option>'), class: 'form-control', style: 'width: 205px; height: 50px') %>
+</div>
+<div class="form-group" style="margin-left: 3.5%">
+	<%= label_tag :À %>
+	
+	<%= select_tag(:arrival, raw('<option value="1">Paris</option><option value="2">Nice</option>'), class: 'form-control', style: 'width: 205px; height: 50px') %>
+</div>

@@ -9,6 +9,7 @@ class AircraftController < ApplicationController
 		@aircraft_Type = Aircraft.find(@aircraft_id).Type
 		@aircraft_Category = Aircraft.find(@aircraft_id).Category
 		@aircraft_price = Aircraft.find(@aircraft_id).price
+		@company = Aircraft.find(@aircraft_id).company
 		@image_url = Aircraft.find(@aircraft_id).Tail
 		@aircraft = Aircraft.find(@aircraft_id) 
 		@price = @aircraft_price.to_i

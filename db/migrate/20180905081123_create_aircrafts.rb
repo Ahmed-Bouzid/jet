@@ -7,6 +7,7 @@ class CreateAircrafts < ActiveRecord::Migration[5.2]
       t.integer :Maxpax
       t.string :Actual_position
       t.string :price
+      t.string :company
 
 
       t.timestamps
