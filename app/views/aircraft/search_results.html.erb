@@ -18,20 +18,25 @@
 				</h3>
 			</tr>
 		</thead>
-		<%@aircrafts.each do |aircraft|%>
+		<% @aircrafts.each do |aircraft|%>
 		<tbody>
 			<tr><h5>
-				<td> <%= image_tag("#{aircraft.tail}.jpg", width: 80, height: 60)%></td>
+				<td> <%= image_tag(aircraft.image_url, width: 80, height: 60)%></td>
 				<td><%= aircraft.aircraft_type %></td>
 				<td><%= aircraft.maxpax %></td>
 				<td><%=aircraft.yom%></td>
 				<td><%=aircraft.yor%></td>
 				<td><%= aircraft.company %></td>
 				<td><%= aircraft.origin %></td>
-				<td>1 heure</td>
+				<td><%= Airport.time_between_airports(@departure_city, @arrival_city) %> minutes</td>
 				<td><%= aircraft.actual_position %></td>
-				<td><%= aircraft.price %> €</td>
-				<td><a href="aircraft/<%= aircraft.id %>" class="btn btn-shadow btn-gradient btn-gradient-success mb-3 mr-3">Selectionner ce vol</a></td>
+				<td><%= aircraft.trip_cost_without_commission(@departure_city, @arrival_city, @number_of_passengers) %> €</td>
+				<td>
+					<%= link_to trip_path(aircraft.id, departure_city: @departure_city, arrival_city: @arrival_city, number_of_passengers: @number_of_passengers), class: "btn btn-shadow btn-gradient btn-gradient-success mb-3 mr-3" do %> 
+						Sélectionner ce vol
+					<%end%>
+				</td>
+
 			</h5>
 		</tr>
 	</tbody>
