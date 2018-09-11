@@ -8,7 +8,9 @@ class CreateAircrafts < ActiveRecord::Migration[5.2]
       t.string :Actual_position
       t.string :price
       t.string :company
-
+      t.string :origin
+      t.string :YOM
+      t.string :YOR
 
       t.timestamps
     end

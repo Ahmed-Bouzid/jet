@@ -4,24 +4,33 @@ Aircraft.create(Tail: 'OEFCB',
   Maxpax: '4',
   Actual_position:'Nice',
   price: '3700',
-  company: 'GlobeAir')
+  company: 'GlobeAir',
+  origin:'Autriche',
+  YOM:'2008',
+  YOR:'–')
 
 Aircraft.create(Tail: 'FHBOD',
   Category: 'Very Light Jet',
   Type: 'Embraer Phenom 100E', 
   Maxpax: '5',
-  Actual_position:'Paris',
+  Actual_position:'Bordeaux',
   price:'3850',
-  company: 'JetKey')
+  company: 'JetKey',
+  origin:'France',
+  YOM:'2016',
+  YOR:'–')
 
 
 Aircraft.create(Tail: 'DCJET',
   Category: 'Light Jet',
   Type: 'Cessna Citation CJ3',
   Maxpax: '7',
-  Actual_position:'Nice',
+  Actual_position:'Berlin',
   price:'6230',
-  company: 'Air Hamburg')
+  company: 'Air Hamburg',
+  origin:'Allemagne',
+  YOM:'2010',
+  YOR:'-')
 
 Aircraft.create(Tail: 'FHAJV',
   Category: 'Light Jet',
@@ -29,7 +38,10 @@ Aircraft.create(Tail: 'FHAJV',
   Maxpax: '8',
   Actual_position:'Paris',
   price:'6345',
-  company: 'Valljet')
+  company: 'Valljet',
+  origin:'France',
+  YOM:'1990',
+  YOR:'2010')
 
 Aircraft.create(Tail: 'SPKCS',
   Category: 'Super Light Jet',
@@ -37,7 +49,10 @@ Aircraft.create(Tail: 'SPKCS',
   Maxpax: '8',
   Actual_position:'Nice',
   price:'8970',
-  company: 'Jet Story')
+  company: 'Jet Story',
+  origin:'Pologne',
+  YOM:'2006',
+  YOR:'2013')
 
 Aircraft.create(Tail: '9HBCP',
   Category: 'Super Light Jet',
@@ -45,73 +60,100 @@ Aircraft.create(Tail: '9HBCP',
   Maxpax: '8',
   Actual_position:'Paris',
   price:'9340',
-  company: 'Skyfirst')
+  company: 'Skyfirst',
+  origin:'France',
+  YOM:'2006',
+  YOR:'2015')
 
-Aircraft.create(Tail: 'OEGLF',
+  Aircraft.create(Tail: 'OEGLF',
   Category: 'Midsize Jet',
   Type: 'Gulfstream G150',
   Maxpax: '7',
   Actual_position:'Nice',
   price:'11300',
-  company: 'Avcon Jet')
+  company: 'Avcon Jet',
+  origin:'Autriche',
+  YOM:'2005',
+  YOR:'2013')
 
-Aircraft.create(Tail: 'CSDGR',
+  Aircraft.create(Tail: 'CSDGR',
   Category: 'Midsize Jet',
   Type: 'Cessna Citation VII',
   Maxpax: '9',
   Actual_position:'Paris',
   price:'12600',
-  company: 'Aerosur')
+  company: 'Airjetsul',
+  origin:'Portugal',
+  YOM:'1994',
+  YOR:'2018')
 
-Aircraft.create(Tail: 'FHADH',
+  Aircraft.create(Tail: 'FHADH',
   Category: 'Super Midsize Jet',
   Type: 'Dassault Falcon 50',
   Maxpax: '10',
   Actual_position:'Nice',
   price:'18300',
-  company: 'Masterjet')
+  company: 'Masterjet',
+  origin:'France',
+  YOM:'1979',
+  YOR:'2011')
 
-Aircraft.create(Tail: 'GKLAS',
+  Aircraft.create(Tail: 'GKLAS',
   Category: 'Super Midsize Jet',
   Type: 'BOMBARDIER Challenger 300',
   Maxpax: '9',
   Actual_position:'Paris', 
   price:'19100',
-  company: 'Avcon Jet')
+  company: 'Air Charter Scotland',
+  origin:'Ecosse',
+  YOM:'2003',
+  YOR:'-')
 
-Aircraft.create(Tail: '9HBOO',
+  Aircraft.create(Tail: '9HBOO',
   Category: 'Heavy Jet',
   Type: 'Bombardier Challenger 850',
   Maxpax: '15',
   Actual_position:'Nice',
   price:'20900',
-  company: 'Air X')
+  company: 'Air X',
+  origin:'Malte',
+  YOM:'2008',
+  YOR:'2017')
 
-Aircraft.create(Tail: 'OEIMZ',
+  Aircraft.create(Tail: 'OEIMZ',
   Category: 'Heavy Jet',
   Type: 'Gulsfstream G450',
   Maxpax: '16',
   Actual_position:'Paris',
   price:'22300',
-  company: 'TopJet')
+  company: 'TopJet',
+  origin:'Autriche',
+  YOM:'2011',
+  YOR:'-')
 
-Aircraft.create(Tail: 'OYCLS',
+  Aircraft.create(Tail: 'OYCLS',
   Category: 'Ultra Long Range Jet',
   Type: 'Dassault Falcon 7x',
   Maxpax: '14',
   Actual_position:'Nice',
   price:'23600',
-  company: 'Air Alsie')
+  company: 'Air Alsie',
+  origin:'Danemark',
+  YOM:'2017',
+  YOR:'-')
 
-Aircraft.create(Tail: '9HVJC',
+  Aircraft.create(Tail: '9HVJC',
   Category: 'Ultra Long Range Jet',
   Type: 'Bombardier Global 6000',
   Maxpax: '16',
   Actual_position:'Paris',
   price:'25780',
-  company: 'VistaJet')
+  company: 'VistaJet',
+  origin:'Malte',
+  YOM:'2014',
+  YOR:'-')
 
-Airport.create(Code: 'LFPB',
+  Airport.create(Code: 'LFPB',
   Name: 'Paris Le Bourget',
   City: 'Le Bourget',
   Country: 'FRANCE')

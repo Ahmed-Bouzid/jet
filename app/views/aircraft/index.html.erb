@@ -8,9 +8,11 @@
 					<th>Type d'avion</th>
 					<th>Nb passagers maximum</th>
 					<th>Année de fabrication (YOM)</th>
+					<th>Année de refurbish (YOR)</th>
+					<th>Nom compagnie</th>
+					<th>Pyas d'origine</th>
 					<th>Tps de vol</th>
 					<th>Position de l'avion</th>
-					<th>Compagnie</th>
 					<th>Prix</th>
 					<th></th>
 				</h3>
@@ -24,10 +26,12 @@
 				<td> <%= image_tag("#{plane.Tail}.jpg", width: 80, height: 60)%></td>
 				<td><%= plane.Type %></td>
 				<td><%= plane.Maxpax %></td>
-				<td>1999</td>
+				<td><%=plane.YOM%></td>
+				<td><%=plane.YOR%></td>
+				<td><%= plane.company %></td>
+				<td><%= plane.origin %></td>
 				<td>1 heure</td>
 				<td><%= plane.Actual_position %></td>
-				<td><%= plane.company %></td>
 				<td><%= plane.price %> €</td>
 				<td><a href="aircraft/<%= plane.id %>" class="btn btn-shadow btn-gradient btn-gradient-success mb-3 mr-3">Selectionner ce vol</a></td>
 			</h5>
