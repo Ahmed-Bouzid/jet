@@ -12,19 +12,25 @@
 					<ul class="navbar-nav  ml-auto">
 
 						<li class="nav-item"><a><%= link_to "Home", root_path, class: "nav-link active"  %></a></li>
-						<li class="nav-item"><a data-scroll class="nav-link" href="#vision"> Vision</a></li>
-						<li class="nav-item"><a><%= link_to "Nos avions", planes_path, class: "nav-link"  %></a></li>
-						<li class="nav-item"><a data-scroll class="nav-link" href="#services"> Contact</a></li>
+						<li class="nav-item"><a data-scroll class="nav-link" href="#vision">Vision</a></li>
+						<li class="nav-item"><a data-scroll class="nav-link" href="#comp">Nos Offres</a></li>
 						<% if user_signed_in? %>
+
 						<li class="nav-item"><a><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link"  %></a></li>
 						<% else %>
 						<li class="nav-item"><a><%= link_to "Log in", new_user_session_path, class: "nav-link"  %></a></li>
 						<li class="nav-item"><a><%= link_to "Sign up", new_user_registration_path, class: "nav-link"  %></a></li>
 						<% end %>
 						<li class="nav-item" style="margin-top: 0.5%;">
-							<a data-scroll class="nav-link btn btn-primary" href="#booking">Réservez un vol</a></li>
-						</ul>   
-					</div>
+							<a data-scroll class="nav-link btn btn-primary" href="#booking">Réservez un vol</a>
+						</li>
+						<% if user_signed_in? %>
+						<li class="nav-item" >
+							<a data-scroll class="nav-link" style="color: #db2e2e !important;">Connecté</a>
+						</li>
+						<% end %>
+					</ul>   
 				</div>
-			</nav>
-		</div>
+			</div>
+		</nav>
+	</div>

@@ -21,6 +21,7 @@
 //= require additional-methods.min
 //= require adaptive-backgrounds
 //= require jquery.form.min
+//= require appUi-custom
 //= require js/assan.custom
 //= require jquery-ui-custom.min
 //= require jquery.maskedinput

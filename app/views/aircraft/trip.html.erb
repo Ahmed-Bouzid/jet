@@ -17,18 +17,19 @@
 		<br>
 		<br>
 	</div>
+
 	<div style="margin-top: 15%; float: right; border-style: solid; padding: 10px">
 		<h5>
 			Recapitulatif de la commande : <br>
 		</h5>
 		<h6>
-			Vol : <%= @departure %> <br>
-			L'avion : <%= @aircraft_Type %> <br>
-			Prix compagnie : <%= @aircraft_price %>Euro <br>
-			Commission Stratton : <%= @commission %> Euro (5%) <br>
+			Vol : De <%= @arrival_city %> à <%= @departure_city %> <br>
+			L'avion : <%= @aircraft.aircraft_type %> <br>
+			Prix compagnie : <%= @aircraft.trip_cost_without_commission(@departure_city, @arrival_city, @number_of_passengers) %> € <br>
+			Commission Stratton : <%= @aircraft.trip_commission(@departure_city, @arrival_city, @number_of_passengers) %> € (5%) <br>
 			<br>
 
-			Total : <%= @total %> Euro
+			Total : <%= @aircraft.trip_cost_with_commission(@departure_city, @arrival_city, @number_of_passengers) %> €
 			<br>
 			<br>
 			<button type="button" class="btn btn-warning mb-2 mr-1" data-toggle="modal" data-target=".bd-example-modal-lg">Conditions de vente</button>
@@ -73,14 +74,14 @@
 						</div>
 					</div>
 				</h6>
-				<!-- BON BOUTON -->
+				<!-- BOUTON -->
 				<button type="button" class="btn btn-subtitle btn-shadow  btn-primary mb-3 mr-2" data-toggle="modal" data-target="#exampleModalCenter">
 					<h5>
 						Valider le paiement
 					</h5>
 					<span class="text-block">En cliquant vous acceptez les conditions <br> de vente</span>
 				</button>
-				<!-- MODAL DU BON BOUTON -->
+				<!-- MODAL DU BOUTON -->
 				<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
@@ -91,7 +92,7 @@
 								</button>
 							</div>
 							<div class="modal-body">
-								<%= form_tag charges_path(amount: @total) do %>
+								<%= form_tag charges_path(id: @aircraft.id) do %>
 								<article>
 									<% if flash[:error].present? %>
 									<div id="error_explanation">
@@ -99,14 +100,14 @@
 									</div>
 									<% end %>
 									<label class="amount">
-										<span>Amount: $ <%= @total %></span>
+										<span>Amount: <% @aircraft.trip_cost_with_commission(@departure_city, @arrival_city, @number_of_passengers) %>$ </span>
 									</label>
 								</article>
 
 								<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 								data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
 								data-description="Flight"
-								data-amount="<%= @total.to_i.round(2) * 100 %> "
+								data-amount="<%= @aircraft.trip_cost_with_commission(@departure_city, @arrival_city, @number_of_passengers).to_i.round(2) * 100 %> "
 								data-locale="auto"></script>
 								<% end %>
 							</div>
