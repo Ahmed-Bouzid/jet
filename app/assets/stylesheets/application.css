@@ -16,8 +16,11 @@
 *= require settings
 *= require css/style-restaurant
 *= require smart-forms
+*= require line-icons
+*= require fontawesome-all.min
 *= require plugins
 *= require style
+*= require main
 *= require_tree .
 *= require_self
 */

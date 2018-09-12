@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
+* {outline-width: 0;    font-family: 'Quicksand';}
+body {
+    background: #eee;
+}
+#compareTable {
+    width: 1000px;
+    margin: 30px auto;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2), 0 2px 5px rgba(0,0,0,0.1);
+}
+.header {
+    display: flex;
+    border-bottom: 1px solid #dedede;
+    .title {
+        flex: 10;
+        border-right: 1px solid #dedede;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        text-align: center;
+        img {
+            width: 75%;
+        }
+        h2 {
+            font-weight: 500;
+            margin: 0;
+        }
+        &:last-child {
+            border-right: none;
+        }
+        &.first {
+            flex: 8;
+        }
+    }
+}
+.row {
+    border-bottom: 1px solid #dedede;
+    display: flex;
+    &:nth-child(odd) {
+        background: #fbfbfb;
+    }
+    &:last-child {
+        border-bottom: none;
+    }
+    .column {
+        flex: 10;
+        padding: 20px 0;
+        border-right: 1px solid #dedede;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+            margin: 0;
+            font-weight: 500;
+        }
+        &:last-child {
+            border-right: none;
+        }
+        &.first {
+            flex: 8;
+            text-align: center;
+        }
+        .tick {
+            height: 30px;
+            width: 30px;
+            display: block;
+            border: 2px solid #66BB6A;
+            border-radius: 50%;
+            position: relative;
+            &:before {
+                content: "";
+                position: absolute;
+                width: 15px;
+                height: 2px;
+                background: #66BB6A;
+                top: 50%;
+                left: 59%;
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                width: 8px;
+                height: 2px;
+                background: #66BB6A;
+                top: 57%;
+                left: 35%;
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+        }
+        .cross {
+            width: 30px;
+            height: 30px;
+            display: block;
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            position: relative;
+            &:before, &:after {
+                content: "";
+                position: absolute;
+                width: 15px;
+                height: 2px;
+                top: 50%;
+                left: 50%;
+                background: #ccc;
+            }
+            &:before {
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+            &:after {
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+        }
+    }
+}
+@media only screen and (max-width: 1000px) {
+    #compareTable {
+        width: 90%;
+        .title {
+            font-size: 14px;
+        }
+        .column {
+            padding: 15px 0;
+        }
+    }
+}
+@media only screen and (max-width: 600px) {
+    .column, .title {
+        &.first {
+            flex: 15 !important;
+        }
+    }
+}

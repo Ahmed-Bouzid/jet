@@ -1,0 +1,47 @@
+<div style= "text-align: center; margin-top: 5%;">
+	<div class="bg-white table-responsive rounded shadow-sm mb-30">
+		<table id="data-table" class="table mb-0 table-striped" cellspacing="0" width="100%">
+			<h1>VOS RESULTATS</h1>
+			<tr>
+				<h3>
+					<th></th>
+					<th>Type d'avion</th>
+					<th>Nb passagers maximum</th>
+					<th>Année de fabrication (YOM)</th>
+					<th>Année de refurbish (YOR)</th>
+					<th>Nom compagnie</th>
+					<th>Pyas d'origine</th>
+					<th>Tps de vol</th>
+					<th>Position de l'avion</th>
+					<th>Prix</th>
+					<th></th>
+				</h3>
+			</tr>
+		</thead>
+		<% @aircrafts.each do |aircraft|%>
+		<tbody>
+			<tr><h5>
+				<td> <%= image_tag(aircraft.image_url, width: 80, height: 60)%></td>
+				<td><%= aircraft.aircraft_type %></td>
+				<td><%= aircraft.maxpax %></td>
+				<td><%=aircraft.yom%></td>
+				<td><%=aircraft.yor%></td>
+				<td><%= aircraft.company %></td>
+				<td><%= aircraft.origin %></td>
+				<td><%= Airport.time_between_airports(@departure_city, @arrival_city) %> minutes</td>
+				<td><%= aircraft.actual_position %></td>
+				<td><%= aircraft.trip_cost_without_commission(@departure_city, @arrival_city, @number_of_passengers) %> €</td>
+				<td>
+					<%= link_to trip_path(aircraft.id, departure_city: @departure_city, arrival_city: @arrival_city, number_of_passengers: @number_of_passengers), class: "btn btn-shadow btn-gradient btn-gradient-success mb-3 mr-3" do %> 
+						Sélectionner ce vol
+					<%end%>
+				</td>
+
+			</h5>
+		</tr>
+	</tbody>
+	<%end %>
+</table>
+</div>
+</div>
+
