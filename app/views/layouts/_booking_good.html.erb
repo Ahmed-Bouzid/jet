@@ -1,4 +1,4 @@
-<div class="pt100 pb70 parallax-overlay bg-parallax" data-jarallax="{&quot;speed&quot;: 0.4}" 
+<div class="pt100 pb70 parallax-overlay bg-parallax" data-jarallax="{&quot;speed&quot;: 0.4}"
 style="background-image: none; z-index: 0; background-attachment: scroll; background-size: auto;"
 id= "booking" >
 <div class="container">
@@ -12,21 +12,21 @@ id= "booking" >
 			<div class="row">
 
 
-				
-				<div style= "color: black; margin-left: 3.5%; font-weight: bold;" class="form-group">
+
+				<div style= "color: white; margin-left: 3.5%; font-weight: bold;" class="form-group">
 					<%= label_tag :departure_city, "De :"  %>
 					<%= select_tag :departure_city, options_for_select(Airport.all_airports_city_code_array), class: 'form-control', style: 'width: 205px; height: 50px' %>
 				</div>
-				<div class="form-group" style= "color: black; margin-left: 3.5%; font-weight: bold;">
+				<div class="form-group" style= "color: white; margin-left: 3.5%; font-weight: bold;">
 					<%= label_tag :arrival_city, "À :" %>
 					<%= select_tag :arrival_city, options_for_select(Airport.all_airports_city_code_array), class: 'form-control', style: 'width: 205px; height: 50px' %>
 				</div>
 
-				<div class="form-group" style= "color: black; margin-left: 3.5%; font-weight: bold;">
+				<div class="form-group" style= "color: white; margin-left: 3.5%; font-weight: bold;">
 					<%= label_tag :departure_date, "Départ :" %>
-					<%= text_field_tag :departure_date, nil, placeholder: "mm/dd/yyyy", id: "checkin", class: 'form-control form-control-lg datepicker' %> 
+					<%= text_field_tag :departure_date, nil, placeholder: "mm/dd/yyyy", id: "checkin", class: 'form-control form-control-lg datepicker' %>
 				</div>
-				<div class="form-group" style= "color: black; margin-left: 3.5%; font-weight: bold;">
+				<div class="form-group" style= "color: white; margin-left: 3.5%; font-weight: bold;">
 					<%= label_tag :number_of_passengers, "Passager(s) :" %>
 					<%= text_field_tag :number_of_passengers, nil, placeholder: 'Beetween 1-16 persons', class: 'form-control' %>
 					<br>
@@ -35,7 +35,7 @@ id= "booking" >
 					<%= submit_tag "Rechercher", class: "btn btn-primary" %>
 				</div>
 			</div>
-			<% end %>  
+			<% end %>
 		</div>
 	</div>
 </div>
