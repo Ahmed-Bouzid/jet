@@ -5,7 +5,7 @@ id= "booking" >
 	<div class="row newsletter-row">
 		<div class="col-lg-10 mr-auto m-auto mb30 text-center">
 			<div class="center-title mb60 text-center">
-				<h2 class="text-white">Choose your flight</h2>
+				<h2 class="text-white">Votre réservation</h2>
 				<p class="text-white-gray"></p>
 			</div>
 			<%= form_tag search_results_path do%>
@@ -13,21 +13,21 @@ id= "booking" >
 
 
 				
-				<div class="form-group" style="margin-left: 3.5%,">
-					<%= label_tag "De", :departure_city %>
+				<div style= "color: black; margin-left: 3.5%; font-weight: bold;" class="form-group">
+					<%= label_tag :departure_city, "De :"  %>
 					<%= select_tag :departure_city, options_for_select(Airport.all_airports_city_code_array), class: 'form-control', style: 'width: 205px; height: 50px' %>
 				</div>
-				<div class="form-group" style="margin-left: 3.5%">
-					<%= label_tag "A", :arrival_city %>
+				<div class="form-group" style= "color: black; margin-left: 3.5%; font-weight: bold;">
+					<%= label_tag :arrival_city, "À :" %>
 					<%= select_tag :arrival_city, options_for_select(Airport.all_airports_city_code_array), class: 'form-control', style: 'width: 205px; height: 50px' %>
 				</div>
 
-				<div class="form-group" style="margin-left: 3.5%">
-					<%= label_tag "depart", :departure_date %>
+				<div class="form-group" style= "color: black; margin-left: 3.5%; font-weight: bold;">
+					<%= label_tag :departure_date, "Départ :" %>
 					<%= text_field_tag :departure_date, nil, placeholder: "mm/dd/yyyy", id: "checkin", class: 'form-control form-control-lg datepicker' %> 
 				</div>
-				<div class="form-group" style="margin-left: 3.5%">
-					<%= label_tag "nb", :number_of_passengers %>
+				<div class="form-group" style= "color: black; margin-left: 3.5%; font-weight: bold;">
+					<%= label_tag :number_of_passengers, "Passager(s) :" %>
 					<%= text_field_tag :number_of_passengers, nil, placeholder: 'Beetween 1-16 persons', class: 'form-control' %>
 					<br>
 				</div>
