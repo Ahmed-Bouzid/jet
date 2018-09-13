@@ -7,8 +7,8 @@
 					<th></th>
 					<th>Type d'avion</th>
 					<th>Nb passagers maximum</th>
-					<th>Année de fabrication (YOM)</th>
-					<th>Année de refurbish (YOR)</th>
+					<th>Année de fabrication</th>
+					<th>Année de refurbish</th>
 					<th>Nom compagnie</th>
 					<th>Pyas d'origine</th>
 					<th>Tps de vol</th>
@@ -30,7 +30,7 @@
 				<td><%= aircraft.origin %></td>
 				<td><%= Airport.time_between_airports(@departure_city, @arrival_city) %> minutes</td>
 				<td><%= aircraft.actual_position %></td>
-				<td><%= aircraft.trip_cost_without_commission(@departure_city, @arrival_city, @number_of_passengers) %> €</td>
+				<td><%= aircraft.trip_cost_without_commission(@departure_city, @arrival_city, @number_of_passengers) %>€</td>
 				<td>
 					<%= link_to trip_path(aircraft.id, departure_city: @departure_city, arrival_city: @arrival_city, number_of_passengers: @number_of_passengers), class: "btn btn-shadow btn-gradient btn-gradient-success mb-3 mr-3" do %>
 						Sélectionner cet avion

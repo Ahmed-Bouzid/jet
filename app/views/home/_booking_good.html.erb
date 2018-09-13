@@ -10,13 +10,6 @@ id= "booking" >
 			</div>
 			<%= form_tag search_results_path do%>
 			<div class="row">
-
-
-<<<<<<< HEAD:app/views/home/_booking_good.html.erb
-				
-=======
-
->>>>>>> 73cd61ffcec97cae7535268b8ecbf348d09fe9b1:app/views/layouts/_booking_good.html.erb
 				<div style= "color: white; margin-left: 3.5%; font-weight: bold;" class="form-group">
 					<%= label_tag :departure_city, "De :"  %>
 					<%= select_tag :departure_city, options_for_select(Airport.all_airports_city_code_array), class: 'form-control', style: 'width: 205px; height: 50px' %>

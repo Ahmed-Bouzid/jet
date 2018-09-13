@@ -18,15 +18,9 @@
 				</h3>
 			</tr>
 		</thead>
-		<%@aircrafts.each do |aircraft|%>
+			<%@aircrafts.each do |aircraft|%>
 		<tbody>
 			<tr><h5>
-<<<<<<< HEAD
-				<td><%= image_tag("#{plane.Tail}.jpg", width: 80, height: 60)%></td>
-				<td><%= plane.Type %></td>
-				<td><%= plane.Maxpax %></td>
-				<td>1999</td>
-=======
 				<td> <%= image_tag("#{aircraft.tail}.jpg", width: 80, height: 60)%></td>
 				<td><%= aircraft.aircraft_type %></td>
 				<td><%= aircraft.maxpax %></td>
@@ -34,15 +28,10 @@
 				<td><%=aircraft.yor%></td>
 				<td><%= aircraft.company %></td>
 				<td><%= aircraft.origin %></td>
->>>>>>> ab53e3376e7c4433767a75a1db8f10e44daa9f8c
 				<td>1 heure</td>
 				<td><%= aircraft.actual_position %></td>
 				<td><%= aircraft.price %> €</td>
-<<<<<<< HEAD
-				<td><a href="aircraft/<%= aircraft.id %>" class="btn btn-shadow btn-gradient btn-gradient-success mb-3 mr-3">Selectionner cet avion </a></td>
-=======
 				<td><a href="aircraft/<%= aircraft.id %>" class="btn btn-shadow btn-gradient btn-gradient-success mb-3 mr-3">Selectionner cet avion</a></td>
->>>>>>> 73cd61ffcec97cae7535268b8ecbf348d09fe9b1
 			</h5>
 		</tr>
 	</tbody>
