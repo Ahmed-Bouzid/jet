@@ -1,4 +1,4 @@
-<div class="pt100 pb70 parallax-overlay bg-parallax" data-jarallax="{&quot;speed&quot;: 0.4}" 
+<div class="pt100 pb70 parallax-overlay bg-parallax" data-jarallax="{&quot;speed&quot;: 0.4}"
 style="background-image: none; z-index: 0; background-attachment: scroll; background-size: auto;"
 id= "booking" >
 <div class="container">
@@ -12,7 +12,11 @@ id= "booking" >
 			<div class="row">
 
 
+<<<<<<< HEAD:app/views/home/_booking_good.html.erb
 				
+=======
+
+>>>>>>> 73cd61ffcec97cae7535268b8ecbf348d09fe9b1:app/views/layouts/_booking_good.html.erb
 				<div style= "color: white; margin-left: 3.5%; font-weight: bold;" class="form-group">
 					<%= label_tag :departure_city, "De :"  %>
 					<%= select_tag :departure_city, options_for_select(Airport.all_airports_city_code_array), class: 'form-control', style: 'width: 205px; height: 50px' %>
@@ -24,7 +28,7 @@ id= "booking" >
 
 				<div class="form-group" style= "color: white; margin-left: 3.5%; font-weight: bold;">
 					<%= label_tag :departure_date, "Départ :" %>
-					<%= text_field_tag :departure_date, nil, placeholder: "mm/dd/yyyy", id: "checkin", class: 'form-control form-control-lg datepicker' %> 
+					<%= text_field_tag :departure_date, nil, placeholder: "mm/dd/yyyy", id: "checkin", class: 'form-control form-control-lg datepicker' %>
 				</div>
 				<div class="form-group" style= "color: white; margin-left: 3.5%; font-weight: bold;">
 					<%= label_tag :number_of_passengers, "Passager(s) :" %>
@@ -35,7 +39,7 @@ id= "booking" >
 					<%= submit_tag "Rechercher", class: "btn btn-primary" %>
 				</div>
 			</div>
-			<% end %>  
+			<% end %>
 		</div>
 	</div>
 </div>
