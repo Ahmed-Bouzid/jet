@@ -9,12 +9,10 @@ Rails.application.routes.draw do
 	resources :aircraft
 
 	post "/recherche-de-vol", to: "aircraft#search_results", as: :search_results
-	#get "/mon-vol/:aircraft_id/:departure_city/:arrival_city/:number_of_passengers", to: "aircraft#trip", as: :trip
 	get "/mon-vol/:id", to: "aircraft#trip", as: :trip
 	
 	get "/aircrafts", to: 'aircraft#index'
 	get "/aircraft/:id", to: 'aircraft#show'
 	get "/planes", to: 'planes#index'
-	#get "/paiement", to: 'charges#new'
 
 end
