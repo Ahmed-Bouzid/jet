@@ -18,7 +18,7 @@
 				</h3>
 			</tr>
 		</thead>
-		<%@aircrafts.each do |aircraft|%>
+			<%@aircrafts.each do |aircraft|%>
 		<tbody>
 			<tr><h5>
 				<td> <%= image_tag("#{aircraft.tail}.jpg", width: 80, height: 60)%></td>
@@ -31,7 +31,7 @@
 				<td>1 heure</td>
 				<td><%= aircraft.actual_position %></td>
 				<td><%= aircraft.price %> €</td>
-				<td><a href="aircraft/<%= aircraft.id %>" class="btn btn-shadow btn-gradient btn-gradient-success mb-3 mr-3">Selectionner ce vol</a></td>
+				<td><a href="aircraft/<%= aircraft.id %>" class="btn btn-shadow btn-gradient btn-gradient-success mb-3 mr-3">Selectionner cet avion</a></td>
 			</h5>
 		</tr>
 	</tbody>
@@ -39,4 +39,3 @@
 </table>
 </div>
 </div>
-
