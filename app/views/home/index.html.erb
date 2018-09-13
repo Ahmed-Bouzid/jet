@@ -1,5 +1,11 @@
 <header class="header-main header-transparent">
 	<%= render 'home/navbar' %>
+<% if flash[:notice] %>
+    <div class="notice"><h2><%= flash[:notice] %></h2></div>
+  <% end %>
+
+  
+
 </header>
 
 <%= render 'home/slider_revolution' %>

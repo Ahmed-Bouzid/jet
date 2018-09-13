@@ -1,24 +1,31 @@
 class ChargesController < ApplicationController
 
-  def new
+  def new 
   end
 
   def create
-  # Amount in cents
+    aircraft = Aircraft.find(params[:aircraft_id])
 
-  customer = Stripe::Customer.create(
-    :email => params[:stripeEmail],
-    :source  => params[:stripeToken]
-    )
-  charge = Stripe::Charge.create(
-    :customer    => customer.id,
-    :amount      => 5000,
-    :description => 'Rails Stripe customer',
-    :currency    => 'eur'
-    )
+    @amount = aircraft.trip_cost_with_commission(params[:departure_city], params[:arrival_city], params[:number_of_passengers]).to_i * 100
+    # Amount in cents
 
-rescue Stripe::CardError => e
-  flash[:error] = e.message
-  redirect_to aircraft_path
-end
+    customer = Stripe::Customer.create(
+      :email => params[:stripeEmail],
+      :source  => params[:stripeToken]
+      )
+    charge = Stripe::Charge.create(
+      :customer    => customer.id,
+      :amount      => @amount,
+      :description => 'Rails Stripe customer',
+      :currency    => 'eur'
+      )
+
+    redirect_to root_path, notice: "Votre paiement a ete pris en compte"
+
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to aircraft_path
+  end
+
+
 end
