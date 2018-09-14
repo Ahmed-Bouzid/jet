@@ -22,8 +22,17 @@
 
 
 
+<% if user_signed_in? %>
 
 <%= render 'home/booking_good' %>
+
+<% else %>
+
+<%= render 'home/booking_alt' %>
+
+<% end %>
+
+
 
 <%= render 'home/text_window' %>
 
