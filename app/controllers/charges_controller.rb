@@ -58,7 +58,7 @@ class ChargesController < ApplicationController
 
 
   def send_sms(numero, nom)
-   client = Nexmo::Client.new(api_key: '3442d6bd', api_secret: 'aTY7YWJjGGnOgcQo')
+   client = Nexmo::Client.new(api_key: ENV['NEXMO_KEY'], api_secret: ENV['NEXMO_SECRET_KEY'])
 
    response = client.sms.send(from: 'Stratton', to: "#{numero}", 
     text: "Bonjour #{nom}, votre reservation sur Stratton a bien été prise en compte")
