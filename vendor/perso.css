@@ -1,3 +1,74 @@
+.newyork
+{
+	margin-left: -15%; 
+	height: 75%;
+	width: 129.2% ;
+}
+
+.container_bis {
+	position: relative;
+	text-align: center;
+	color: white;
+	font-size: 600%;
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@media (min-width:576px) {
+  .container_bis {
+    max-width: 540px;
+  }
+}
+
+@media (min-width:768px) {
+  .container_bis {
+    max-width: 720px;
+  }
+}
+
+@media (min-width:992px) {
+  .container_bis {
+    max-width: 960px;
+  }
+}
+
+@media (min-width:1200px) {
+  .container_bis {
+    max-width: 1140px;
+  }
+}
+
+/* Centered text */
+.centered {
+	position: absolute;
+	top: 40%;
+	left: 10%;
+	transform: translate(-10%, 10%);
+}
+.centered2 {
+	position: absolute;
+	top: 50%;
+	left: 9.7%;
+	transform: translate(-10%, 10%);
+}
+.centered3 {
+	position: absolute;
+	top: 60%;
+	left: 4.4%;
+	transform: translate(-10%, 10%);
+	font-size: 25%;
+}
+#centered3 {
+	position: absolute;
+	top: 70%;
+	left: 4.4%;
+	transform: translate(-10%, 10%);
+	font-size: 25%;
+}
+
 #services
 {
 	background-color: white;
@@ -12,6 +83,8 @@
 {
 	background-color: white;
 }
+
+
 
 #black
 {

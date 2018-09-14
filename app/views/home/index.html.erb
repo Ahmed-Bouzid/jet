@@ -1,14 +1,27 @@
 <header class="header-main header-transparent">
 	<%= render 'home/navbar' %>
-<% if flash[:notice] %>
-    <div class="notice"><h2><%= flash[:notice] %></h2></div>
-  <% end %>
+	<% if flash[:notice] %>
+	<div class="notice"><h2><%= flash[:notice] %></h2></div>
+	<% end %>
 
-  
+
 
 </header>
 
-<%= render 'home/slider_revolution' %>
+
+<div class="container_bis">
+  <%= image_tag "newyork_sombre3.jpg", class: "newyork"%> 
+  <div class="centered">Reservez Votre Jet Privé</div>
+  <div class="centered2">En Toute Transparence</div>
+  <div class="centered3">Commission fixe de 5%</div>
+  <div><a href="#comp" id="centered3" class="btn btn-xl btn-primary">Pourquoi Stratton</a></div> 
+
+</div>
+
+
+
+
+
 
 <%= render 'home/booking_good' %>
 
