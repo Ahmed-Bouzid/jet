@@ -9,7 +9,7 @@ gem 'stripe'
 gem 'mailjet'
 gem 'nexmo', '~> 5.3'
 gem 'stripe'
-gem 'dotenv-rails'
+gem 'gmail'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -96,14 +96,18 @@
 							</div>
 							<% end %>
 							<label class="amount">
-								<span>Amount: <%= @aircraft.trip_cost_with_commission(@departure_city, @arrival_city, @number_of_passengers) %>$ </span>
+								<span>Amount: <%= @aircraft.trip_cost_with_commission(@departure_city, @arrival_city, @number_of_passengers) %>€</span>
 							</label>
 						</article>
 						<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 						data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
 						data-description="Flight"
 						data-amount="<%= @aircraft.trip_cost_with_commission(@departure_city, @arrival_city, @number_of_passengers).to_i * 100 %> "
-						data-locale="auto"></script>
+						data-locale="auto"
+						data-currency="EUR">
+							
+
+						</script>
 						<% end %>
 					</div>
 				</div>
