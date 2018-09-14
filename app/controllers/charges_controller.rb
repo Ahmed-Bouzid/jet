@@ -36,7 +36,7 @@ class ChargesController < ApplicationController
 
 
     send_mail(@user_email)
-    redirect_to root_path, notice: "Votre paiement a ete pris en compte"
+    redirect_to root_path, notice: "Votre paiement a bien ete pris en compte"
 
   rescue Stripe::CardError => e
     flash[:error] = e.message
