@@ -1,3 +1,5 @@
+require 'gmail'
+require 'dotenv'
 
 class ChargesController < ApplicationController
 
