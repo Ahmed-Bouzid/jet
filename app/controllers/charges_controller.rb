@@ -32,7 +32,7 @@ class ChargesController < ApplicationController
       )
 
     send_mail(@user_email, @user_name, @departure_city, @arrival_city, @number_of_passengers)
-    send_sms(@user_phone, @user_name)
+    
     redirect_to root_path, notice: "Votre paiement a bien ete pris en compte"
 
   rescue Stripe::CardError => e
@@ -57,18 +57,10 @@ class ChargesController < ApplicationController
   end
 
 
-  def send_sms(numero, nom)
-   client = Nexmo::Client.new(api_key: ENV['NEXMO_KEY'], api_secret: ENV['NEXMO_SECRET_KEY'])
+  
 
-   response = client.sms.send(from: 'Stratton', to: "#{numero}", 
-    text: "Bonjour #{nom}, votre reservation sur Stratton a bien été prise en compte")
-   if response.messages.first.status == '0'
-    puts "Sent message id=#{response.messages.first.message_id}"
-  else
-    puts "Error: #{response.messages.first.error_text}"
-  end
+  
 
-end
 end
 
 
