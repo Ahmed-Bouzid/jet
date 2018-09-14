@@ -1,5 +1,5 @@
 require 'gmail'
-require 'dotenv'
+
 
 class ChargesController < ApplicationController
 
@@ -40,7 +40,23 @@ class ChargesController < ApplicationController
   end
 
 
+def send_mail(adresse)
 
+    gmail = Gmail.connect(ENV['ADRESSE'],ENV['MDP'])
+    email = gmail.compose do
+      to adresse
+    subject "Reservation de Jet privé"
+      body "Bonjour #{@user_name},
+
+      Vous venez de reserver un Jet privé avec Stratton.
+      Notre equipe prend en charge votre vol et vous enverra tres bientot un flight-brief.
+      
+      John Smith, General Manager"
+    end
+    email.deliver!
+
+
+  end
 end
 
 
