@@ -1,15 +1,5 @@
-require 'gmail'
-require 'dotenv'
-require 'rubygems'
-require 'json'
-Dotenv.load
 
 class ChargesController < ApplicationController
-
-
-  #permet d'envoyer des emails confirmant la reservation.
-  
-
 
   def new 
   end
