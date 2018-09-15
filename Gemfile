@@ -10,6 +10,8 @@ gem 'mailjet'
 gem 'nexmo', '~> 5.3'
 gem 'stripe'
 gem 'gmail'
+gem 'flash'
+gem 'twilio-ruby' 
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

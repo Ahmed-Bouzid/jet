@@ -1,4 +1,5 @@
 require 'gmail'
+require 'twilio-ruby'
 
 
 class ChargesController < ApplicationController
@@ -32,11 +33,12 @@ class ChargesController < ApplicationController
       )
 
     send_mail(@user_email, @user_name, @departure_city, @arrival_city, @number_of_passengers)
+    sens_sms(@user_phone)
     
-    redirect_to root_path, notice: "Votre paiement a bien ete pris en compte"
-
+    
+    redirect_to root_path, notice: "Paiement accepté"
   rescue Stripe::CardError => e
-    flash[:error] = e.message
+    flash.now[:error] = e.message
     redirect_to aircraft_path
   end
 
@@ -57,9 +59,16 @@ class ChargesController < ApplicationController
   end
 
 
-  
+  def sens_sms(phone)
 
-  
+    @client = Twilio::REST::Client.new(ENV['twilio_key'],ENV['twilio_secret']) 
+    message = @client.messages.create( 
+      :body => "[NE PAS REPONDRE] Reservation effectuée, paiement accepté. Vous recevrez un mail recapitulatif d'ici quelques minutes", 
+      from: '+33755537209',       
+      to: "#{phone}" 
+      ) 
+
+  end
 
 end
 
