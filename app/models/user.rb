@@ -18,9 +18,25 @@
 
 class User < ApplicationRecord
 
+
+	def transform(value)
+		if value.size != 10 
+			if value.size <= 10
+				a = 10 - value.size
+				value = value + ("0" * a)
+				puts value
+			else
+				value = value.slice(1..10)
+			end
+		end
+		return value
+	end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
+
+  before_save { self.phone = transform(self.phone) }
 
 end
