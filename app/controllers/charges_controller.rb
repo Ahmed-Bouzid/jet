@@ -64,9 +64,7 @@ class ChargesController < ApplicationController
     @client = Twilio::REST::Client.new(ENV['twilio_key'],ENV['twilio_secret']) 
     message = @client.messages.create( 
       :body => "[NE PAS REPONDRE] Reservation effectuée, paiement accepté. Vous recevrez un mail recapitulatif d'ici quelques minutes", 
-      from: '+33755537209',       
-      to: "#{phone}" 
-      ) 
+      from: '+33755537209', to: "#{phone}") 
 
   end
 
