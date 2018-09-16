@@ -1,20 +1,11 @@
 # Projet final THP : Stratton, où comment disrupter le secteur de la location de jets privés
 
 
-* Auteur et copyright : 
-
-
-
-
-
-![bandeau esprit d'équipe](https://zupimages.net/viewer.php?id=18/37/id4e.png)
-
 ## 📋 Récap :
 
 Application web Stratton, courtier aérien 2.0, qui souhaite revolutionner le systeme de location des jets privés servant au transport des personnes riches, en proposant un service 100% basé sur la transparence.  Une interface User avec une API exclusive de recherche de Jet priveé exclusive aux membres. 
 
 La version V1 production est en ligne. La V2 est en cours developpement.
-
 
 ## 🚀 Lien Heroku :
 
