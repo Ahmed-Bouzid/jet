@@ -21,19 +21,16 @@
 
 Application web Stratton, courtier aérien 2.0, qui souhaite revolutionner le systeme de location des jets privés servant au transport des personnes riches, en proposant un service 100% basé sur la transparence :
 
-* **Deux scrappings de l'espace**
-* **Une programmation d'envoi mail sur les résultats scrappings**
-* **Une super landing page**
-* **Un super service mailer avec MailChimp**
-* **Des supers opérations marketing:**
-* **Inscription à une newsletter envoyée toutes les 2 semaines grace à Heroku Scheduler**
-* **Bot twitter grace aux scrappings initiaux**
 
 ## 🚀 Lien Heroku :
 
 http://jet-production.herokuapp.com/
 
 Made with ❤️ and 💦
+
+## 📺 Lien Youtube : 
+
+https://www.youtube.com/watch?v=xD-N5vPLdwA&feature=youtu.be
 
 ## 🖥 Localement :
 
@@ -59,13 +56,11 @@ Made with ❤️ and 💦
 
 ## 🎯 Les targets :
 
-Les personnes sont 
+Les usagers de jets privés
 
 ## 📰 Nos Pages :
 
-Une seule et belle **landing_page** (mais nous ne sommes que 3 dans l'équipe, un peu d'indulgence 🤗 )
-
-Mais une **deuxièmre page** dédiée à l'inscription à la Newsletter ! 😲
+Une seule et belle **landing_page** accompagnée d'un mock API
 
 
 ## 📈 Notre marketing :
