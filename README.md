@@ -15,7 +15,7 @@
 
 
 
-![bandeau esprit d'équipe](http://zupimages.net/viewer.php?id=18/37/id4e.png)
+![bandeau esprit d'équipe](https://zupimages.net/viewer.php?id=18/37/id4e.png)
 
 ## 📋 Récap :
 
