@@ -8,20 +8,18 @@
 
 * État du projet : La version V1 production est en ligne. La V2 est en cours developpement.
 
-* Rapide description : Application web Stratton, courtier aérien 2.0, qui souhaite revolutionner le systeme de location des jets privés servant au transport des personnes riches, en proposant un service 100% basé sur la transparence.
+* Rapide description : 
 
 * Une interface User avec une API exclusive de recherche de Jet priveé exclusive aux membres.
 
 
-Il était une fois... 📖
 
-Mathilde  🐳, Gaëlle 🐞, Thomas 🐰 et THP 
 
-![bandeau esprit d'équipe](https://zupimages.net/up/18/33/8gvk.png)
+![bandeau esprit d'équipe](http://zupimages.net/viewer.php?id=18/37/id4e.png)
 
 ## 📋 Récap :
 
-Ce projet est la version en production du projet des Landings Pages & Growth Hacking. Un site qui regroupe tous les composants que nous avons codé :
+Application web Stratton, courtier aérien 2.0, qui souhaite revolutionner le systeme de location des jets privés servant au transport des personnes riches, en proposant un service 100% basé sur la transparence :
 
 * **Deux scrappings de l'espace**
 * **Une programmation d'envoi mail sur les résultats scrappings**
@@ -33,7 +31,7 @@ Ce projet est la version en production du projet des Landings Pages & Growth Hac
 
 ## 🚀 Lien Heroku :
 
-https://the-hacking-project-2018.herokuapp.com/
+http://jet-production.herokuapp.com/
 
 Made with ❤️ and 💦
 
@@ -61,13 +59,7 @@ Made with ❤️ and 💦
 
 ## 🎯 Les targets :
 
-* **Association des Elèves et des Anciens Elèves de l'INP**
-
-Pour cette target, THP peut être intéressant pour présenter leur travail de rénovation
-
-* **Ecole de l’innovation technologique, ESIEE**
-
-Forcément avec un blaze pareil, si tu ne sais pas coder, tu n’es pas dans le gamzer !
+Les personnes sont 
 
 ## 📰 Nos Pages :
 
