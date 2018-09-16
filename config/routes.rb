@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 	get "/aircrafts", to: 'aircraft#index'
 	get "/aircraft/:id", to: 'aircraft#show'
 	get "/planes", to: 'planes#index'
+
 end

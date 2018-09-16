@@ -15763,7 +15763,7 @@ img.mfp-img {
   top: 50%;
   margin-left: -40px;
   margin-top: -40px;
-  background: url("../../../../bower_components/owl.carousel/dist/assets/owl.video.play.html") no-repeat;
+  background: url("../bower_components/owl.carousel/dist/assets/owl.video.play.html") no-repeat;
   cursor: pointer;
   z-index: 1;
   -webkit-backface-visibility: hidden;

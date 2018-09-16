@@ -1,0 +1,41 @@
+<div class="pt100 pb70 parallax-overlay bg-parallax" data-jarallax="{&quot;speed&quot;: 0.4}" id= "booking" >
+<div class="container">
+	<div class="row newsletter-row">
+		<div class="col-lg-10 mr-auto m-auto mb30 text-center">
+			<div class="center-title mb60 text-center">
+				<h2 class="text-white">Votre réservation</h2>
+				<p class="text-white-gray"></p>
+			</div>
+			<%= form_tag search_results_path do%>
+			<div class="row">
+				<div id="book_tag" class="form-group">
+					<%= label_tag :departure_city, "De :"  %>
+					<%= select_tag :departure_city, options_for_select(Airport.all_airports_city_code_array), class: 'form-control', id: 'select_tag' %>
+				</div>
+				<div class="form-group" id="book_tag">
+					<%= label_tag :arrival_city, "À :" %>
+					<%= select_tag :arrival_city, options_for_select(Airport.all_airports_city_code_array), class: 'form-control', id: 'select_tag' %>
+				</div>
+
+				<div class="form-group" id="book_tag">
+					<%= label_tag :departure_date, "Départ :" %>
+					<%= text_field_tag :departure_date, nil, placeholder: "mm/dd/yyyy", id: "checkin", class: 'form-control form-control-lg datepicker' %>
+				</div>
+				<div class="form-group" id="book_tag">
+					<%= label_tag :number_of_passengers, "Passager(s) :" %>
+					<%= text_field_tag :number_of_passengers, nil, placeholder: 'Beetween 1-16 persons', class: 'form-control' %>
+					<br>
+				</div>
+				<div class="search" style="margin-left: 42%">
+					<%= submit_tag "Rechercher", class: "btn btn-primary" %>
+				</div>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+</div>
+<div id="jarallax-container-3">
+	<div id="jarallax-container-3-bis" style="background-image: url('<%= asset_path 'travel.jpg' %>');">
+	</div>
+</div>

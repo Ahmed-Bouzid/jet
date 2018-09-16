@@ -1,30 +1,26 @@
 <header class="header-main header-transparent">
-	<%= render 'layouts/navbar' %>
+	<%= render 'home/navbar' %>
+<% if flash[:notice] %>
+    <div class="notice"><h2><%= flash[:notice] %></h2></div>
+  <% end %>
+
+  
+
 </header>
 
+<%= render 'home/slider_revolution' %>
 
+<%= render 'home/booking_good' %>
 
+<%= render 'home/text_window' %>
 
-<%= render 'layouts/slider_revolution' %>
+<%= render 'home/comparatif' %>
 
-<%= render 'layouts/booking_good' %>
+<%= render 'home/nos_services' %>
 
-<%= render 'layouts/slider_revolution' %>
+<%= render 'home/caroussel' %>
 
-<%= render 'layouts/text_window' %>
-
-
-<%= render 'layouts/comparatif' %>
-<%= render 'layouts/nos_services' %>
-
-
-
-<%= render 'layouts/caroussel' %>
-
-<%= render 'layouts/promise' %>
-
-
-
+<%= render 'home/promise' %>
 
 <footer style="background-color: black;">
 	<%= render 'home/footer' %>
