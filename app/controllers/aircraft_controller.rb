@@ -28,6 +28,7 @@ class AircraftController < ApplicationController
 		@departure_city = params[:departure_city]
 		@arrival_city = params[:arrival_city]
 		@number_of_passengers = params[:number_of_passengers]
+		@date = params[:departure_date]
 	end
 
 end

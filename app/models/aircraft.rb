@@ -52,5 +52,7 @@ class Aircraft < ApplicationRecord
 		self.trip_cost_with_commission(departure_city, arrival_city, number_of_passengers) - self.trip_cost_without_commission(departure_city, arrival_city, number_of_passengers)
 	end
 
+	
+
 
 end

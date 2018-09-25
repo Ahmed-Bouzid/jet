@@ -1,10 +1,101 @@
-<div class="center jumbotron">
-
-	<tr>Bonjour <%= @user.first_name %> <%= @user.last_name %></tr> 
+<div class="center jumbotron", style="margin-top: 3%">
+	<div class="col-lg-3 col-md-6 mb-30" style="float: left;">
+		<div class="bg-white shadow-sm rounded overflow-hidden">
+			<h5 class="text-center text-dark pt-15"><%= @user.first_name %> <%= @user.last_name %></h5>
+			<div class="clearifx row no-margin pt-3 pb-3">
+				<a class="col-4 text-center">
+					<i class="icon-Plane"></i><br>
+					<span class="pt-1 text-dark text-muted fs-1x text-primary">39</span><br>
+					<span class="pt-1 fs12">Vols</span>
+				</a>
+				<a class="col-4 b-r b-l text-center">
+					<i class="fa fa-history"></i><br>
+					<span class="pt-1 text-dark text-muted fs-1x text-primary">30</span><br>
+					<span class="pt-1 fs12">Heures de vol</span>
+				</a>
+				<a class="col-4 text-center">
+					<i class="icon-Speaker fs-1x"></i><br>
+					<span class="pt-1 text-dark text-muted fs-1x text-primary"> 5K</span><br>
+					<span class="pt-1 fs12">Pays</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div style="float: left;">
+		<tr>Ton email : <%= @user.email %> </tr> 
+		<br>
+		<tr>Ton numero : <%= @user.phone %></tr> 
+		<br>
+		<tr><%= link_to "Edit", edit_user_registration_path %> </tr> 
+	</div>
 	<br>
-	<tr>Ton email: <%= @user.email %> </tr> 
 	<br>
-	<tr>Ton numero 0<%= @user.phone %></tr> 
-
+	<br>
+	<br>
+	<br>
 </div>
+
+
+<div>
+	<h2>Liste de vos vols passés</h2>	
+	<table class="table mb-0 table-striped" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th>Reservation faite le</th>
+				<th>Vol prevu le</th>
+				<th>Au depart de</th>
+				<th>Arrivée à</th>
+				<th>Nombre de passager</th>
+				<th>Cout total du vol</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<% @user.user_flights.each do |flights| %>
+				<td><%= flights.created_at.strftime("%d/%m/%Y")  %></td>
+				<td><%= flights.date_departure.strftime("%d/%m/%Y")  %></td>
+				<td><%= flights.place_departure  %></td>
+				<td><%= flights.place_arrival %></td>
+				<td><%= flights.number_of_people %></td>
+				<td><%= flights.flight_price.to_i%>€</td>
+				<% if flights.date_departure <= Date.today %> 
+				<td>effectué</td>
+				<% else %> 
+				<td>à venir</td>
+				<% end %> 
+
+			</tr>
+			<%end%>
+			<tr>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th>Cout total des vols</th>
+				<th></th>
+			</tr>
+			<tr>
+				<% total_price = [] %>
+				<% @user.user_flights.each do |flights| %>
+				<% total_price << flights.flight_price.to_i %>
+				<% end %>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><%= total_price.sum %>€</td>
+				<td></td>
+				
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+
+
+
+
 

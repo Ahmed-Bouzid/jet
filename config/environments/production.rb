@@ -89,6 +89,10 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
+  Paperclip.options[:content_type_mappings] = {
+    :pem => "text/plain"
+  }
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end

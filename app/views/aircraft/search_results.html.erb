@@ -32,7 +32,7 @@
 				<td><%= aircraft.actual_position %></td>
 				<td><%= aircraft.trip_cost_without_commission(@departure_city, @arrival_city, @number_of_passengers) %>€</td>
 				<td>
-					<%= link_to trip_path(aircraft.id, departure_city: @departure_city, arrival_city: @arrival_city, number_of_passengers: @number_of_passengers), class: "btn btn-shadow btn-gradient btn-gradient-success mb-3 mr-3" do %>
+					<%= link_to trip_path(aircraft.id, departure_city: @departure_city, arrival_city: @arrival_city, number_of_passengers: @number_of_passengers, departure_date: @date), class: "btn btn-shadow btn-gradient btn-gradient-success mb-3 mr-3" do %>
 						Sélectionner cet avion
 					<%end%>
 				</td>

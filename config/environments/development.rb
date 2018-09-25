@@ -9,6 +9,8 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
+  Paperclip.options[:command_path] = 'C:\Program Files (x86)\GnuWin32\bin'
+
   # Show full error reports.
   config.consider_all_requests_local = true
 

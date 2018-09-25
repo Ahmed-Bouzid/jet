@@ -1,7 +1,5 @@
 require 'gmail'
 
-
-
 class ChargesController < ApplicationController
 
   def new 
@@ -14,31 +12,32 @@ class ChargesController < ApplicationController
     @departure_city = params[:departure_city]
     @arrival_city = params[:arrival_city]
     @number_of_passengers = params[:number_of_passengers]
+    @date = params[:departure_date]
     @current_user_id = current_user.id
     @user_name = User.find(@current_user_id).last_name
     @user_email = User.find(@current_user_id).email
     @user_phone = User.find(@current_user_id).phone.sub(/^./, '33')
     @amount = aircraft.trip_cost_with_commission(@departure_city, @arrival_city, @number_of_passengers).to_i * 100
+    
+    customer = Stripe::Customer.create(:email => params[:stripeEmail], :source  => params[:stripeToken])
+    charge = Stripe::Charge.create(:customer    => customer.id, :amount      => @amount, :description => 'Rails Stripe customer', :currency    => 'eur')
 
-
-    customer = Stripe::Customer.create(
-      :email => params[:stripeEmail],
-      :source  => params[:stripeToken]
-      )
-    charge = Stripe::Charge.create(
-      :customer    => customer.id,
-      :amount      => @amount,
-      :description => 'Rails Stripe customer',
-      :currency    => 'eur'
-      )
-
+    UserFlight.create(
+      place_departure: @departure_city, 
+      place_arrival: @arrival_city, 
+      number_of_people: @number_of_passengers, 
+      date_departure: @date,
+      flight_price: (@amount / 100), 
+      user_id: @current_user_id)
+    
     send_mail(@user_email, @user_name, @departure_city, @arrival_city, @number_of_passengers)    
+  
     redirect_to root_path, notice: "Paiement accepté"
+
   rescue Stripe::CardError => e
     flash.now[:error] = e.message
     redirect_to aircraft_path
   end
-
 
   def send_mail(adresse, nom, depart, destination, nombre_de_passager )
     gmail = Gmail.connect(ENV['ADRESSE'],ENV['MDP'])
@@ -54,6 +53,7 @@ class ChargesController < ApplicationController
     end
     email.deliver!
   end
+  
 
 
   
