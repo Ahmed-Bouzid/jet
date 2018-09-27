@@ -1,116 +1,213 @@
-<div id="#margin_lr" >
-	<div id="margin_tf">
-		<h3>
-			Type d'avion : <%= @aircraft.aircraft_type %> <br>
-			Dans la categorie : <%= @aircraft.category %> <br>
-			Avec la compagnie : <%= @aircraft.company %> <br>
-			Pays d'origine : <%= @aircraft.origin %> <br>
-			Année de fabrication de l'avion : <%= @aircraft.yom %> <br>
-			Année de réaménagement de l'avion : <%= @aircraft.yor %> <br>
-			<br>
-			Au prix de : <%= @aircraft.trip_cost_without_commission(@departure_city, @arrival_city, @number_of_passengers) %> €
-		</h3>
-		<br>
-		<%= image_tag(@aircraft.image_url, width: 430, height: 226)%> <br>
-		<%= image_tag("aircrafts/#{@aircraft.tail}/#{@aircraft.tail}_inside.jpg",  width: 430, height: 226)%> <br>
-		<%= image_tag("aircrafts/#{@aircraft.tail}/#{@aircraft.tail}_floor.jpg",  width: 430, height: 226)%>
-		<br>
-		<br>
+	
+<div style="margin-top: 8%">
+	<center>
+		<h1>Votre selection</h1>
+	</center>
+
+	<div id="arrival" style="float: right">
+		<h3>à <%= @arrival_city %></h3>
 	</div>
-	<div id="trip_recap">
-		<h5>
-			Recapitulatif de la commande : <br>
-		</h5>
-		<h6>
-			Vol : De <%= @arrival_city %> à <%= @departure_city %> <br>
-			L'avion : <%= @aircraft.aircraft_type %> <br>
-			Prix compagnie : <%= @aircraft.trip_cost_without_commission(@departure_city, @arrival_city, @number_of_passengers) %> € <br>
-			Commission Stratton : <%= @aircraft.trip_commission(@departure_city, @arrival_city, @number_of_passengers) %> € (5%) <br>
-			<br>
 
-			Total : <%= @aircraft.trip_cost_with_commission(@departure_city, @arrival_city, @number_of_passengers) %> €
-			<br>
-			<br>
-			<button type="button" class="btn btn-warning mb-2 mr-1" data-toggle="modal" data-target=".bd-example-modal-lg">Conditions de vente</button>
-			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h4 class="modal-title">
-								Conditions generales de vente - Stratton
-							</h4>
-						</div>
-						<div class="modal-body" style ="list-style: none">
-							<h3><th>Inclus dans l'offre :</th></h3>
-							<li>Catering Standard</li>    
-							<li>Taxes Aéroportuaires, des passagers et prime d'assurance</li>
-							<li>TVA si applicable</li>  
-							<br>  
-							<h3><th>Offre sous réserve :</th></h3>
-							<li>Confirmation disponibilité appareil et équipage à la réservation</li>
-							<li>Obtention des créneaux terrains, droits de trafic et stationnement appareil</li>
-							<li>Variation coûts assurance, carburant, taux de change ou taxes aériennes</li>
-							<h3><th>Additionnels :</th></h3>
-							<li>Dégivrage au sol de l'appareil si nécessaire -Discrétion CdB- Refacturation à coût après le vol</li>
-							<li>Usage du téléphone satellitaire si disponible et coût en sus</li>
-							<li>Sur-prime d'assurance sur destinations sensibles</li>
-							<li>Conditions</li>
-							<li>Annulation à l'initiative du client :</li>        
-							<li>Après confirmation : 25 % du prix total</li>    
-							<li>Moins de 2 jours (48 heures) avant décollage : 80 % du prix total</li>
-							<li>Moins de 24 heures avant décollage : 100 % du prix total</li>
-							<li>Après décollage ou positionnement : les frais engagés seront dûs </li>   
-							<li>Conditions de paiement :</li>
-							<li>Intégralité du solde avant décollage, Frais bancaires à la charge du client (carte de crédit 5%, American Express 7%)</li>
-							<br>
-							<h4>Cordialement,</h4>
-							<h3>Stratton</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-		</h6>
-		<!-- BOUTON -->
-		<button type="button" class="btn btn-subtitle btn-shadow  btn-primary mb-3 mr-2" data-toggle="modal" data-target="#exampleModalCenter">
-			<h5>
-				Valider le paiement
-			</h5>
-			<span class="text-block">En cliquant vous acceptez les conditions <br> de vente</span>
-		</button>
-		<!-- MODAL DU BOUTON -->
-		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLongTitle">STRIPE</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<%= form_tag charges_path(aircraft_id: @aircraft.id, departure_city: @departure_city, arrival_city: @arrival_city, number_of_passengers: @number_of_passengers, departure_date: @date) do %>
-						<article>
-							<% if flash[:error].present? %>
-							<div id="error_explanation">
-								<p><%= flash[:error] %></p>
-							</div>
-							<% end %>
-							<label class="amount">
-								<span>Amount: <%= @aircraft.trip_cost_with_commission(@departure_city, @arrival_city, @number_of_passengers) %>€</span>
-							</label>
-						</article>
-						<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-						data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-						data-description="Flight"
-						data-amount="<%= @aircraft.trip_cost_with_commission(@departure_city, @arrival_city, @number_of_passengers).to_i * 100 %> "
-						data-locale="auto"
-						data-currency="EUR">
-							
-
-						</script>
-						<% end %>
-					</div>
-				</div>
-			</div>
+	<div id = "departure">
+		<div style="float:right">
+			<h3>De <%= @departure_city %></h3>
 		</div>
 	</div>
+
+	<center>
+		<div id = "test">
+		</div>
+	</center>
+
+
+	<div>
+
+		<div id="images" style="float: left; margin-top: 5%; margin-left: 3%">
+			<%= image_tag(@aircraft.image_url, width: 340, height: 200)%> <br>
+			<%= image_tag("aircrafts/#{@aircraft.tail}/#{@aircraft.tail}_inside.jpg",  width: 340, height: 200)%> <br>
+			<%= image_tag("aircrafts/#{@aircraft.tail}/#{@aircraft.tail}_floor.jpg",  width: 340, height: 200)%>
+		</div>
+
+		<div id="trip_recap" style="float: left; margin-top: 10%; margin-left: 10%">
+			<center>
+				<h5>
+					Recapitulatif de la commande : <br>
+				</h5>
+				<h6>
+					Vol : De <%= @departure_city %> à <%= @arrival_city %> <br>
+					L'avion : <%= @aircraft.aircraft_type %> <br>
+					Prix compagnie : <%= @aircraft.trip_cost_without_commission(@departure_city, @arrival_city, @number_of_passengers) %> € <br>
+					Commission Stratton : <%= @aircraft.trip_commission(@departure_city, @arrival_city, @number_of_passengers) %> € (5%) <br>
+					<br>
+
+					Total : <%= @aircraft.trip_cost_with_commission(@departure_city, @arrival_city, @number_of_passengers) %> €
+					<br>
+					<br>
+					<button type="button" class="btn btn-warning mb-2 mr-1" data-toggle="modal" data-target=".bd-example-modal-lg">Conditions de vente</button>
+					<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 class="modal-title">
+										Conditions generales de vente - Stratton
+									</h4>
+								</div>
+								<div class="modal-body" style ="list-style: none">
+									<h3><th>Inclus dans l'offre :</th></h3>
+									<li>Catering Standard</li>    
+									<li>Taxes Aéroportuaires, des passagers et prime d'assurance</li>
+									<li>TVA si applicable</li>  
+									<br>  
+									<h3><th>Offre sous réserve :</th></h3>
+									<li>Confirmation disponibilité appareil et équipage à la réservation</li>
+									<li>Obtention des créneaux terrains, droits de trafic et stationnement appareil</li>
+									<li>Variation coûts assurance, carburant, taux de change ou taxes aériennes</li>
+									<h3><th>Additionnels :</th></h3>
+									<li>Dégivrage au sol de l'appareil si nécessaire -Discrétion CdB- Refacturation à coût après le vol</li>
+									<li>Usage du téléphone satellitaire si disponible et coût en sus</li>
+									<li>Sur-prime d'assurance sur destinations sensibles</li>
+									<li>Conditions</li>
+									<li>Annulation à l'initiative du client :</li>        
+									<li>Après confirmation : 25 % du prix total</li>    
+									<li>Moins de 2 jours (48 heures) avant décollage : 80 % du prix total</li>
+									<li>Moins de 24 heures avant décollage : 100 % du prix total</li>
+									<li>Après décollage ou positionnement : les frais engagés seront dûs </li>   
+									<li>Conditions de paiement :</li>
+									<li>Intégralité du solde avant décollage, Frais bancaires à la charge du client (carte de crédit 5%, American Express 7%)</li>
+									<br>
+									<h4>Cordialement,</h4>
+									<h3>Stratton</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</h6>
+				<!-- BOUTON -->
+				<button type="button" class="btn btn-subtitle btn-shadow  btn-primary mb-3 mr-2" data-toggle="modal" data-target="#exampleModalCenter">
+					<h5>
+						Valider le paiement
+					</h5>
+					<span class="text-block">En cliquant vous acceptez les conditions <br> de vente</span>
+				</button>
+				<!-- MODAL DU BOUTON -->
+				<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLongTitle">STRIPE</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<%= form_tag charges_path(aircraft_id: @aircraft.id, departure_city: @departure_city, arrival_city: @arrival_city, number_of_passengers: @number_of_passengers, departure_date: @date) do %>
+								<article>
+									<% if flash[:error].present? %>
+									<div id="error_explanation">
+										<p><%= flash[:error] %></p>
+									</div>
+									<% end %>
+									<label class="amount">
+										<span>Amount: <%= @aircraft.trip_cost_with_commission(@departure_city, @arrival_city, @number_of_passengers) %>€</span>
+									</label>
+								</article>
+								<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+								data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+								data-description="Flight"
+								data-amount="<%= @aircraft.trip_cost_with_commission(@departure_city, @arrival_city, @number_of_passengers).to_i * 100 %> "
+								data-locale="auto"
+								data-currency="EUR">
+
+
+							</script>
+						</center>
+						<% end %>
+					</div>
+
+
+
+					<br><br><br><br><br>
+
+
+					<div style="float: right;margin-top: 2%; margin-right: 5%" >
+						<div class="col-lg-6 mb-30" >
+
+							<h4 style="width: 200px;">Votre avion :</h4>
+							<div class="portlet-box">
+
+
+								<div class="portlet-header flex-row flex b-b d-flex align-items-center">
+									<div class="flex d-flex flex-column">
+									</div>
+								</div>
+
+								<div class="portlet-body" style="width: 200px">
+									<center>
+										<div id="accordionFlat" class="card-accordions-flat">
+
+											<div class="card">
+												<div class="card-header" id="flatheadingOne">
+													<a class="collapse-title" data-toggle="collapse" data-target="#flatOne" aria-expanded="true" aria-controls="collapseOne">Type</a>
+												</div>
+
+												<div id="flatOne" class="collapse" aria-labelledby="flatheadingOne" data-parent="#accordionFlat">
+													<div class="card-body text-muted">
+														C'est un avion de type <%= @aircraft.aircraft_type %>
+													</div>
+												</div>
+											</div>
+
+											<div class="card">
+												<div class="card-header" id="flatheadingTwo">
+													<a class="collapse-title collapsed" data-toggle="collapse" data-target="#flatTwo" aria-expanded="false" aria-controls="flatTwo">Compagnie</a>
+												</div>
+												<div id="flatTwo" class="collapse" aria-labelledby="flatheadingTwo" data-parent="#accordionFlat">
+													<div class="card-body text-muted">
+														Cet avion appartient a la compagnie <%= @aircraft.company %>
+													</div>
+												</div>
+											</div>
+											<div class="card">
+												<div class="card-header" id="flatheadingThree">
+													<a class="collapse-title collapsed" data-toggle="collapse" data-target="#flatThree" aria-expanded="false" aria-controls="flatThree">Pays d'origine</a>
+												</div>
+												<div id="flatThree" class="collapse" aria-labelledby="flatheadingThree" data-parent="#accordionFlat">
+													<div class="card-body text-muted">
+														La compagnie est originaire de <%= @aircraft.origin %> 
+													</div>
+												</div>
+											</div>
+											<div class="card">
+												<div class="card-header" id="flatheadingFour">
+													<a class="collapse-title" data-toggle="collapse" data-target="#flatfour" aria-expanded="true" aria-controls="flatfour">Année de fabrication</a>
+												</div>
+
+												<div id="flatfour" class="collapse" aria-labelledby="flatheadingfour" data-parent="#accordionFlat">
+													<div class="card-body text-muted">
+														Cet avion a ete fabriqué en <%= @aircraft.yom %>
+													</div>
+												</div>
+											</div>
+											<div class="card">
+												<div class="card-header" id="flatheadingFive">
+													<a class="collapse-title" data-toggle="collapse" data-target="#flatFive" aria-expanded="true" aria-controls="flatFive">Année de réaménagement</a>
+												</div>
+
+												<div id="flatFive" class="collapse" aria-labelledby="flatheadingFive" data-parent="#accordionFlat">
+													<div class="card-body text-muted">Cet avion a ete réaménagé en <%= @aircraft.yor %>
+													</div>
+												</div>
+											</div>
+										</div>
+									</center>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+
+			</div>
+
+

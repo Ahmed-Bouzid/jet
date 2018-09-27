@@ -1,7 +1,19 @@
+
+
+
 <div id="result">
 	<div class="bg-white table-responsive rounded shadow-sm mb-30">
 		<table id="data-table" class="table mb-0 table-striped" cellspacing="0" width="100%">
 			<h1>VOS RESULTATS</h1>
+			<h3>
+			De <%= @departure_city %>
+			à <%= @arrival_city %>
+			pour <%= @number_of_passengers %> 
+			<% if @number_of_passengers.to_i == 1 %> passager
+			<% else %> passagers
+			<% end %>
+			le <%= @date %>
+			</h3>
 			<tr>
 				<h3>
 					<th></th>
@@ -33,7 +45,7 @@
 				<td><%= aircraft.trip_cost_without_commission(@departure_city, @arrival_city, @number_of_passengers) %>€</td>
 				<td>
 					<%= link_to trip_path(aircraft.id, departure_city: @departure_city, arrival_city: @arrival_city, number_of_passengers: @number_of_passengers, departure_date: @date), class: "btn btn-shadow btn-gradient btn-gradient-success mb-3 mr-3" do %>
-						Sélectionner cet avion
+					Sélectionner cet avion
 					<%end%>
 				</td>
 

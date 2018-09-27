@@ -1,0 +1,64 @@
+<div class="container-fluid" style="margin-top: 5%">
+	<div class="p-4 rounded border1 mb-3 mt-3 bg-white">
+		<div class="padding">
+			<a href="#" class="btn btn-sm btn-primary float-right" onclick="window.print();">Print</a>
+			<p><i class="fa fa-home fa-3x"></i></p>
+			<div class="row">
+				<div class="col-6">
+					<h4 class="fs-1x">Stratton-Jets Inc.</h4>
+					<p><a href="index.html">Stratton-Jets.com</a></p>
+					<p>Office<br><br>France</p>
+					<p>Email: Stratton.jets@gmail.com</p>
+				</div>
+				<div class="col-6 text-right">
+					<p class="fs-1x mt-4">#</p>
+					<p></p></div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="box">
+							<strong class="text-muted">TO:</strong>
+							<h6><%=@user_name_l %> <%=@user_name_f %></h6>
+							<p class="text-muted">Phone:<%=@user_phone %> <br>Email: <%=@user_email %><br></p>
+						</div>
+					</div>
+				</div>
+				<p>Order date: <strong><%= @last_current_user_flight.created_at.strftime("%d/%m/%Y") %></strong><br>
+					Order status: Reservé
+					<br>Order ID: <strong>#</strong>
+				</p>
+				<div class="table-responsive">
+					<table class="table table-bordered white">
+						<thead>
+							<tr>
+								<th style="width: 120px">Ville de depart</th>
+								<th style="width: 120px">Ville d'arrivee</th>
+								<th style="width: 120px">Date du vol</th>
+								<th style="width: 120px">Nombre de passager(s)</th>
+								<th></th>
+								<th style="width: 140px">PRIX HC</th>
+								<th style="width: 90px">TOTAL</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><%= @last_current_user_flight.place_departure%></td>
+								<td><%= @last_current_user_flight.place_arrival%></td>
+								<td><%= @last_current_user_flight.date_departure.strftime("%d/%m/%Y")%></td>
+								<td><%= @last_current_user_flight.number_of_people%></td>
+								<td></td>
+								<td><%= (@last_current_user_flight.flight_price / 1.05).to_i %>€</td>
+								<td><%= @last_current_user_flight.flight_price.to_i %>€</td>
+
+							</tr>
+						</tbody>
+					</table>
+				</div></div>
+			</div>
+		</div>
+
+		<%= link_to 'confirm_page_path', :class => "btn btn-large btn-danger" do %>
+  Download Now
+<% end %>
+
+

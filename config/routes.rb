@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 	root 'home#index'
 
 	devise_for :users, path: 'utilisateur'
-	resources :charges, only: [:new, :create]
+	resources :charges, only: [:new, :create, :confirm_page]
 
 	resources :users
 	resources :aircraft
@@ -14,5 +14,6 @@ Rails.application.routes.draw do
 	get "/aircrafts", to: 'aircraft#index'
 	get "/aircraft/:id", to: 'aircraft#show'
 	get "/planes", to: 'planes#index'
+	get "/confirm_page", to: 'charges#confirm_page'
 
 end

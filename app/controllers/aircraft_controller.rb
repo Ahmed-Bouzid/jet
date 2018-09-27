@@ -10,6 +10,11 @@ class AircraftController < ApplicationController
 
 	def search_results
 		@aircrafts = Aircraft.at_departure_airport(params[:departure_city], params[:number_of_passengers])
+		@departure_city = params[:departure_city]
+		@arrival_city = params[:arrival_city]
+		@number_of_passengers = params[:number_of_passengers]
+		@date = params[:departure_date]
+
 	end
 
 	def create

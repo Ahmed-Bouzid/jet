@@ -162,7 +162,35 @@
 
 #trip_recap
 {
-	margin-top: 15%; float: right; border-style: solid; padding: 10px
+	margin-right: 2%;margin-top: 5%;
+}
+
+
+
+svg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+#log {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 440px;
+	bottom: 0;
+	margin: auto;
+	color: #FFF;
+	width: 200px;
+	height: 40px;
+	overflow: auto;
+}
+
+#log p {
+	font-family: 'Open Sans', sans-serif;
 }
 
 
@@ -171,8 +199,55 @@
 
 
 
+#departure
+{
+	height:0px;
+	width:200px;
+	-webkit-animation: increas 3s;
+	-moz-animation:    increas 3s; 
+	-o-animation:      increas 3s; 
+	animation:         increas 3s; 
+	animation-fill-mode: forwards;
+}
+@keyframes increas {
+	100% {
+		width: 500px;
+	}
+}
 
+#arrival
+{
+	height:0px;
+	width:100px;
+	-webkit-animation: increases 3s;
+	-moz-animation:    increases 3s; 
+	-o-animation:      increases 3s; 
+	animation:         increases 3s; 
+	animation-fill-mode: forwards;
+}
+@keyframes increases {
+	100% {
+		width: 500px;
+	}
+}
 
+#test
+{
+	height:0px;
+	width:1px;
+	border-bottom:2px solid #000;
+
+	-webkit-animation: increase 3s;
+	-moz-animation:    increase 3s; 
+	-o-animation:      increase 3s; 
+	animation:         increase 3s; 
+	animation-fill-mode: forwards;
+}
+@keyframes increase {
+	100% {
+		width: 300px;
+	}
+}
 
 
 

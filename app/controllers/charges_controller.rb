@@ -8,7 +8,7 @@ class ChargesController < ApplicationController
   #paiement strip en euro
 
   def create
-    aircraft = Aircraft.find(params[:aircraft_id])
+    @aircraft = Aircraft.find(params[:aircraft_id])
     @departure_city = params[:departure_city]
     @arrival_city = params[:arrival_city]
     @number_of_passengers = params[:number_of_passengers]
@@ -17,7 +17,7 @@ class ChargesController < ApplicationController
     @user_name = User.find(@current_user_id).last_name
     @user_email = User.find(@current_user_id).email
     @user_phone = User.find(@current_user_id).phone.sub(/^./, '33')
-    @amount = aircraft.trip_cost_with_commission(@departure_city, @arrival_city, @number_of_passengers).to_i * 100
+    @amount = @aircraft.trip_cost_with_commission(@departure_city, @arrival_city, @number_of_passengers).to_i * 100
     
     customer = Stripe::Customer.create(:email => params[:stripeEmail], :source  => params[:stripeToken])
     charge = Stripe::Charge.create(:customer    => customer.id, :amount      => @amount, :description => 'Rails Stripe customer', :currency    => 'eur')
@@ -31,8 +31,8 @@ class ChargesController < ApplicationController
       user_id: @current_user_id)
     
     send_mail(@user_email, @user_name, @departure_city, @arrival_city, @number_of_passengers)    
-  
-    redirect_to root_path, notice: "Paiement accepté"
+
+    redirect_to confirm_page_path, notice: "Paiement accepté"
 
   rescue Stripe::CardError => e
     flash.now[:error] = e.message
@@ -52,6 +52,19 @@ class ChargesController < ApplicationController
       John Smith, General Manager"
     end
     email.deliver!
+  end
+
+  def confirm_page
+
+    @current_user = User.find(current_user.id)
+    @current_user_flights = @current_user.user_flights
+    @last_current_user_flight = @current_user_flights.last
+    @current_user_id = current_user.id
+    @user_name_l = User.find(@current_user_id).last_name
+    @user_name_f = User.find(@current_user_id).first_name
+    @user_email = User.find(@current_user_id).email
+    @user_phone = User.find(@current_user_id).phone.sub(/^./, '33') 
+
   end
   
 
