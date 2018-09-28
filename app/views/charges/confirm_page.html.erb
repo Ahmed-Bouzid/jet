@@ -1,8 +1,10 @@
+
 <div class="container-fluid" style="margin-top: 5%">
+	<h1>Confirmation de paiement</h1>
 	<div class="p-4 rounded border1 mb-3 mt-3 bg-white">
 		<div class="padding">
 			<a href="#" class="btn btn-sm btn-primary float-right" onclick="window.print();">Print</a>
-			<p><i class="fa fa-home fa-3x"></i></p>
+			<%= image_tag("logo.png", width: 170, height: 40)%>
 			<div class="row">
 				<div class="col-6">
 					<h4 class="fs-1x">Stratton-Jets Inc.</h4>
@@ -10,9 +12,10 @@
 					<p>Office<br><br>France</p>
 					<p>Email: Stratton.jets@gmail.com</p>
 				</div>
-				<div class="col-6 text-right">
-					<p class="fs-1x mt-4">#</p>
-					<p></p></div>
+					<div class="col-6 text-right">
+						<p class="fs-1x mt-4">#</p>
+						<p></p>
+					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-6">
@@ -56,9 +59,5 @@
 				</div></div>
 			</div>
 		</div>
-
-		<%= link_to 'confirm_page_path', :class => "btn btn-large btn-danger" do %>
-  Download Now
-<% end %>
 
 

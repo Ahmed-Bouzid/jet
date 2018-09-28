@@ -42,6 +42,26 @@ class Airport < ApplicationRecord
 
 	end
 
+	def self.km_between_airports(departure_airport, arrival_airport)
+		airport_array = [departure_airport, arrival_airport]
+		if airport_array.include?("Bordeaux") && airport_array.include?("Le Bourget")
+			509.38
+		elsif airport_array.include?("Bordeaux") && airport_array.include?("Lyon")
+			435.44
+		elsif airport_array.include?("Bordeaux") && airport_array.include?("Nice")
+			480.5
+		elsif airport_array.include?("Le Bourget") && airport_array.include?("Lyon")
+			474.19
+		elsif airport_array.include?("Le Bourget") && airport_array.include?("Nice")
+			690.57
+		elsif airport_array.include?("Lyon") && airport_array.include?("Nice")
+			472.03
+		else
+			500
+		end
+
+	end
+
 	def departure_tax
 		80
 	end

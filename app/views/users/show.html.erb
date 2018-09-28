@@ -16,7 +16,7 @@
 				<a class="col-4 text-center">
 					<i class="icon-Speaker fs-1x"></i><br>
 					<span class="pt-1 text-dark text-muted fs-1x text-primary"> 5K</span><br>
-					<span class="pt-1 fs12">Pays</span>
+					<span class="pt-1 fs12">Km parcourus</span>
 				</a>
 			</div>
 		</div>
@@ -47,7 +47,10 @@
 				<th>Arrivée à</th>
 				<th>Nombre de passager</th>
 				<th>Cout total du vol</th>
+				<th>Km parcouru</th>
 				<th>Status</th>
+
+
 			</tr>
 		</thead>
 		<tbody>
@@ -59,12 +62,12 @@
 				<td><%= flights.place_arrival %></td>
 				<td><%= flights.number_of_people %></td>
 				<td><%= flights.flight_price.to_i%>€</td>
+				<td><%= Airport.km_between_airports(flights.place_departure, flights.place_arrival) %> kms</td>
 				<% if flights.date_departure <= Date.today %> 
 				<td>effectué</td>
 				<% else %> 
 				<td>à venir</td>
 				<% end %> 
-
 			</tr>
 			<%end%>
 			<tr>
@@ -74,6 +77,7 @@
 				<th></th>
 				<th></th>
 				<th>Cout total des vols</th>
+				<th></th>
 				<th></th>
 			</tr>
 			<tr>
@@ -88,7 +92,7 @@
 				<td></td>
 				<td><%= total_price.sum %>€</td>
 				<td></td>
-				
+				<td></td>
 			</tr>
 		</tbody>
 	</table>
