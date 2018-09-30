@@ -1,0 +1,74 @@
+<% if current_user.admin == true %>
+
+<p id="notice" style="margin-top: 10%"> <% notice %></p>
+
+<div class="display_mess">
+  <h1>Messages de: </h1>
+  <table class="table mb-0">
+    <tbody>
+      <% @issuer = []%>
+      <% @issuer_id = []%>
+      <% @messages.each do |message| %>
+      
+      <% @issuer << User.find(message.user_id).last_name %>
+      <% @issuer_id << message.user_id %>
+      <% end %>
+      <%  deliverer = @issuer.uniq %>
+      <%  deliverer_id = @issuer_id.uniq %>
+      <% deliverer_and_id = Hash[deliverer.zip(deliverer_id)]%>
+      
+
+
+      <tr>
+       <%  deliverer_and_id.each do |first_name, id|%>
+       <td><%= first_name.capitalize %> </td>
+       <td><%= link_to 'Show', message_path(id, name: first_name) %>
+       
+     </tr>
+     <% end %>
+   </tbody>
+ </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <% else%>
+
+  <tr><%= link_to "Message", messages_path %> </tr> 
+
+  <% end %>

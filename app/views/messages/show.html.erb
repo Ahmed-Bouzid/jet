@@ -1,0 +1,20 @@
+<div style="margin-top: 10%" >
+	<div class="portlet-body no-padding">
+		<h1>Messages Recus de <%=(params[:format]).capitalize%></h1>
+		<table class="table mb-0">
+			<tbody>
+				<tr>
+					<% @message.each do |message| %>
+					<td><%=message.content %></td>
+					<td>repondre</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
+
+

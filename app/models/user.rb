@@ -16,6 +16,11 @@
 #  updated_at             :datetime         not null
 #
 
+
+require 'nokogiri'
+require 'open-uri'
+
+
 class User < ApplicationRecord
 
 
@@ -32,6 +37,7 @@ class User < ApplicationRecord
 		return value
 	end
 
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -40,6 +46,7 @@ class User < ApplicationRecord
   before_save { self.phone = transform(self.phone) }
 
   has_many :user_flights
+  has_many :messages
 
   has_attached_file :avatar, :styles => { :small => "150x150>" },
   :url  => "/assets/products/:id/:style/:basename.:extension",

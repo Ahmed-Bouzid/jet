@@ -1,4 +1,13 @@
 <div class="center jumbotron", style="margin-top: 3%">
+	<div style="float: right; font-size: 20px">
+		<center>
+			Votre devise: <br><br>
+			<div class="euro" ><%= image_tag('euro.png', width: 40, height: 40)%></div><br>
+			<div class="dollar" ><%= image_tag('dollar.png', width: 40, height: 40)%></div>
+
+
+		</center>
+	</div>
 	<div class="col-lg-3 col-md-6 mb-30" style="float: left;">
 		<div class="bg-white shadow-sm rounded overflow-hidden">
 			<h5 class="text-center text-dark pt-15"><%= @user.first_name %> <%= @user.last_name %></h5>
@@ -26,7 +35,18 @@
 		<br>
 		<tr>Ton numero : <%= @user.phone %></tr> 
 		<br>
-		<tr><%= link_to "Edit", edit_user_registration_path %> </tr> 
+		<tr><%= link_to "Edit", edit_user_registration_path %> </tr> <br>
+
+		<% if current_user.admin == true %>
+
+		<%= link_to "Message Admin", message_admin_path %>
+
+		<% else%>
+
+		<tr><%= link_to "Message", messages_path %> </tr> 
+
+		<% end %>
+		
 	</div>
 	<br>
 	<br>
@@ -37,7 +57,7 @@
 
 
 <div>
-	<h2>Liste de vos vols passés</h2>	
+	<h2>Liste de vos vols</h2>	
 	<table class="table mb-0 table-striped" cellspacing="0" width="100%">
 		<thead>
 			<tr>
@@ -90,16 +110,10 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td><%= total_price.sum %>€</td>
+				<td class="eur"><%= total_price.sum %>€</td>
 				<td></td>
 				<td></td>
 			</tr>
 		</tbody>
 	</table>
 </div>
-
-
-
-
-
-

@@ -81,6 +81,11 @@
 	width: 205px; height: 50px
 }
 
+#message_tag
+{
+	width: 100%; height: 100px;
+}
+
 #margin_l
 {
 	margin-left: 15%;
@@ -145,6 +150,13 @@
 {
 	width: 100%;
 	height: 350px;
+}
+
+.form_mess
+{
+	position: fixed;
+	bottom: 10%;
+	width: 95%; height: 100px;
 }
 
 

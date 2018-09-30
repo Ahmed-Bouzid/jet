@@ -30,6 +30,7 @@
 //= require jquery.validate.min
 //= require jquery.drawsvg.min
 //= require jquery.drawsvg
+//= require test
 //= require revolution.extension.video.min
 //= require revolution.extension.slideanims.min
 //= require revolution.extension.layeranimation.min
