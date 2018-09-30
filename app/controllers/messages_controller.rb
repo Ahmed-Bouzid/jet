@@ -21,6 +21,7 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
+    @reponse = Message.new
   end
 
   # GET /messages/new
@@ -35,13 +36,18 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
+
     @content = params[:message][:content]
-    @message = Message.new(user_id: current_user.id, content: @content)
+    if current_user.admin == true
+      @message = Message.new(user_id: current_user.id, content: @content, dest_id: params[:dest_id])
+    else
+      @message = Message.new(user_id: current_user.id, content: @content)
+    end
     
 
     respond_to do |format|
       if @message.save
-        format.html { redirect_to messages_path, notice: 'Message was successfully created.' }
+        format.html { redirect_to request.referrer, notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }
@@ -77,10 +83,11 @@ class MessagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message
-      @message = (User.find(params[:id])).messages
+      @messages = (User.find(params[:id])).messages
+      @reponses = Message.all
     end
 
     def message_params
       params.require(:message).permit(:user_id, :content)
     end
-end
+  end

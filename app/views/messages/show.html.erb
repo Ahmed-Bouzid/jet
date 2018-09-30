@@ -1,12 +1,23 @@
 <div style="margin-top: 10%" >
 	<div class="portlet-body no-padding">
-		<h1>Messages Recus de <%=(params[:format]).capitalize%></h1>
+		<h1>Messages Recus de <%=(params[:name]).capitalize%></h1>
 		<table class="table mb-0">
 			<tbody>
 				<tr>
-					<% @message.each do |message| %>
+					<% @messages.each do |message| %>
 					<td><%=message.content %></td>
-					<td>repondre</td>
+					<td></td>
+					<td></td>
+
+				</tr>
+				<% end %>
+				<tr>
+					<% @reponses.each do |reponse| %>
+					<% if (reponse.dest_id).to_i == (params[:id]).to_i %>
+					<td></td>
+					<td></td>
+					<td><%= reponse.content %></td>
+					<% end %>
 				</tr>
 				<% end %>
 			</tbody>
@@ -17,4 +28,17 @@
 
 
 
+<div class="form_mess">
+	<%= form_with(model: @reponse, local: true) do |form| %>
+	<div class="field">
+		<%= form.label :content %>
+		<%= form.text_area :content, id: 'message_tag' %>
+		<%= hidden_field_tag "dest_id", params[:id] %>
 
+
+		<div class="actions">
+			<%= form.submit %>
+		</div>
+		<% end %>
+	</div>
+</div>
