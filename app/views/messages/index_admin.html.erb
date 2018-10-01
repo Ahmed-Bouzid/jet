@@ -2,6 +2,8 @@
 <p id="notice" style="margin-top: 10%"> <% notice %></p>
 <div class="display_mess">
 
+  <!-- permet d'afficher un bouton qui indique les nouveaux messages -->
+
   <% if  @newmess_admin.count >= 1 %>
   <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-sm">Messages non lus</button>
   <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -16,9 +18,6 @@
           <% @unread_messages.each do |message| %>
           <td>De <%= User.find(message.user_id).last_name.capitalize %>:</td> <br>
           <td><%= message.content %></td><br>
-
-
-
           <% end %>
         </div>
       </div>
@@ -27,36 +26,47 @@
   <% else %>
   <button type="button" class="btn btn-primary mb-2 mr-1" data-toggle="modal" data-target=".bd-example-modal-sm">Pas de nouveau message</button>
   <% end %>
-
-  <h1>Messages de: </h1>
-  <table class="table table-striped table-bordered" style="width:100%">
-    <tbody>
-      <% @issuer = []%>
-      <% @issuer_id = []%>
-      <% @messages.each do |message| %>
-      <% @issuer << User.find(message.user_id).last_name %>
-      <% @issuer_id << message.user_id %>
-      <% end %>
-      <%  deliverer = @issuer.uniq %>
-      <%  deliverer_id = @issuer_id.uniq %>
-      <% deliverer_and_id = Hash[deliverer.zip(deliverer_id)]%>
-      <tr>
-       <%  deliverer_and_id.each do |first_name, id|%>
-       <% if first_name != current_user.last_name %>
-       <% if id != current_user.id %>
-       <td><%= first_name.capitalize %> </td>
-       <td><%= link_to 'Show', message_path(id, name: first_name) %></td>
-     </tr>
-     <% end %>
-     <% end %>
-     <% end %>
-   </tbody>
- </table>
+  <!-- Fin d''affichage -->
+  <!-- Tableau de messagerie -->
+  <div>
+    <h1>Messages de: </h1>
+    <table class="table table-striped table-bordered" style="width:100%">
+      <tbody>
+        <% @issuer = []%>
+        <% @issuer_id = []%>
+        <% @messages.each do |message| %>
+        <% @issuer << User.find(message.user_id).last_name %>
+        <% @issuer_id << message.user_id %>
+        <% end %>
+        <%  deliverer = @issuer.uniq %>
+        <%  deliverer_id = @issuer_id.uniq %>
+        <% deliverer_and_id = Hash[deliverer.zip(deliverer_id)]%>
+        <tr>
+         <%  deliverer_and_id.each do |first_name, id|%>
+         <% if first_name != current_user.last_name %>
+         <% if id != current_user.id %>
+         <td><%= first_name.capitalize %> </td>
+         <td><%= link_to 'Show', message_path(id, name: first_name) %></td>
+       </tr>
+       <% end %>
+       <% end %>
+       <% end %>
+     </tbody>
+   </table>
+ </div>
+ <% else%>
+ <tr><%= link_to "Message", messages_path %> </tr> 
+ <% end %>
 </div>
-<% else%>
-<tr><%= link_to "Message", messages_path %> </tr> 
-<% end %>
+<!-- Fin du tableau de messagerie -->
 
+<% else %>
+<!-- Alternative a la page ADMIN -->
+<div style="margin-top: 20%">
+<h1>Vous allez etre redirigé</h1>
+</div>
+<!-- END page protégée ADMIN -->
+<% end %>
 
 
 
