@@ -93,19 +93,19 @@ class MessagesController < ApplicationController
 
   def count_message_user
 
-      @newmess_user = []
-      @unread_messages = []
-      @admin = User.find(1)
-      @mess = Message.all
-      @mess.each do |mess|
-        if mess.user_id != 1
-          if @admin.messages.where(dest_id: mess.user_id).last.created_at < mess.created_at
-            @newmess_user << "#"
-            @unread_messages << mess
-          end
-        end
-      end
-      return @newmess_user.length
+      # @newmess_user = []
+      # @unread_messages = []
+      # @admin = User.find(1)
+      # @mess = Message.all
+      # @mess.each do |mess|
+      #   if mess.user_id != 1
+      #     if @admin.messages.where(dest_id: mess.user_id).last.created_at < mess.created_at
+      #       @newmess_user << "#"
+      #       @unread_messages << mess
+      #     end
+      #   end
+      # end
+      # return @newmess_user.length
     
   end
 
