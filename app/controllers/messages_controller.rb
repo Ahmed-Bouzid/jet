@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update]
-  before_action :count_message_admin, only: [:show, :index_admin, :create]
+  before_action :count_message_admin, only: [:show, :index_admin]
   before_action :count_message_user, only: [:index, :create]
 
   
@@ -93,22 +93,20 @@ class MessagesController < ApplicationController
 
   def count_message_user
 
-    # if current_user.id != 1
-
-    #   @newmess_user = []
-    #   @unread_messages = []
-    #   @admin = User.find(1)
-    #   @mess = Message.all
-    #   @mess.each do |mess|
-    #     if mess.user_id != 1
-    #       if @admin.messages.where(dest_id: mess.user_id).last.created_at < mess.created_at
-    #         @newmess_user << "#"
-    #         @unread_messages << mess
-    #       end
-    #     end
-    #   end
-    #   return @newmess_user.length
-    # end
+      @newmess_user = []
+      @unread_messages = []
+      @admin = User.find(1)
+      @mess = Message.all
+      @mess.each do |mess|
+        if mess.user_id != 1
+          if @admin.messages.where(dest_id: mess.user_id).last.created_at < mess.created_at
+            @newmess_user << "#"
+            @unread_messages << mess
+          end
+        end
+      end
+      return @newmess_user.length
+    
   end
 
 
