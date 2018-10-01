@@ -15,8 +15,11 @@
 						<li class="nav-item"><a data-scroll class="nav-link" href="#vision">Vision</a></li>
 						<li class="nav-item"><a data-scroll class="nav-link" href="#comp">Notre Offre</a></li>
 						<% if user_signed_in? %>
-
+						<li class="nav-item" >
+							<a data-scroll class="nav-link" style="color: #db2e2e !important;">Connecté</a>
+						</li>
 						<li class="nav-item"><a><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link"  %></a></li>
+						<li class="nav-item"><a><%= link_to "Mon compte", user_path(current_user), class: "nav-link"  %></a></li>
 						<% else %>
 						<li class="nav-item"><a><%= link_to "Log in", new_user_session_path, class: "nav-link"  %></a></li>
 						<li class="nav-item"><a><%= link_to "Sign up", new_user_registration_path, class: "nav-link"  %></a></li>
@@ -24,12 +27,6 @@
 						<li class="nav-item" id="margin_t">
 							<a data-scroll class="nav-link btn btn-primary" href="#booking">Réservez un vol</a>
 						</li>
-						<% if user_signed_in? %>
-						<li class="nav-item" >
-							<a data-scroll class="nav-link" style="color: #db2e2e !important;">Connecté</a>
-						</li>
-						<li class="nav-item"><a><%= link_to "Mon compte", user_path(current_user), class: "nav-link"  %></a></li>
-						<% end %>
 					</ul>   
 				</div>
 			</div>

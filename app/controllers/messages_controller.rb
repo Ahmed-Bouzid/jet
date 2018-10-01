@@ -1,40 +1,35 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_message, only: [:show, :edit, :update]
+  before_action :count_message, only: [:show, :index_admin, :create]
 
-  # GET /messages
-  # GET /messages.json
+  
+  
+
   def index
     @message = Message.new
     @messages = Message.all
     @users = User.all
-
-
+    @admin = User.find(1)
   end
 
   def index_admin
-
     @message = Message.new
     @messages = Message.all
-
   end
 
-  # GET /messages/1
-  # GET /messages/1.json
   def show
     @reponse = Message.new
+
   end
 
-  # GET /messages/new
+
   def new
     @message = Message.new
   end
 
-  # GET /messages/1/edit
   def edit
   end
 
-  # POST /messages
-  # POST /messages.json
   def create
 
     @content = params[:message][:content]
@@ -44,10 +39,9 @@ class MessagesController < ApplicationController
       @message = Message.new(user_id: current_user.id, content: @content)
     end
     
-
     respond_to do |format|
       if @message.save
-        format.html { redirect_to request.referrer, notice: 'Message was successfully created.' }
+        format.html { redirect_to request.referrer }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }
@@ -56,12 +50,10 @@ class MessagesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /messages/1
-  # PATCH/PUT /messages/1.json
   def update
     respond_to do |format|
       if @message.update(user_id: current_user.id, content: @content)
-        format.html { redirect_to @message, notice: 'Message was successfully updated.' }
+        format.html { redirect_to @message }
         format.json { render :show, status: :ok, location: @message }
       else
         format.html { render :edit }
@@ -70,24 +62,51 @@ class MessagesController < ApplicationController
     end
   end
 
-  # DELETE /messages/1
-  # DELETE /messages/1.json
   def destroy
+    @message = Message.find(params[:id])
     @message.destroy
     respond_to do |format|
-      format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
+      format.html { redirect_to request.referrer}
       format.json { head :no_content }
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_message
-      @messages = (User.find(params[:id])).messages
-      @reponses = Message.all
-    end
 
-    def message_params
-      params.require(:message).permit(:user_id, :content)
+
+  def count_message
+    @newmess = []
+    @admin = User.find(1)
+    @mess = Message.all
+
+    @admin.messages.each do |mess|
+      @mess.each do |message|
+       if mess.dest_id == message.id
+         if mess.created_at >= message.created_at
+           @newmess << "#"
+           @unread_messages = Message.last(@newmess.count)
+         end
+       end
+     end
+   end
+ end
+
+
+
+ private
+
+ def set_message
+    
+    if User.find(current_user.id).admin == true
+       @messages = (User.find(params[:id])).messages
+       @reponses = Message.all
+    else
+      @messages = (User.find(current_user.id)).messages
+      @message = Message.find(params[:id])
+    @reponses = Message.all
     end
   end
+
+def message_params
+  params.require(:message).permit(:user_id, :content)
+end
+end

@@ -39,20 +39,28 @@
 
 		<% if current_user.admin == true %>
 
-		<%= link_to "Message Admin", message_admin_path %>
+		<%= link_to "Boite de reception", message_admin_path %>
 
-		<% else%>
-
-		<tr><%= link_to "Message", messages_path %> </tr> 
-
-		<% end %>
-		
 	</div>
 	<br>
 	<br>
 	<br>
 	<br>
 	<br>
+</div>
+
+<% else%>
+
+<tr><%= link_to "Message", messages_path %> </tr> 
+
+
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
 </div>
 
 
@@ -117,3 +125,4 @@
 		</tbody>
 	</table>
 </div>
+<% end %>

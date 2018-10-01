@@ -28,9 +28,11 @@
 //= require jquery.themepunch.tools.min
 //= require jquery.themepunch.revolution.min
 //= require jquery.validate.min
+//= require jquery.sortElements
 //= require jquery.drawsvg.min
 //= require jquery.drawsvg
-//= require test
+//= require jquery.dataTables.min
+//= require dataTables.bootstrap.min
 //= require revolution.extension.video.min
 //= require revolution.extension.slideanims.min
 //= require revolution.extension.layeranimation.min

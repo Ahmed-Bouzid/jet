@@ -1,11 +1,5 @@
 <header class="header-main header-transparent">
 	<%= render 'home/navbar' %>
-	<% if flash[:notice] %>
-	<div class="notice"><h2><%= flash[:notice] %></h2></div>
-	<% end %>
-
-
-
 </header>
 
 
@@ -18,10 +12,6 @@
 
 </div>
 
-
-
-
-
 <% if user_signed_in? %>
 
 <%= render 'home/booking_good' %>
@@ -31,8 +21,6 @@
 <%= render 'home/booking_alt' %>
 
 <% end %>
-
-
 
 <%= render 'home/text_window' %>
 
