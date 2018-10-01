@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update]
-  before_action :count_message, only: [:show, :index_admin, :create]
+  before_action :count_message_admin, only: [:show, :index_admin, :create]
+  before_action :count_message_user, only: [:index, :create]
 
   
   
@@ -71,40 +72,57 @@ class MessagesController < ApplicationController
     end
   end
 
+  def count_message_admin
 
-
-  def count_message
-    @newmess = []
+    @newmess_admin = []
+    @unread_messages = []
     @admin = User.find(1)
     @mess = Message.all
-
-    @admin.messages.each do |mess|
-      @mess.each do |message|
-       if mess.dest_id == message.id
-         if mess.created_at >= message.created_at
-           @newmess << "#"
-           @unread_messages = Message.last(@newmess.count)
-         end
-       end
-     end
-   end
- end
-
-
-
- private
-
- def set_message
-    
-    if User.find(current_user.id).admin == true
-       @messages = (User.find(params[:id])).messages
-       @reponses = Message.all
-    else
-      @messages = (User.find(current_user.id)).messages
-      @message = Message.find(params[:id])
-    @reponses = Message.all
+    @mess.each do |mess|
+      if mess.user_id != 1
+        if @admin.messages.where(dest_id: mess.user_id).last.created_at < mess.created_at
+          @newmess_admin << "#"
+          @unread_messages << mess
+        end
+      end
     end
+    return @newmess_admin.length
+
   end
+
+
+  def count_message_user
+
+    @newmess_user = []
+    @unread_messages = []
+    @admin = User.find(1)
+    @mess = Message.all
+    @mess.each do |mess|
+      if mess.user_id != 1
+        if @admin.messages.where(dest_id: mess.user_id).last.created_at < mess.created_at
+          @newmess_user << "#"
+          @unread_messages << mess
+        end
+      end
+    end
+    return @newmess_user.length
+  end
+
+
+
+  private
+
+  def set_message
+
+    if User.find(current_user.id).admin == true
+     @messages = (User.find(params[:id])).messages
+     @reponses = Message.all
+   else
+    @messages = (User.find(current_user.id)).messages
+    @message = Message.find(params[:id])
+    @reponses = Message.all
+  end
+end
 
 def message_params
   params.require(:message).permit(:user_id, :content)
