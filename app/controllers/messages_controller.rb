@@ -80,7 +80,7 @@ class MessagesController < ApplicationController
     @mess = Message.all
     @mess.each do |mess|
       if mess.user_id != 1
-        if @admin.messages.where(dest_id: mess.user_id).last.created_at < mess.created_at
+        if ((@admin.messages.where(dest_id: mess.user_id)).last).created_at < mess.created_at
           @newmess_admin << "#"
           @unread_messages << mess
         end
@@ -105,26 +105,26 @@ class MessagesController < ApplicationController
       #   end
       # end
       # return @newmess_user.length
-    
+
+    end
+
+
+
+    private
+
+    def set_message
+
+      if User.find(current_user.id).admin == true
+       @messages = (User.find(params[:id])).messages
+       @reponses = Message.all
+     else
+      @messages = (User.find(current_user.id)).messages
+      @message = Message.find(params[:id])
+      @reponses = Message.all
+    end
   end
 
-
-
-  private
-
-  def set_message
-
-    if User.find(current_user.id).admin == true
-     @messages = (User.find(params[:id])).messages
-     @reponses = Message.all
-   else
-    @messages = (User.find(current_user.id)).messages
-    @message = Message.find(params[:id])
-    @reponses = Message.all
+  def message_params
+    params.require(:message).permit(:user_id, :content)
   end
-end
-
-def message_params
-  params.require(:message).permit(:user_id, :content)
-end
 end
