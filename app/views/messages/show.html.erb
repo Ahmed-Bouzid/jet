@@ -1,11 +1,12 @@
 <!--PAGE SHOW MESSAGERIE ADMIN-->
 
 <div style="margin-top: 10%" >
-	<a class="btn btn-primary" href="<%= message_admin_path %>" role="button">Boite de reception</a>
+	<a class="btn btn-primary" href="<%= message_admin_path %>" role="button"> < Boite de reception</a>
 	<div class="portlet-body no-padding">
+		<br>
 
 		<!-- permet d'afficher un bouton qui indique les nouveaux messages -->
-		<% if  @newmess_user.count >= 1 %>
+		<% if  @newmess_admin.count >= 1 %>
 		<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-sm">Messages non lus</button>
 		<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-sm">
@@ -61,8 +62,9 @@
 <div class="form_mess">
 	<%= form_with(model: @reponse, local: true) do |form| %>
 	<div class="field">
-		<%= form.label :content %>
+		<%= form.label :content, "Saisisssez votre message :" %>
 		<%= form.text_area :content, id: 'message_tag' %>
+
 		<%= hidden_field_tag "dest_id", params[:id] %>
 		<div class="actions">
 			<%= form.submit %>

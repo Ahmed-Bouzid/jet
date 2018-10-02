@@ -87,7 +87,6 @@ class MessagesController < ApplicationController
       end
     end
     return @newmess_admin.length
-
   end
 
 
