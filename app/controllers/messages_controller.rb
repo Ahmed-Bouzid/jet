@@ -80,10 +80,14 @@ class MessagesController < ApplicationController
     @mess = Message.all
     @mess.each do |mess|
       if mess.user_id != 1
-        if ((@admin.messages.where(dest_id: mess.user_id)).last)!= nil && mess != nil
-          if ((@admin.messages.where(dest_id: mess.user_id)).last).created_at < mess.created_at
-            @newmess_admin << "#"
-            @unread_messages << mess
+        if ((@admin.messages.where(dest_id: mess.user_id)).last)== nil && mess != nil
+          @newmess_admin << "#"
+          @unread_messages << mess
+          if ((@admin.messages.where(dest_id: mess.user_id)).last)!= nil && mess != nil
+            if ((@admin.messages.where(dest_id: mess.user_id)).last).created_at < mess.created_at
+              @newmess_admin << "#"
+              @unread_messages << mess
+            end
           end
         end
       end
