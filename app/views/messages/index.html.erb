@@ -4,61 +4,61 @@
 
 <p id="notice" style="margin-top: 10%"> <% notice %></p>
 <div class="display_mess" style="margin-bottom:15% ">
-    <!-- TABLEAU DE MESSAGERIE-->
-    <h1>Messagerie</h1>
-    <table class="table table-striped table-bordered" style="width:100%">
-        <th> <%= current_user.last_name.capitalize %></th>
-        <th></th>
-        <th>Administrateur</th>
-        <th id="date_message">Date</th>
-        <tbody>
-          <% @messages_to_display = []%>
-          <% @messages.each do |message| %>
-          <% if message.user_id == current_user.id %>
-          <%@messages_to_display << message %>
-          <% end %>
-          <% end %>
-          <% @admin.messages.each do |message| %>
-          <% if message.dest_id == current_user.id %>
-          <%@messages_to_display << message %>
-          <% end %>
-          <% end %>
-          <br>
-          <tr>
-            <% @messages_to_display.each do |message| %>
-            <% if message.user_id == current_user.id %>
-            <td><%= message.content %></td>
-            <td><%= link_to 'Supprimer', message, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <!-- TABLEAU DE MESSAGERIE-->
+  <h1>Messagerie</h1>
+  <table class="table table-striped table-bordered" style="width:100%">
+    <th> <%= current_user.last_name.capitalize %></th>
+    <th></th>
+    <th>Administrateur</th>
+    <th id="date_message">Date</th>
+    <tbody>
+      <% @messages_to_display = []%>
+      <% @messages.each do |message| %>
+      <% if message.user_id == current_user.id %>
+      <%@messages_to_display << message %>
+      <% end %>
+      <% end %>
+      <% @admin.messages.each do |message| %>
+      <% if message.dest_id == current_user.id %>
+      <%@messages_to_display << message %>
+      <% end %>
+      <% end %>
+      <br>
+      <tr>
+        <% @messages_to_display.each do |message| %>
+        <% if message.user_id == current_user.id %>
+        <td><%= message.content %></td>
+        <td><%= link_to 'Supprimer', message, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-                <td></td>
-                <% else %>
-                <td></td>
-                <td></td>
-                <td><%= message.content %></td>
-                <%end%>
-                <td><%= message.created_at.to_s.delete("UTC")%></td>
-            </tr>
-            <% end %>
-        </tbody>
+          <td></td>
+          <% else %>
+          <td></td>
+          <td></td>
+          <td><%= message.content %></td>
+          <%end%>
+          <td><%= message.created_at.to_s.delete("UTC")%></td>
+        </tr>
+        <% end %>
+      </tbody>
     </table>
-</div>
-<!-- TABLEAU DE MESSAGERIE-->
-<!-- FORMULAIRE DE REPONSE-->
-
-<div class="form_mess">
-  <%= form_with(model: @message, local: true) do |form| %>
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content, id: 'message_tag' %>
-    <div class="actions">
-      <%= form.submit %>
   </div>
-  <% end %>
-</div>
-</div>
-<!-- FFIN DU ORMULAIRE-->
-<!-- SCRIPT POUR CLASSER SELON LA DATE-->
-<script>
+  <!-- FIN TABLEAU-->
+  <!-- FORMULAIRE DE REPONSE-->
+
+  <div id="form_mess" class="form_mess">
+    <%= form_with(model: @message, local: true) do |form| %>
+    <div class="field">
+      <%= form.label :content %>
+      <%= form.text_area :content, id: 'message_tag' %>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <!-- FIN DU FORMULAIRE-->
+  <!-- SCRIPT POUR CLASSER SELON LA DATE-->
+  <script>
     $(document).ready(function () {
      var table = $('table');
      $('#date_message')
@@ -70,20 +70,20 @@
       th.ready(function () {
         table.find('td').filter(function(){
           return $(this).index() === thIndex;
-      }).sortElements(function(a, b){
+        }).sortElements(function(a, b){
           return $.text([a]) > $.text([b]) ?
           inverse ? -1 : 1
           : inverse ? 1 : -1;
-      }, function(){
-        return this.parentNode; 
+        }, function(){
+          return this.parentNode; 
+        });
+        inverse = !inverse;
+      });
     });
-      inverse = !inverse;
-  });
-  });
- });
-</script>
+   });
+ </script>
 
-<!-- FIN DU SCRIPT -->
+ <!-- FIN DU SCRIPT -->
 
 
 

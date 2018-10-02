@@ -158,6 +158,12 @@
 	bottom: 10%;
 	width: 95%; height: 100px;
 }
+#form_mess
+{
+	position: fixed;
+	bottom: 10%;
+	width: 95%; height: 100px;
+}
 
 
 
