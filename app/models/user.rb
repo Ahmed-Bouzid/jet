@@ -1,61 +1,66 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id                     :bigint(8)        not null, primary key
-#  first_name             :string
-#  last_name              :string
-#  phone                  :string
-#  code_confirm           :integer
-#  email                  :string           default(""), not null
-#  encrypted_password     :string           default(""), not null
-#  reset_password_token   :string
-#  reset_password_sent_at :datetime
-#  remember_created_at    :datetime
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
-#
-
-
-require 'nokogiri'
-require 'open-uri'
-
+require 'nexmo'
 
 class User < ApplicationRecord
 
+  has_many :user_flights
+  has_many :messages
 
-	def transform(value)
-		if value.size != 10 
-			if value.size <= 10
-				a = 10 - value.size
-				value = value + ("0" * a)
-				puts value
-			else
-				value = value.slice(1..10)
-			end
-		end
-		return value
-	end
-
+  def transform(value)
+    if value.size != 10 
+     if value.size <= 10
+      a = 10 - value.size
+      value = value + ("0" * a)
+      puts value
+    else
+      value = value.slice(1..10)
+    end
+  end
+  return value
+end
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
-  before_save { self.phone = transform(self.phone) }
-
-  has_many :user_flights
-  has_many :messages
-
-  has_attached_file :avatar, :styles => { :small => "150x150>" },
-  :url  => "/assets/products/:id/:style/:basename.:extension",
-  :path => ":rails_root/public/assets/products/:id/:style/:basename.:extension"
-
-  validates_attachment_size :avatar, :less_than => 5.megabytes
-  validates_attachment_content_type :avatar, :content_type => /\Aimage/
-
+  # before_save { self.phone = transform(self.phone) }
   @datetime = DateTime.now
 
+
+
+  after_create :send_email
+  def send_email
+  	ExampleMailer.send_email(self).deliver    
+  end
+
+  def validity(number)
+    if number.length == 10 && number.start_with?("06") || number.length == 10 && number.start_with?("07") || number.length == 11 && number.start_with?("33")
+      true
+    end
+  end
+
+
+  def self.send_sms(phone_number, user)
+    client = Nexmo::Client.new(api_key: '3442d6bd', api_secret: 'aTY7YWJjGGnOgcQo')
+    client.sms.send(from: 'Stratton', to: "#{phone_number}", text: "Stratton code : #{user.code_confirm}. Valable pendant 3 minutes")
+    puts "NEXMO MESSAGE ENVOYÉ"
+  end
+
+  def self.verification(user, number)
+
+   if user.code_confirm == nil || user.updated_at < DateTime.now - 1.minutes
+    user.code_confirm = rand(1000..9999)
+    user.save
+    send_sms(number, user)
+  else
+    puts "user.code_confirm existe deja"
+  end
+
+  if @text.to_i == user.code_confirm
+    user.verified = true
+    user.save
+  end
+
+end
 
 end

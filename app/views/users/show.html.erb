@@ -25,40 +25,29 @@
 			</div>
 		</div>
 	</div>
+
+
 	<div style="float: left;">
 		<tr>Ton email : <%= @user.email %> </tr> 
 		<br>
 		<tr>Ton numero : <%= @user.phone %></tr> 
+		<% if @user.verified = true %>
+		<%= image_tag("check.png", size: "14x14", alt: "Numero vérifié")%>
 		<br>
-		<tr><%= link_to "Edit", edit_user_registration_path %> </tr> <br>
-
+		<%end%>
 		<% if current_user.admin == true %>
-
 		<%= link_to "Boite de reception", message_admin_path %>
-
+		<% else %>
+		<tr><%= link_to "Messagerie", messages_path %> </tr> 
+		<% if @user.verified = false %>
+		<tr><%= link_to "verifier son numero", authentification_path %> </tr> 
+		<%end%>
+		<%end%>
+		<br>
+		<tr><%= link_to "Editer son  profil", edit_user_registration_path %> </tr> <br>
 	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
+<br><br><br><br><br>
 </div>
-
-<% else%>
-
-<tr><%= link_to "Message", messages_path %> </tr> 
-
-
-
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-</div>
-
-
 <div>
 	<h2>Liste de vos vols</h2>	
 	<table class="table mb-0 table-striped" cellspacing="0" width="100%">
@@ -72,8 +61,6 @@
 				<th>Cout total du vol</th>
 				<th>Km parcouru</th>
 				<th>Status</th>
-
-
 			</tr>
 		</thead>
 		<tbody>
@@ -120,4 +107,3 @@
 		</tbody>
 	</table>
 </div>
-<% end %>

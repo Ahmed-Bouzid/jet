@@ -54,16 +54,29 @@ class ChargesController < ApplicationController
     email.deliver!
   end
 
+  # def confirm_page
+
+  #   @current_user = User.find(current_user.id)
+  #   @current_user_flights = @current_user.user_flights
+  #   @last_current_user_flight = @current_user_flights.last
+  #   @current_user_id = current_user.id
+  #   @user_name_l = User.find(@current_user_id).last_name
+  #   @user_name_f = User.find(@current_user_id).first_name
+  #   @user_email = User.find(@current_user_id).email
+  #   @user_phone = User.find(@current_user_id).phone.sub(/^./, '33') 
+
+  # end
+
   def confirm_page
 
     @current_user = User.find(current_user.id)
+
     @current_user_flights = @current_user.user_flights
     @last_current_user_flight = @current_user_flights.last
-    @current_user_id = current_user.id
-    @user_name_l = User.find(@current_user_id).last_name
-    @user_name_f = User.find(@current_user_id).first_name
-    @user_email = User.find(@current_user_id).email
-    @user_phone = User.find(@current_user_id).phone.sub(/^./, '33') 
+    @user_name_l = @current_user.last_name
+    @user_name_f = @current_user.first_name
+    @user_email = @current_user.email
+    @user_phone = @current_user.phone.sub(/^./, '33') 
 
   end
   

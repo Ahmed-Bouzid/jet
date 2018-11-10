@@ -1,0 +1,58 @@
+<div style="margin-top: 10%">
+	<% if @user.verified == true %>
+	<h2> Votre numero de téléphone est verifié.</h2>
+	<a> <%= link_to "Retour", user_path(current_user), class: "btn btn-success"  %> </a>
+
+
+	<%elsif%>
+	<% @user.validity(@user.phone) == true %>
+
+	<h1>Vous voila sur la page pour verifier votre numero de telephone</h1>
+	<h2>
+		Tapez ici le code secret qui vient d'etre envoyé sur votre mobile, dont le numero est : <%= @user.phone %> <br>
+		Il sera renouvelé d'ici 3 minutes <br>
+		
+		<br>
+		<%= form_tag url_for(action: 'authentification') do %>
+		<div class="field">
+			<%= text_field_tag 'text' %>
+			<div class="actions">
+				<br>
+				<%= submit_tag "send" %>
+			</div>
+			<% end %>
+		</div>
+
+		<h4>Si vous souhaitez changer de numero de telephone :</h4> 
+		<%= form_tag url_for(action: 'authentification'), method: "post" do %>
+		<div class="field">
+			<%= text_field_tag 'new' %>
+			<div class="actions">
+				<br>
+				<%= submit_tag "send" %>
+			</div>
+			<% end %>
+		</div>
+
+
+
+
+
+	</h2>
+
+	<%else%>
+
+	<h2> Desole, <br> <%= @user.phone%> ne semble pas etre un numero de telephone valide. S'il vous plait veuillez indiquer un numero de telephone sur lequel vous pouvez recevoir des appels et des sms. </h2>
+
+	<%= form_tag url_for(action: 'authentification'), method: "post" do %>
+	<div class="field">
+		<%= text_field_tag 'new' %>
+		<div class="actions">
+			<br>
+			<%= submit_tag "send" %>
+		</div>
+		<% end %>
+	</div>
+
+	<%end%>
+</div>

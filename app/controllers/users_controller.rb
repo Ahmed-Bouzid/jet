@@ -1,45 +1,47 @@
 class UsersController < ApplicationController
+	
 	before_action :set_user
 
 	def show 
-
-		@bon = scrap_euro_usd 
-
+		@user = current_user
 	end
 
 	def edit
 	end
 
+	def create
+	end
+
+	def authentification
+		puts "AUTHENTIFICATION"
+		if @user.phone != nil
+			if @user.phone.start_with?("06") || @user.phone.start_with?("07")
+				@nexmo  = @user.phone.sub(/^./, "33")
+				User.verification(@user, @nexmo)
+			end
+		end
+	end
+
+	def get_authentification
+		if params[:new] != nil
+			@user.phone = params[:new]
+			@user.save
+		elsif params[:text] != nil
+			if params[:text].to_i == @user.code_confirm
+				@user.verified = true
+				@user.save	
+			end			
+		end
+		respond_to do |format|
+			format.html { redirect_to request.referrer}
+		end	
+	end
+
 	private
 
 	def set_user
-		@user = User.find(params[:id])
-
+		@user = current_user
 	end
-
-
-	def create
-		@user = User.create(user_params)
-	end
-
-	private
-
-# Use strong_parameters for attribute whitelisting
-# Be sure to update your create() and update() controller methods.
-
-def user_params
-	params.require(:user).permit(:avatar)
-end
-
-def scrap_euro_usd
-
-	page = Nokogiri::HTML(open('https://www.forexagone.com/outils-forex/convertisseur-taux-de-change'))
-	page.xpath('//*[@id="main"]/div[1]/div/table/tbody/tr[1]/td[1]/strong/span').each do |info|
-		rate = info.to_s.delete "</span>"
-		return rate.to_f
-	end
-end
-
 
 end
 
