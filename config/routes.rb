@@ -19,4 +19,8 @@ Rails.application.routes.draw do
 	get "message_admin", to: 'messages#index_admin'
 	get "authentification", to: "users#authentification"
 	post "authentification", to: "users#get_authentification"
+
+	as :user do
+		get 'users/profile', :to => 'devise/registrations#edit', :as => :user_root
+	end
 end

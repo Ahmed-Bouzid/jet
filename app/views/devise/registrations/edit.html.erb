@@ -1,6 +1,6 @@
 <div class="center jumbotron">
   <h2>Edition du profil</h2>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
   <%= devise_error_messages! %>
   <div class="field">
     <%= f.label :email %>
@@ -25,9 +25,15 @@
     <%= f.label :Mot_de_passe_actuel %> <i>(Nous avons besoin de votre mot de passe pour confirmer les modifications)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
+  <div class="field">
+    <%=image_tag @user.avatar.url(:thumb) if @user.avatar? %> <br>
+    <%= f.file_field :avatar%>
+  </div>
   <div class="actions">
     <%= f.submit "Mettre à jour" %>
   </div>
+  
+
   <% end %>
   <br>
   <h3>Supprimer mon compte</h3>

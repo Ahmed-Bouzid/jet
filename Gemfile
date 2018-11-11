@@ -10,7 +10,9 @@ gem 'mailjet'
 gem 'nexmo', '~> 5.3'
 gem 'gmail'
 gem 'flash'
-gem 'twilio-ruby' 
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+
 gem "paperclip", "~> 6.0.0"
 
 

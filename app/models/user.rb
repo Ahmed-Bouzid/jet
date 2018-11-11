@@ -5,30 +5,30 @@ class User < ApplicationRecord
   has_many :user_flights
   has_many :messages
 
+  mount_uploader :avatar, AvatarUploader
+
   def transform(value)
     if value.size != 10 
      if value.size <= 10
       a = 10 - value.size
       value = value + ("0" * a)
       puts value
-    else
+      else
       value = value.slice(1..10)
+     end
     end
+    return value
   end
-  return value
-end
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
 
   # before_save { self.phone = transform(self.phone) }
   @datetime = DateTime.now
 
-
-
   after_create :send_email
+
+
   def send_email
   	ExampleMailer.send_email(self).deliver    
   end
@@ -46,20 +46,17 @@ end
   end
 
   def self.verification(user, number)
-
    if user.code_confirm == nil || user.updated_at < DateTime.now - 1.minutes
     user.code_confirm = rand(1000..9999)
     user.save
     send_sms(number, user)
-  else
+   else
     puts "user.code_confirm existe deja"
-  end
-
-  if @text.to_i == user.code_confirm
+   end
+   if @text.to_i == user.code_confirm
     user.verified = true
     user.save
+   end
   end
-
-end
 
 end

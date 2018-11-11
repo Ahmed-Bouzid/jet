@@ -5,7 +5,11 @@
 	</div>
 	<div class="col-lg-3 col-md-6 mb-30" style="float: left;">
 		<div class="bg-white shadow-sm rounded overflow-hidden">
-			<h5 class="text-center text-dark pt-15"><%= @user.first_name %> <%= @user.last_name %></h5>
+			<div class="avatar">
+				<%=image_tag  @user.avatar.url(:thumb) if @user.avatar? %>
+				<br>
+			</div>
+			<h3 class="text-center text-dark pt-15"><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h3>
 			<div class="clearifx row no-margin pt-3 pb-3">
 				<a class="col-4 text-center">
 					<i class="icon-Plane"></i><br>
@@ -29,28 +33,34 @@
 			</div>
 		</div>
 	</div>
-
-
 	<div style="float: left;">
-		<tr>Ton email : <%= @user.email %> </tr> 
-		<br>
-		<tr>Ton numero : <%= @user.phone %></tr> 
-		<% if @user.verified = true %>
-		<%= image_tag("check.png", size: "14x14", alt: "Numero vérifié")%>
-		<br>
+		<h3>
+			<i class="icon-Paper-Plane"></i>
+			<tr>Email : <%= @user.email %> </tr> 
+			<br>
+			<i class="fa fa-phone"></i>
+			<tr>Telephone Personnel : <%= @user.phone %></tr> 
+			<% if @user.verified = true %>
+			<%= image_tag("check.png", size: "24x24", alt: "Numero vérifié", class: "verified")%>
+			<br>
+			<%end%>
+			<br>
+			<% if current_user.admin == true %>
+			<%= link_to "Boite de reception", message_admin_path %>
+			<% else %>
+			<tr><i class="fa fa-envelope"></i><%= link_to " Messagerie", messages_path %> </tr> 
+			<% if @user.verified = false %>
+			<tr><%= link_to "verifier son numero", authentification_path %> </tr> 
+			<%end%>
+			<%end%>
+			<br>
+			<tr><i class="icon-Gear"></i><%= link_to " Editer son  profil", edit_user_registration_path %> </tr> <br>
+		</div>
+		<br><br><br><br><br>
+		<%if @user.avatar? %>
+		<br><br><br><br><br>
 		<%end%>
-		<% if current_user.admin == true %>
-		<%= link_to "Boite de reception", message_admin_path %>
-		<% else %>
-		<tr><%= link_to "Messagerie", messages_path %> </tr> 
-		<% if @user.verified = false %>
-		<tr><%= link_to "verifier son numero", authentification_path %> </tr> 
-		<%end%>
-		<%end%>
-		<br>
-		<tr><%= link_to "Editer son  profil", edit_user_registration_path %> </tr> <br>
-	</div>
-	<br><br><br><br><br>
+	</h3>
 </div>
 <div>
 	<h2>Liste de vos vols</h2>	
