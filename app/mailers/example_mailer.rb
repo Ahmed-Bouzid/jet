@@ -6,10 +6,8 @@ class ExampleMailer < ApplicationMailer
 		mail(to: @user.email, subject: 'Bienvenu')
 	end
 
-	def notify_email(message)
-		@message = message
-		mail(to: 'stratton.jets@gmail.com', subject: "nouveau message de : #{User.find(@message.user_id).email}")
-
+	def notify_email
+		mail(to: 'stratton.jets@gmail.com', subject: "nouveau message de : ")
 	end
 
 end
