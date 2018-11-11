@@ -9,7 +9,7 @@
 			<div class="clearifx row no-margin pt-3 pb-3">
 				<a class="col-4 text-center">
 					<i class="icon-Plane"></i><br>
-					<span class="pt-1 text-dark text-muted fs-1x text-primary">39</span><br>
+					<span class="pt-1 text-dark text-muted fs-1x text-primary"><%=@user.user_flights.count%></span><br>
 					<span class="pt-1 fs12">Vols</span>
 				</a>
 				<a class="col-4 b-r b-l text-center">
@@ -19,7 +19,11 @@
 				</a>
 				<a class="col-4 text-center">
 					<i class="icon-Speaker fs-1x"></i><br>
-					<span class="pt-1 text-dark text-muted fs-1x text-primary"> 5K</span><br>
+					<% total_km = [] %>
+					<% @user.user_flights.each do |flights| %>
+					<% total_km << Airport.km_between_airports(flights.place_departure, flights.place_arrival) %>
+					<% end %>
+					<span class="pt-1 text-dark text-muted fs-1x text-primary"><%= total_km.sum.to_i %></span><br>
 					<span class="pt-1 fs12">Km parcourus</span>
 				</a>
 			</div>
@@ -46,7 +50,7 @@
 		<br>
 		<tr><%= link_to "Editer son  profil", edit_user_registration_path %> </tr> <br>
 	</div>
-<br><br><br><br><br>
+	<br><br><br><br><br>
 </div>
 <div>
 	<h2>Liste de vos vols</h2>	
@@ -67,14 +71,22 @@
 			<tr>
 				<% @user.user_flights.each do |flights| %>
 				<td><%= flights.created_at.strftime("%d/%m/%Y")  %></td>
+				<%if flights.date_departure == nil %>
+				<td><%= Date.today.strftime("%d/%m/%Y")%></td>
+				<%else%>
 				<td><%= flights.date_departure.strftime("%d/%m/%Y")  %></td>
+				<%end%>
 				<td><%= flights.place_departure  %></td>
 				<td><%= flights.place_arrival %></td>
 				<td><%= flights.number_of_people %></td>
 				<td><%= flights.flight_price.to_i%>€</td>
 				<td><%= Airport.km_between_airports(flights.place_departure, flights.place_arrival) %> kms</td>
+				<%if flights.date_departure != nil %>
 				<% if flights.date_departure <= Date.today %> 
 				<td>effectué</td>
+				<% else %> 
+				<td>à venir</td>
+				<% end %>
 				<% else %> 
 				<td>à venir</td>
 				<% end %> 

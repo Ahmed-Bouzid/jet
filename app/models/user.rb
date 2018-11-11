@@ -39,9 +39,8 @@ end
     end
   end
 
-
   def self.send_sms(phone_number, user)
-    client = Nexmo::Client.new(api_key: '3442d6bd', api_secret: 'aTY7YWJjGGnOgcQo')
+    client = Nexmo::Client.new(api_key: ENV['api_key'], api_secret: ENV['api_secret'])
     client.sms.send(from: 'Stratton', to: "#{phone_number}", text: "Stratton code : #{user.code_confirm}. Valable pendant 3 minutes")
     puts "NEXMO MESSAGE ENVOYÉ"
   end

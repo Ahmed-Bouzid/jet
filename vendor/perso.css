@@ -13,8 +13,6 @@
 	background-color: white;
 }
 
-
-
 #black
 {
 	background-color: black;
@@ -22,11 +20,11 @@
 
 #nav
 {
-	height: 7%; width: 100%; top: 0px;
+	height: 8%; width: 100%; top: 0px;
 }
 #margin_t
 {
-	margin-top: 0.5%;
+	margin-top: 0.2%;
 }
 
 #text_black
@@ -211,12 +209,6 @@ svg {
 	font-family: 'Open Sans', sans-serif;
 }
 
-
-
-
-
-
-
 #departure
 {
 	height:0px;
@@ -266,15 +258,3 @@ svg {
 		width: 300px;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
