@@ -39,7 +39,7 @@
 			<br>
 			<i class="fa fa-phone"></i>
 			<tr>Telephone Personnel : <%= @user.phone %></tr> 
-			<% if @user.verified = true %>
+			<% if @user.verified == true %>
 			<%= image_tag("check.png", size: "24x24", alt: "Numero vérifié", class: "verified")%>
 			<br>
 			<%end%>
