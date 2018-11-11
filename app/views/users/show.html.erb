@@ -6,6 +6,7 @@
 	<div class="col-lg-3 col-md-6 mb-30" style="float: left;">
 		<div class="bg-white shadow-sm rounded overflow-hidden">
 			<div class="avatar">
+				<%=image_tag  @user.avatar.url(:thumb) if @user.avatar? %>
 				<br>
 			</div>
 			<h3 class="text-center text-dark pt-15"><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></h3>
@@ -39,7 +40,7 @@
 			<br>
 			<i class="fa fa-phone"></i>
 			<tr>Telephone Personnel : <%= @user.phone %></tr> 
-			<% if @user.verified == true %>
+			<% if @user.verified = true %>
 			<%= image_tag("check.png", size: "24x24", alt: "Numero vérifié", class: "verified")%>
 			<br>
 			<%end%>
