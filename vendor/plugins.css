@@ -7183,8 +7183,8 @@ a.text-dark:hover {
 
 @font-face {
   font-family: 'FontAwesome';
-  src: url("vendor/bower_components/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0");
-  src: url("vendor/bower_components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format('embedded-opentype'),url("vendor/bower_components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0") format('woff2'),url("vendor/bower_components/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0") format('woff'),url("vendor/bower_components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0") format('truetype'),url("vendor/bower_components/font-awesome/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format('svg');
+  src: url("bower_components/font-awesome/fonts/fontawesome-webfont.eot?v=4.7.0");
+  src: url("bower_components/font-awesome/fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format('embedded-opentype'),url("bower_components/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0") format('woff2'),url("bower_components/font-awesome/fonts/fontawesome-webfont.woff?v=4.7.0") format('woff'),url("bower_components/font-awesome/fonts/fontawesome-webfont.ttf?v=4.7.0") format('truetype'),url("bower_components/font-awesome/fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -10224,11 +10224,11 @@ a.text-dark:hover {
 }
 @font-face {
   font-family: 'themify';
-  src: url("vendor/bower_components/themify-icons/fonts/themify.eot");
-  src: url("vendor/bower_components/themify-icons/fonts/themify.eot?#iefix") format('embedded-opentype'),
-		url("vendor/bower_components/themify-icons/fonts/themify.woff") format('woff'),
-		url("vendor/bower_components/themify-icons/fonts/themify.ttf") format('truetype'),
-		url("vendor/bower_components/themify-icons/fonts/themify.svg") format('svg');
+  src: url("bower_components/themify-icons/fonts/themify.eot");
+  src: url("bower_components/themify-icons/fonts/themify.eot?#iefix") format('embedded-opentype'),
+		url("bower_components/themify-icons/fonts/themify.woff") format('woff'),
+		url("bower_components/themify-icons/fonts/themify.ttf") format('truetype'),
+		url("bower_components/themify-icons/fonts/themify.svg") format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15175,7 +15175,7 @@ a.text-dark:hover {
   position: absolute;
   top: 50%;
   right: 15px;
-  background: url("vendor/bower_components/pushy/img/arrow.svg") no-repeat;
+  background: url("bower_components/pushy/img/arrow.svg") no-repeat;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -15837,7 +15837,7 @@ img.mfp-img {
   top: 50%;
   margin-left: -40px;
   margin-top: -40px;
-  background: url("vendor/bower_components/owl.carousel/dist/assets/owl.video.play.html") no-repeat;
+  background: url("bower_components/owl.carousel/dist/assets/owl.video.play.html") no-repeat;
   cursor: pointer;
   z-index: 1;
   -webkit-backface-visibility: hidden;
