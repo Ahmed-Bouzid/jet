@@ -49,7 +49,7 @@
 			<%= link_to "Boite de reception", message_admin_path %>
 			<% else %>
 			<tr><i class="fa fa-envelope"></i><%= link_to " Messagerie", messages_path %> </tr> 
-			<% if @user.verified = false %>
+			<% if @user.verified == false %>
 			<tr><%= link_to "verifier son numero", authentification_path %> </tr> 
 			<%end%>
 			<%end%>
