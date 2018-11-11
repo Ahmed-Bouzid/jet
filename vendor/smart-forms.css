@@ -20,8 +20,8 @@ html, body{
 
 /* @backgrounds :: modify or add yours below 
 ------------------------------------------------------------------- */
-.darkbg{ background:#6C82A2 url(../images/dark.png) repeat fixed; }
-.woodbg{ background:#E6CCA6 url(../images/wood.png) repeat fixed; }
+.darkbg{ background:#6C82A2 url(images/dark.png) repeat fixed; }
+.woodbg{ background:#E6CCA6 url(images/wood.png) repeat fixed; }
 
 /* @form wrappers 
 ---------------------------------- */
@@ -175,7 +175,7 @@ html, body{
 	padding:20px 25px;
 	padding-top:25px;
 	background: #F5F5F5;   	
-	background: #F5F5F5 url(../images/foobg.png) top left repeat-x;
+	background: #F5F5F5 url(images/foobg.png) top left repeat-x;
 }
 
 /* @crossbrowser placeholder styling :: modern browsers only IE10+
