@@ -15175,7 +15175,7 @@ a.text-dark:hover {
   position: absolute;
   top: 50%;
   right: 15px;
-  background: url("../../bower_components/pushy/img/arrow.svg") no-repeat;
+  background: url("bower_components/pushy/img/arrow.svg") no-repeat;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);

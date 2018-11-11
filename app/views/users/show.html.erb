@@ -46,7 +46,7 @@
 			<%end%>
 			<br>
 			<% if current_user.admin == true %>
-			<%= link_to "Boite de reception", message_admin_path %>
+			<i class="fa fa-envelope"></i><%= link_to "Boite de reception", message_admin_path %>
 			<% else %>
 			<tr><i class="fa fa-envelope"></i><%= link_to " Messagerie", messages_path %> </tr> 
 			<% if @user.verified == false %>
