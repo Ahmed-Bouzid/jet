@@ -89,7 +89,7 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  config.action_mailer.default_url_options = { :protocol => 'http', :host => 'https://jet-staging.herokuapp.com' }
+  config.action_mailer.default_url_options = { :protocol => 'http', :host => 'https://jet-production.herokuapp.com' }
 
   config.action_mailer.delivery_method = :smtp
 # SMTP settings for gmail
