@@ -13,20 +13,20 @@ class User < ApplicationRecord
       a = 10 - value.size
       value = value + ("0" * a)
       puts value
-      else
+    else
       value = value.slice(1..10)
-     end
     end
-    return value
   end
+  return value
+end
 
-  devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :validatable
+devise :database_authenticatable, :registerable,
+:recoverable, :rememberable, :validatable
 
   # before_save { self.phone = transform(self.phone) }
   @datetime = DateTime.now
 
-   # after_create :send_email
+  after_create :send_email
 
 
   def send_email
@@ -50,13 +50,13 @@ class User < ApplicationRecord
     user.code_confirm = rand(1000..9999)
     user.save
     send_sms(number, user)
-   else
+  else
     puts "user.code_confirm existe deja"
-   end
-   if @text.to_i == user.code_confirm
+  end
+  if @text.to_i == user.code_confirm
     user.verified = true
     user.save
-   end
   end
+end
 
 end
