@@ -43,15 +43,14 @@
 			<% if @user.verified == true %>
 			<%= image_tag("check.png", size: "24x24", alt: "Numero vérifié", class: "verified")%>
 			<br>
+			<% else %>
+			<tr><%= link_to "verifier son numero", authentification_path %> </tr> 
 			<%end%>
 			<br>
 			<% if current_user.admin == true %>
 			<i class="fa fa-envelope"></i><%= link_to "Boite de reception", message_admin_path %>
 			<% else %>
 			<tr><i class="fa fa-envelope"></i><%= link_to " Messagerie", messages_path %> </tr> 
-			<% if @user.verified == false %>
-			<tr><%= link_to "verifier son numero", authentification_path %> </tr> 
-			<%end%>
 			<%end%>
 			<br>
 			<tr><i class="icon-Gear"></i><%= link_to " Editer son  profil", edit_user_registration_path %> </tr> <br>
