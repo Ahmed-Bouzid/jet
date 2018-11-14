@@ -89,9 +89,21 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  Paperclip.options[:content_type_mappings] = {
-    :pem => "text/plain"
-  }
+
+  config.action_mailer.delivery_method = :smtp
+# SMTP settings for gmail
+config.action_mailer.smtp_settings = {
+ :address              => "smtp.gmail.com",
+ :port                 => 587,
+ :user_name            => ENV['ADRESSE'],
+ :password             => ENV['MDP'],
+ :authentication       => "plain",
+ :enable_starttls_auto => true
+}
+
+Paperclip.options[:content_type_mappings] = {
+  :pem => "text/plain"
+}
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
