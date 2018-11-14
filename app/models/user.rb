@@ -26,7 +26,7 @@ devise :database_authenticatable, :registerable,
   # before_save { self.phone = transform(self.phone) }
   @datetime = DateTime.now
 
-  after_create :send_email
+  # after_create :send_email
 
 
   def send_email
