@@ -1,6 +1,4 @@
-<!-- PAGE MESSAGERIE USER-->
-
-
+<% if user_signed_in? %>
 
 <p id="notice" style="margin-top: 10%"> <% notice %></p>
 <div class="display_mess" style="margin-bottom:15% ">
@@ -82,6 +80,7 @@
     });
    });
  </script>
+<%end%>
 
  <!-- FIN DU SCRIPT -->
 

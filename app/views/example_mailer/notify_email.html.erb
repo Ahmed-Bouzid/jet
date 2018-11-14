@@ -1,8 +1,16 @@
-<h1><%= User.find(@message.user_id).first_name %> vous a envoyé un message le <%= @message.created_at %></h1>
+<h1>Notification automatique - <i>Messagerie Stratton</i> :</h1>
+<h2>
+	Vous avez recu un nouveau message de la part de <%= @user_complete %> 
+	<br>
+	Ce message a été envoyé le <%= @message.created_at %>
+	<br>
+	"<%= @message.content %>"
+	<br>
+	N'oubliez pas d'y repondre au plus vite.
+	<br>
+	<br>
+	<i>Stratton Automatic-System</i>
 
-<h2>"<%= @message.content %>" <br>
-
-N'oubliez pas d'y repondre au plus vite
-
+	<%= link_to 'Stratton', root_url(@user) %>
 </h2>
 

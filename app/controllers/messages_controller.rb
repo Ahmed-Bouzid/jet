@@ -3,10 +3,15 @@ class MessagesController < ApplicationController
   before_action :count_message_admin, only: [:show, :index_admin]
   before_action :count_message_user, only: [:index, :create]
 
-  
-  
 
   def index
+    if !user_signed_in?
+      respond_to do |format|
+        format.html { redirect_to new_user_session_path }
+        flash[:info] = "Veuillez d'abord vous connectez"
+      end
+    end
+
     @message = Message.new
     @messages = Message.all
     @users = User.all
