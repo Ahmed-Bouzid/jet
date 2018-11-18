@@ -18,9 +18,11 @@
           </h4>
         </div>
         <div class="modal-body">
+          <% if @unread_messages != nil %>
           <% @unread_messages.each do |message| %>
           <td>De <%= User.find(message.user_id).last_name.capitalize %>:</td> <br>
           <td><%= message.content %></td><br>
+          <% end %>
           <% end %>
         </div>
       </div>
@@ -67,7 +69,7 @@
 <% else %>
 <!-- Alternative a la page ADMIN -->
 <div style="margin-top: 20%">
-<h1>Vous allez etre redirigé</h1>
+  <h1>Vous allez etre redirigé</h1>
 </div>
 <!-- END page protégée ADMIN -->
 <% end %>
