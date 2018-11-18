@@ -6,7 +6,29 @@
 <div class="display_mess">
 
   <!-- permet d'afficher un bouton qui indique les nouveaux messages -->
-
+  <% if  @newmess_admin.count >= 1 %>
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-sm">Messages non lus</button>
+  <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">
+            Messages non lus
+          </h4>
+        </div>
+        <div class="modal-body">
+          <% @unread_messages.each do |message| %>
+          <td>De <%= User.find(message.user_id).last_name.capitalize %>:</td> <br>
+          <td><%= message.content %></td><br>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% else %>
+  <button type="button" class="btn btn-primary mb-2 mr-1" data-toggle="modal" data-target=".bd-example-modal-sm">Pas de nouveau message</button>
+  <% end %>
+  <!-- Fin d''affichage -->
   
   <!-- Tableau de messagerie -->
   <div>
@@ -15,9 +37,12 @@
       <tbody>
         <% @issuer = []%>
         <% @issuer_id = []%>
+
         <% @messages.each do |message| %>
+        <% if message.user_id != nil%>
         <% @issuer << User.find(message.user_id).last_name %>
         <% @issuer_id << message.user_id %>
+        <% end %>
         <% end %>
         <%  deliverer = @issuer.uniq %>
         <%  deliverer_id = @issuer_id.uniq %>
@@ -42,7 +67,7 @@
 <% else %>
 <!-- Alternative a la page ADMIN -->
 <div style="margin-top: 20%">
-<h1>Vous allez etre redirigé</h1>
+  <h1>Vous allez etre redirigé</h1>
 </div>
 <!-- END page protégée ADMIN -->
 <% end %>
