@@ -19,7 +19,7 @@
         <div class="modal-body">
           <% if @unread_messages != nil %>
           <% @unread_messages.each do |message| %>
-          <% if messages != nil %>
+          <% if message != nil %>
           <td>De <%= User.find(message.user_id).last_name.capitalize %>:</td> <br>
           <td><%= message.content %></td><br>
           <% end %>
