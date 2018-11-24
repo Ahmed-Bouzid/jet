@@ -30,6 +30,9 @@
 
           <td>De <%= message.user_id %>:</td> <br>
 
+          <td>De <%= User.find(message.user_id) %>:</td> <br>
+
+
           <td><%= message.content %></td><br>
           <% end %>
 
