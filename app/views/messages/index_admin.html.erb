@@ -32,7 +32,9 @@
 
           <td>De <%= message.user_id.class %>:</td> <br>
 
-          <td>De <%= User.find(@num.to_i).last_name.capitalize %>:</td> <br>
+          <%= @num %>
+
+          <td>De <%= User.find(32).last_name.capitalize %>:</td> <br>
 
           <td><%= message.content %></td><br>
           <% end %>
