@@ -17,7 +17,7 @@
           </h4>
         </div>
         <div class="modal-body">
-          <% if @unread_messages.count != 0 %>
+          <% if Message.all.count == 0 %>
           <% @unread_messages.each do |message| %>
           <td>De <%= User.find(message.user_id).last_name.capitalize %>:</td> <br>
           <td><%= message.content %></td><br>
