@@ -34,7 +34,7 @@
 
           <%= @num %>
 
-          <td>De <%= User.find(32).last_name.capitalize %>:</td> <br>
+          <td>De <%= User.find(@num) %>:</td> <br>
 
           <td><%= message.content %></td><br>
           <% end %>
