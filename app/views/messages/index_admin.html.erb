@@ -23,7 +23,13 @@
 
 
 
+
+
+
           <% @unread_messages.each do |message| %>
+
+          <td>De <%= message.user_id %>:</td> <br>
+
           <td><%= message.content %></td><br>
           <% end %>
 
