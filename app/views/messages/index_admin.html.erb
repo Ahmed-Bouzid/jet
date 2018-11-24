@@ -24,19 +24,15 @@
 
 
 
-
+          
 
           <% @unread_messages.each do |message| %>
 
-          <td>De <%= message.user_id %>:</td> <br>
+          <td>De <%  @num = message.user_id %>:</td> <br>
 
           <td>De <%= message.user_id.class %>:</td> <br>
 
-          <td>De <%= User.find(32).last_name.capitalize %>:</td> <br>
-
-          <td>De <%= User.find(message.user_id) %>:</td> <br>
-
-
+          <td>De <%= User.find(@num.to_i).last_name.capitalize %>:</td> <br>
 
           <td><%= message.content %></td><br>
           <% end %>
