@@ -20,6 +20,15 @@
           </h4>
         </div>
         <div class="modal-body">
+
+
+
+          <% @unread_messages.each do |message| %>
+          <td><%= message.content %></td><br>
+          <% end %>
+
+
+
         </div>
       </div>
     </div>
