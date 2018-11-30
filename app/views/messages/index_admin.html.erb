@@ -28,7 +28,7 @@
 
             <% @unread_messages.each do |message| %>
 
-            <td>de : <%= message.user.last_name %>:</td> <br>
+            <td>de : <%= message.user %>:</td> <br>
 
             <td>Message Content : <%= message.content %></td><br>
             <% end %>
