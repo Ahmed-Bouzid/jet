@@ -10,21 +10,29 @@
 
 
   <% if  @newmess_admin.count >= 1 %>
-  <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-sm">Messages non lus</button>
+  <button type="button" class="btn btn-success" data-toggle="modal" data-target=".bd-example-modal-sm"> 
+    <% if  @newmess_admin.count == 1%>
+    <%= @newmess_admin.count %> Message non lu</button>
+    <% else %>
+    <%= @newmess_admin.count %> Messages non lus</button>
+     <% end %>
+
   <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
           <h4 class="modal-title">
-            Messages non lus
+            Vous avez <%= @newmess_admin.count%> Messages non lus
           </h4>
         </div>
         <div class="modal-body">
-          
+
           <% @unread_messages.each do |message| %>
-          <td>De <%= message.user_id %>:</td> <br>
-          <td><%= message.content %></td><br>
+          <td>de : <%= User.find(message.user_id).last_name %>:</td> <br>
+          <td>Message Content : <%= message.content %></td><br>
           <% end %>
+          
+          
 
         </div>
       </div>
