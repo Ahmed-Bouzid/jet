@@ -27,8 +27,9 @@
           <div class="modal-body">
 
             <% @unread_messages.each do |message| %>
+            <% @auteur = message.user %>
 
-            <td>de : <%= message.user %>:</td> <br>
+            <td>de : <%= @auteur.last_name %>:</td> <br>
 
             <td>Message Content : <%= message.content %></td><br>
             <% end %>
