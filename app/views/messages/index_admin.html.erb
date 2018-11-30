@@ -22,6 +22,7 @@
         <div class="modal-body">
           
           <% @unread_messages.each do |message| %>
+          <td>De <% = message.inspect %>:</td> <br>
           <td><% = message.content %></td><br>
           <% end %>
 
