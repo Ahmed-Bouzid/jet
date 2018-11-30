@@ -25,8 +25,12 @@
             </h4>
           </div>
           <div class="modal-body">
+
+            
+
             <% @unread_messages.each do |message| %>
-            <% binding.pry %>
+            
+
             <td>de : <%= User.find(message.user_id.to_i).last_name %>:</td> <br>
             <td>Message Content : <%= message.content %></td><br>
             <% end %>

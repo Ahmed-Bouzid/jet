@@ -42,7 +42,7 @@ class MessagesController < ApplicationController
     if current_user.admin == true
       @message = Message.new(user_id: current_user.id, content: @content, dest_id: params[:dest_id])
     else
-      @message = Message.new(user_id: current_user.id, content: @content)
+      @message = Message.new(user_id: current_user.id, content: @content, dest_id: 1)
     end
     
     respond_to do |format|
@@ -85,15 +85,9 @@ class MessagesController < ApplicationController
     @mess = Message.all
     @mess.each do |mess|
       if mess.user_id != 1
-        if ((@admin.messages.where(dest_id: mess.user_id)).last)== nil && mess != nil
-          @newmess_admin << "#"
+        if ((@admin.messages.where(dest_id: mess.user_id)).last).created_at < mess.created_at
           @unread_messages << mess
-          if ((@admin.messages.where(dest_id: mess.user_id)).last)!= nil && mess != nil
-            if ((@admin.messages.where(dest_id: mess.user_id)).last).created_at < mess.created_at
-              @newmess_admin << "#"
-              @unread_messages << mess
-            end
-          end
+          @newmess_admin << "#"
         end
       end
     end
